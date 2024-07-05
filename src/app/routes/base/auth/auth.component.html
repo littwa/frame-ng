@@ -1,0 +1,36 @@
+<div *ngrxLet="user$; let user" class="auth-bar__container">
+  <ng-container *ngTemplateOutlet="(user?.isAuthenticated ? isAuthTemplate : noAuthTemplate); context: { $implicit: user }"></ng-container>
+</div>
+
+<ng-template #isAuthTemplate let-ctxUser>
+  <div class="auth-container">
+    <div class="auth-list__item" [routerLinkActive]="'active'" [routerLink]="'/favorite'">Fav</div>
+    <div class="auth-list__item" [routerLinkActive]="'active'" [routerLink]="'/cart'">Cart</div>
+    <div [matMenuTriggerFor]="menu" class="auth-wrap">
+      <img (error)="handleError($event)" #ava *ngIf="ctxUser.avatarURL && !isBrokenImgUrl; else noAvatar"
+           class="auth-ava" [src]="ctxUser.avatarURL | updUrl">
+      <ng-template #noAvatar>
+        <mat-icon class="auth-ava">account_box</mat-icon>
+      </ng-template>
+      <!--    <mat-icon [url]="ctxUser.avatarURL" class="auth-ava">account_box</mat-icon>-->
+      <!--    [url]="ctxUser.avatarURL"-->
+      <span class="auth-txt">{{ ctxUser.username }}</span>
+    </div>
+  </div>
+  <mat-menu class="auth-menu" #menu="matMenu">
+    <button (click)="navProfile(ctxUser._id)" mat-menu-item>Profile</button>
+    <button mat-menu-item>Settings</button>
+    <button (click)="signOut()" mat-menu-item>Sign out</button>
+  </mat-menu>
+</ng-template>
+
+<ng-template #noAuthTemplate>
+  <ng-container *ngrxLet="authLoader$; let loader">
+    <div *ngIf="!loader; else spinner" class="auth-wrap" (click)="navigate()">
+      <mat-icon class="auth-icon">account_box</mat-icon>
+      <span class="auth-txt">Sign-in</span>
+    </div>
+  </ng-container>
+
+  <ng-template #spinner><mat-spinner [diameter]="36" class="auth--spinner" ></mat-spinner></ng-template>
+</ng-template>

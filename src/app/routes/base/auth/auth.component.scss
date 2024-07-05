@@ -1,0 +1,97 @@
+::ng-deep {
+  .auth-menu {
+    width: 300px!important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+      width: 280px;
+      .mdc-list-item__primary-text {
+        margin: 0 auto;
+      }
+    }
+  }
+}
+//}
+
+::ng-deep {
+  .auth-menu .mat-mdc-menu-item {
+    margin: 0 auto;
+    //text-align: center;
+    line-height: 40px;
+    height: 40px;
+    padding: 0 10px 0 20px;
+
+    &:hover {
+      color: red;
+    }
+  }
+}
+
+.auth-container {
+  display: flex;
+  align-items: center;
+
+  .auth-list__item {
+    margin: 5px;
+    cursor: pointer;
+    color: #fcf800;
+  }
+
+  .active {
+    color: red;
+  }
+}
+
+.auth-bar__container {
+  margin: 4px auto 0 auto;
+
+  .auth-wrap {
+    display: flex;
+
+    &:hover {
+      cursor: pointer;
+
+      mat-icon.auth-icon {
+        color: #92e1d2;
+      }
+
+      .auth-txt {
+        text-decoration: underline;
+      }
+    }
+
+  }
+
+  .auth-txt {
+    align-self: center;
+  }
+
+  mat-icon.auth-icon, mat-icon.auth-ava {
+    width: 38px;
+    height: 38px;
+    font-size: 38px;
+    color: #7ebdb3;
+  }
+
+  img.auth-ava {
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    margin: auto 0;
+    padding: 5px;
+    border-radius: 10%;
+  }
+
+}
+
+.auth--spinner {
+
+}
+
+@media screen and (max-width: 400px) {
+  .auth-txt {
+    display: none;
+  }
+}
