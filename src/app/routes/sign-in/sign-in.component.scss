@@ -1,0 +1,47 @@
+:host {
+  flex: 1 0 auto;
+}
+
+.sign-in-container {
+  width: max-content;
+  margin: 0 auto;
+
+  .sign-in-title {
+    text-align: center;
+  }
+
+  .sign-in-form {
+    min-width: 150px;
+    max-width: 400px;
+    width: 100%;
+
+    ::ng-deep {
+      /*TODO(mdc-migration): The following rule targets internal classes of form-field that may no longer apply for the MDC version.*/
+      .mat-form-field-infix {
+        width: 380px;
+      }
+    }
+  }
+
+  .sign-in-submit {
+    width: max-content;
+    margin: 0 auto;
+  }
+
+  .sign-in-link {
+    display: block;
+    margin: 10px auto;
+  }
+}
+
+.btn-text {
+  color: #4d4d4d;
+  font-size: 14px;
+  letter-spacing: .2px;
+  text-decoration: initial!important;
+  //text-decoration: unset !important;
+  // text-decoration-style: unset;
+  // text-decoration-thickness: unset!important;
+  margin: 0 auto;
+  line-height: 42px;
+}

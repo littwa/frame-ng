@@ -1,1 +1,37 @@
-<p>sign-in works!</p>
+<div class="sign-in-container">
+  <h4 class="sign-in-title">Sign-in {{urlApi}}</h4>
+  <form #formDirective="ngForm" [formGroup]="form" (ngSubmit)="submit()" class="sign-in-form">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" [formControlName]="'email'" placeholder="Enter email">
+      <!--      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
+      <mat-error>
+        Please enter a valid email address
+      </mat-error>
+      <!--        *ngIf="form.get('email')?.hasError('email') || form.get('email')?.hasError('required')"-->
+      <!--        <mat-hint>Hint</mat-hint>-->
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" [formControlName]="'password'" placeholder="Enter password">
+      <!--      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
+      <mat-error>
+        Please enter a password min 6 symbols
+      </mat-error>
+    </mat-form-field>
+    <!--    *ngIf="form.get('password')?.hasError('required') || form.get('password')?.hasError('minLength')"-->
+    <div class="sign-in-submit">
+      <button class="btn-text" type="submit" mat-stroked-button color="primary">Submit</button>
+    </div>
+  </form>
+
+  <div>
+    <a class="sign-in-link" routerLink="/sign-up">Or Sign-up for new account</a>
+  </div>
+  <div>
+    <a class="sign-in-link" routerLink="/local-sandbox">Enter to local sandBox:)</a>
+  </div>
+
+</div>
+

@@ -1,1 +1,48 @@
-<p>sign-up works!</p>
+<div class="sign-up-container">
+  <h4 class="sign-up-title">Sign-up</h4>
+  <form #formDirective="ngForm" [formGroup]="form" (ngSubmit)="submit(formDirective)" class="sign-up-form">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" [formControlName]="'email'" placeholder="Enter email">
+      <!--      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
+      <mat-error>
+        Please enter a valid email address
+      </mat-error>
+      <!--        *ngIf="form.get('email')?.hasError('email') || form.get('email')?.hasError('required')"-->
+      <!--        <mat-hint>Hint</mat-hint>-->
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" [formControlName]="'password'" placeholder="Enter password">
+      <!--      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
+      <mat-error>
+        Please enter a password min 6 symbols
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Repeat your password</mat-label>
+      <input matInput type="password" [formControlName]="'repeatPassword'" placeholder="Repeat password">
+      <!--      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
+      <mat-error>
+        Please enter the same password
+      </mat-error>
+    </mat-form-field>
+    <!--    </p>-->
+    <!--    *ngIf="form.get('repeatPassword')?.hasError('required') || form.get('repeatPassword')?.hasError('minLength')"-->
+    <div class="sign-up-submit">
+      <button
+        [disabled]="form.invalid || form.value.password !== form.value?.repeatPassword"
+        type="submit"
+        mat-raised-button
+        color="primary"
+      >Submit</button>
+    </div>
+  </form>
+
+  <div>
+    <a class="sign-up-link" routerLink="/sign-in">Or Sign-in with existing account</a>
+  </div>
+
+</div>
+

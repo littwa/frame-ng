@@ -1,32 +1,7 @@
 import { ActionReducerMap, createReducer, on } from '@ngrx/store';
 import * as Actions from './auth.actions';
 import { IStateAuth, IStateError, IStateToken, IStateUser } from '../../interfaces/auth.interfaces';
-import { authGetCurrentUserError, authSignInUserSuccess } from './auth.actions';
 import { userPayloadPrepare } from 'src/app/utilities/reducer.utility';
-// import { authSignUpUserError } from './actions';
-
-// export interface StateAuth extends StateError {
-//   user: StateUser;
-//   tokens: StateToken;
-//   // error: any;
-// }
-//
-// export interface StateUser {
-//   isAuthenticated: boolean;
-//   email: string;
-//   role: string;
-//   localization: string;
-//   username: string;
-// }
-//
-// export interface StateError {
-//   error: any;
-// }
-//
-// export interface StateToken {
-//   accessToken: string;
-//   refreshToken: string;
-// }
 
 export const INIT_STATE_USER: IStateUser = {
   isAuthenticated: false,
