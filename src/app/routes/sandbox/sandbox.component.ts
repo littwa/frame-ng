@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { DefComponent } from './def/def.component';
 
 @Component({
   selector: 'app-sandbox',
   standalone: true,
-  imports: [],
+  imports: [DefComponent],
   templateUrl: './sandbox.component.html',
-  styleUrl: './sandbox.component.scss'
+  styleUrl: './sandbox.component.scss',
 })
-export class SandboxComponent {
-
-}
+export class SandboxComponent {}

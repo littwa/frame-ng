@@ -10,7 +10,8 @@
       <img (error)="handleError($event)" #ava *ngIf="ctxUser.avatarURL && !isBrokenImgUrl; else noAvatar"
            class="auth-ava" [src]="ctxUser.avatarURL | updUrl">
       <ng-template #noAvatar>
-        <mat-icon class="auth-ava">account_box</mat-icon>
+        <img class="auth-ava" src="/ico/freep.png" alt="pic">
+<!--        <mat-icon class="auth-ava">account_box</mat-icon>-->
       </ng-template>
       <!--    <mat-icon [url]="ctxUser.avatarURL" class="auth-ava">account_box</mat-icon>-->
       <!--    [url]="ctxUser.avatarURL"-->

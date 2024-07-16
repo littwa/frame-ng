@@ -25,7 +25,18 @@ $dark-theme: mat.define-theme((
   color: (
     theme-type: dark,
     primary: mat.$yellow-palette,
+    tertiary: mat.$blue-palette,
   ),
+    typography: (
+      brand-family: 'Comic Sans',
+      //plain-family: 'Comic Sans',
+      bold-weight: 900,
+      //medium-weight: 900,
+      //regular-weight: 900,
+    ),
+    density: (
+      scale: -2
+    )
 ));
 
 // Define a light theme
@@ -42,6 +53,9 @@ html {
   @include mat.button-theme($dark-theme);
   @include mat.all-component-themes($dark-theme);
   @include mat.strong-focus-indicators-theme($dark-theme);
+
+  //@include mat.button-color($dark-theme, $color-variant: tertiary);
+
 
   // Apply the light theme only when the user prefers light themes.
   //@media (prefers-color-scheme: light) {

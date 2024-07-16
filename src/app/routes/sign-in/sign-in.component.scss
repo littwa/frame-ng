@@ -1,3 +1,12 @@
+//@use '@angular/material' as mat;
+//
+//$theme: mat.define-theme();
+//
+//.tst {
+//  @include mat.button-color($theme, $color-variant: tertiary);
+//}
+
+
 :host {
   flex: 1 0 auto;
 }
@@ -29,19 +38,20 @@
   }
 
   .sign-in-link {
+    color: #ff6666;
     display: block;
     margin: 10px auto;
   }
 }
 
 .btn-text {
-  color: #4d4d4d;
-  font-size: 14px;
-  letter-spacing: .2px;
-  text-decoration: initial!important;
-  //text-decoration: unset !important;
-  // text-decoration-style: unset;
-  // text-decoration-thickness: unset!important;
-  margin: 0 auto;
-  line-height: 42px;
+  //color: #4d4d4d;
+  //font-size: 14px;
+  //letter-spacing: .2px;
+  //text-decoration: initial!important;
+  ////text-decoration: unset !important;
+  //// text-decoration-style: unset;
+  //// text-decoration-thickness: unset!important;
+  //margin: 0 auto;
+  //line-height: 42px;
 }

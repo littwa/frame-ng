@@ -35,9 +35,9 @@ import { selectAuthLoader } from '../../../store/loader/loader.selectors';
 })
 export class AuthComponent {
   public isBrokenImgUrl = false;
-  public user$: Observable<IStateUser | any> = of(null); // this.store.select(getUser).pipe(tap(v => v));
-  public authLoader$: Observable<boolean> = of(false); // this.store.select(selectAuthLoader);
-  // @ViewChild('ava') ava: ElementRef;
+  public user$: Observable<IStateUser> = this.store.select(getUser).pipe(tap(v => v));
+  public authLoader$: Observable<boolean> = this.store.select(selectAuthLoader);
+  @ViewChild('ava') ava: ElementRef | undefined;
 
   constructor(
     private router: Router,

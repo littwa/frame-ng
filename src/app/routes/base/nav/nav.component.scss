@@ -1,0 +1,17 @@
+:host {
+  margin: auto 0;
+}
+
+.nav-list, .nav-list__wrapper {
+  display: flex;
+
+  div {
+    width: fit-content;
+    margin: 6px;
+    cursor: pointer;
+  }
+
+  .active {
+    color: red;
+  }
+}

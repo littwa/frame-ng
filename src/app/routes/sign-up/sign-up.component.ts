@@ -4,11 +4,13 @@ import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { Store } from '@ngrx/store';
 import { authSignUpUserRequest } from 'src/app/store/auth/auth.actions';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterLink } from '@angular/router';
+import { MatInput, MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [ReactiveFormsModule, MatFormField, MatFormFieldModule, MatButtonModule],
+  imports: [ReactiveFormsModule, MatFormField, MatFormFieldModule, MatButtonModule, RouterLink, MatInput, MatInputModule],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.scss',
 })

@@ -1,1 +1,11 @@
-<p>nav works!</p>
+<div class="nav-list">
+<div  class="nav-list__wrapper">
+  <div class="nav-list__item" [routerLinkActiveOptions]="{ exact: true }" [routerLinkActive]="'active'" [routerLink]="'/'">Stock</div>
+  <div class="nav-list__item" [routerLinkActive]="'active'" [routerLink]="'/wit'">Wit</div>
+  <div class="nav-list__item" [routerLinkActive]="'active'" [routerLink]="'/multi'">Multi</div>
+  <div class="nav-list__item" [routerLinkActive]="'active'" [routerLink]="'/catalog'">Catalog</div>
+  <div class="nav-list__item" [routerLinkActive]="'active'" [routerLink]="'/tester'">Tester</div>
+  <div class="nav-list__item" [routerLinkActive]="'active'" [routerLink]="'/community'">Community</div>
+  <div class="nav-list__item" [routerLinkActive]="'active'" [routerLink]="'/posts'">Blog</div>
+</div>
+</div>

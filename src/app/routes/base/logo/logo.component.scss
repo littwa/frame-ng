@@ -1,0 +1,17 @@
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+
+  :hover {
+    cursor: pointer;
+  }
+
+  .logo-img {
+    width: 38px;
+    margin: 4px;
+
+    //&:hover {
+    //  cursor: pointer;
+    //}
+  }
+}
