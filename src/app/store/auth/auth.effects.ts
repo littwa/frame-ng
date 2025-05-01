@@ -79,9 +79,9 @@ export class AuthEffects {
       switchMap((props: IPayload<any>) =>
         this.authService.getCurrentUser().pipe(
           map(data => action.authGetCurrentUserSuccess({ payload: data })),
-          // catchError((error: any) => {
-          //   return of(action.authGetCurrentUserError({ payload: error }));
-          // }),
+          catchError((error: any) => {
+            return of(action.authGetCurrentUserError({ payload: error }));
+          }),
         ),
       ),
     ),

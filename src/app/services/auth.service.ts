@@ -4,7 +4,6 @@ import { of, Subject } from 'rxjs';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { EndPoint } from '../constants/and-points.api';
-import { finalize, tap } from 'rxjs/operators';
 
 interface Manager {
   email: string;
@@ -24,7 +23,14 @@ export class AuthService {
   }
 
   public signInUser(body: any): Observable<any> {
-    return this.http.post<any>(`${this.urlApi}${EndPoint.auth.signInUser}`, body);
+    return this.http
+      .post<any>(`${this.urlApi}${EndPoint.auth.signInUser}`, body)
+      .pipe
+      // catchError(err => {
+      //   console.log(1111, err);
+      //   return of(err);y
+      // }),
+      ();
   }
 
   public getCurrentUser(): Observable<any> {
