@@ -1,4 +1,4 @@
-import { ActionReducerMap, createReducer, on } from '@ngrx/store';
+import { ActionReducer, ActionReducerMap, combineReducers, createReducer, on } from '@ngrx/store';
 // import * as ActionsPosts from 'src/app/store/posts/posts.actions';
 import * as ActionsAuth from 'src/app/store/auth/auth.actions';
 import * as ActionsLoader from 'src/app/store/loader/loader.actions';
@@ -7,6 +7,7 @@ import * as ActionsLoader from 'src/app/store/loader/loader.actions';
 // import * as ActionsCompose from 'src/app/store/compose/compose.actions';
 import { IStateLoader } from 'src/app/interfaces/common.interfaces';
 import { stopLoaderGeneralRequest } from 'src/app/store/loader/loader.actions';
+
 // import { JournalActions } from 'src/app/store/journal/journal.actions';
 // import { CodeActions } from 'src/app/store/code/code.actions';
 
@@ -142,7 +143,7 @@ export const authLoaderReducer = createReducer(
   on(ActionsAuth.authUpdateUserError, () => false),
 );
 
-export const loadersReducers: ActionReducerMap<IStateLoader> | any = {
+export const loadersReducers: ActionReducer<IStateLoader> = combineReducers({
   auth: authLoaderReducer,
   general: generalLoaderReducers,
-};
+});

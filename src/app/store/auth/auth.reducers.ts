@@ -1,4 +1,4 @@
-import { ActionReducerMap, createReducer, on } from '@ngrx/store';
+import { ActionReducer, ActionReducerMap, combineReducers, createReducer, on } from '@ngrx/store';
 import * as Actions from './auth.actions';
 import { IStateAuth, IStateError, IStateToken, IStateUser } from '../../interfaces/auth.interfaces';
 import { userPayloadPrepare } from 'src/app/utilities/reducer.utility';
@@ -81,11 +81,11 @@ export const tokenReducer = createReducer(
   // on(Actions.authVerifyManagerError, (state, action) => INIT_STATE_TOKEN),
 );
 
-export const authReducers: ActionReducerMap<IStateAuth> = {
+export const authReducers: ActionReducer<IStateAuth> = combineReducers({
   user: userReducer,
   tokens: tokenReducer,
   error: errorReducer,
-};
+});
 
 // export const getAuthManager = (state: StateAuth): StateManger => state.manager;
 // export const getIsAuth = (state: StateAuth): boolean | null => state.manager.isAuthenticated;

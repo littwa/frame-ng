@@ -9,6 +9,7 @@ import { startLoaderAuthRequest, stopLoaderAuthRequest, stopLoaderGeneralRequest
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { generalError } from 'src/app/store/error/error.actions';
+import { getTokens } from '../store/auth/auth.selectors';
 
 let refreshTokenInProgress = false;
 let refreshTokenSubject = new BehaviorSubject(null);
@@ -54,10 +55,11 @@ export const jwtInterceptor: HttpInterceptorFn = (request: HttpRequest<any>, nex
             switchMap(tokens => {
               store.dispatch(authGetRefreshUserSuccess({ payload: tokens }));
               refreshTokenSubject.next(tokens);
+              store.select(getTokens).subscribe(v => console.log(112, v));
+              refreshTokenInProgress = false;
               return next(addAuthToken(request));
             }),
             finalize(() => {
-              refreshTokenInProgress = false;
               store.dispatch(stopLoaderAuthRequest());
             }),
           );
