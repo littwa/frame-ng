@@ -20,7 +20,7 @@
   </div>
   <mat-menu class="auth-menu" #menu="matMenu">
     <button (click)="navProfile(ctxUser._id)" mat-menu-item>Profile</button>
-    <button mat-menu-item>Settings</button>
+    <button (click)="navSettings(ctxUser._id)" mat-menu-item>Settings</button>
     <button (click)="signOut()" mat-menu-item>Sign out</button>
   </mat-menu>
 </ng-template>

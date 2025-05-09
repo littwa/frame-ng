@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { EndPoint } from './constants/and-points.api';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',

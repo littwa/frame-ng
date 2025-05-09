@@ -3,7 +3,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { Observable, of, tap } from 'rxjs';
 import { IStateUser } from 'src/app/interfaces/auth.interfaces';
 import { Store } from '@ngrx/store';
-import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
+import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatIcon } from '@angular/material/icon';
 import { CommonModule, NgForOf, NgIf, NgTemplateOutlet } from '@angular/common';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
@@ -29,6 +29,7 @@ import { selectAuthLoader } from '../../../store/loader/loader.selectors';
     LetDirective,
     CommonModule,
     UpdUrlPipe,
+    MatMenuItem,
   ],
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.scss',
@@ -58,7 +59,11 @@ export class AuthComponent {
   }
 
   navProfile(id: string): void {
-    this.router.navigate(['profile', id]);
+    this.router.navigate(['user/profile', id]);
+  }
+
+  navSettings(id: string) {
+    this.router.navigate(['user/settings', id]);
   }
 
   handleError(event: any) {

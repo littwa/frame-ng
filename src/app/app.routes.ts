@@ -1,6 +1,10 @@
 import { Routes } from '@angular/router';
 import { BaseComponent } from 'src/app/routes/base/base.component';
 import { authResolver } from './resolvers/auth.resolver';
+import { UserProfileComponent } from './routes/user/user-profile/user-profile.component';
+import { MainComponent } from './routes/main/main.component';
+import { SettingsComponent } from './routes/user/settings/settings.component';
+import { UserComponent } from './routes/user/user.component';
 
 export const routes: Routes = [
   {
@@ -9,8 +13,27 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('src/app/routes/main/main.routes').then(x => x.main),
+        component: MainComponent,
+        providers: [],
         resolve: { res: authResolver },
+        children: [
+          { path: '', loadChildren: () => import('src/app/routes/main/stock/stock.routes').then(x => x.stock) },
+          { path: 'gen', loadChildren: () => import('src/app/routes/main/gen/gen.routes').then(x => x.gen) },
+          {
+            path: 'screenshots',
+            loadChildren: () => import('src/app/routes/main/screenshots/screenshots.routes').then(x => x.screenshots),
+          },
+          { path: 'survey', loadChildren: () => import('src/app/routes/main/survey/survey.routes').then(x => x.survey) },
+        ],
+      },
+      {
+        path: 'user',
+        component: UserComponent,
+        resolve: { res: authResolver },
+        children: [
+          { path: 'profile/:id', component: UserProfileComponent },
+          { path: 'settings/:id', component: SettingsComponent },
+        ],
       },
       {
         path: 'sign-in',

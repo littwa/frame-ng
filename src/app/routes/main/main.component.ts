@@ -6,7 +6,7 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-main',
-  standalone: true,
+  // standalone: true,
   imports: [HeaderComponent, FooterComponent, NgIf, RouterOutlet],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
