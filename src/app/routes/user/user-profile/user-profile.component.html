@@ -55,7 +55,7 @@
   <div class="img-loader">
     <button type="button" mat-raised-button (click)="fileInput.click()">Choose Avatar</button>
     <input hidden (change)="onFileSelected($event)" #fileInput type="file" id="file">
-    <img #imgPreview src="" alt="" class="img-preview">
+    <img #imgPreview [src]="ava" alt="pic" class="img-preview">
     <span class="file-name">{{ fileInput && fileInput.files && fileInput.files[0]?.name }}</span>
   </div>
   <br>

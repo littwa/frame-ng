@@ -1,3 +1,11 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 ::ng-deep {
   .auth-menu {
     width: 300px!important;

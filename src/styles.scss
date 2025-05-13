@@ -21,3 +21,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.mat-mdc-dialog-container {
+  --mdc-dialog-container-shape: 1px;
+}
+
+//.custom-container {
+//  .mdc-dialog__surface {
+//    justify-content: end;
+//    //border-radius: 20px !important;
+//  }
+//}
+
+.custom-container .mdc-dialog__surface, .mat-mdc-dialog-surface  {
+    justify-content: end;
+    //border-radius: 20px !important;
+
+}

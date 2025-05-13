@@ -13,5 +13,39 @@
 
   .active {
     color: red;
+    display: block; // !important;
   }
+}
+
+.nav-list_burger, .nav-list__wrapper_burger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  div {
+    font-size: 36px;
+    width: fit-content;
+    margin: 10px;
+    cursor: pointer;
+  }
+
+  .active {
+    color: red;
+    display: block; // !important;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .nav-list__wrapper {
+    div {
+      display: none;
+    }
+
+
+  }
+  //.nav-list__item .active {
+  //  font-size: 22px;
+  //  display: block;
+  //  color: #fcf800!important;
+  //}
 }

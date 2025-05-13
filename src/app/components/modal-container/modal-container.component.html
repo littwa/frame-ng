@@ -1,0 +1,7 @@
+
+<div class="close-section" mat-dialog-content (click)="dialogRef.close()">
+  Close {{ data.content.name }} <mat-icon class="nav__icon">close</mat-icon>
+</div>
+<div>
+  <ng-container *ngComponentOutlet="data.template; injector: postContentInjector"></ng-container>
+</div>

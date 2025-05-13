@@ -1,11 +1,11 @@
-<div class="nav-list">
-<div  class="nav-list__wrapper">
-  <div class="nav-list__item" [routerLinkActiveOptions]="{ exact: true }" [routerLinkActive]="'active'" [routerLink]="'/'">Stock</div>
-  <div class="nav-list__item" [routerLinkActive]="'active'" [routerLink]="'/gen'">Gen</div>
-  <div class="nav-list__item" [routerLinkActive]="'active'" [routerLink]="'/screenshots'">Screenshots</div>
-  <div class="nav-list__item" [routerLinkActive]="'active'" [routerLink]="'/survey'">Survey</div>
-  <div class="nav-list__item" [routerLinkActive]="'active'" [routerLink]="'/tester'">XXX</div>
-  <div class="nav-list__item" [routerLinkActive]="'active'" [routerLink]="'/community'">XXX</div>
-  <div class="nav-list__item" [routerLinkActive]="'active'" [routerLink]="'/posts'">XXX</div>
+<div [class]="isBurger ? 'nav-list_burger' : 'nav-list'">
+<div [attr.mat-dialog-close]="isBurger ? '' : null" [class]="isBurger ? 'nav-list__wrapper_burger' : 'nav-list__wrapper'">
+  <div [routerLinkActiveOptions]="{ exact: true }" [routerLinkActive]="'active'" [routerLink]="'/'">Stock</div>
+  <div [routerLinkActive]="'active'" [routerLink]="'/gen'">Gen</div>
+  <div [routerLinkActive]="'active'" [routerLink]="'/screenshots'">Screenshots</div>
+  <div [routerLinkActive]="'active'" [routerLink]="'/survey'">Survey</div>
+  <div [routerLinkActive]="'active'" [routerLink]="'/xxx'">XXX</div>
+  <div [routerLinkActive]="'active'" [routerLink]="'/xxx'">XXX</div>
+  <div [routerLinkActive]="'active'" [routerLink]="'/xxx'">XXX</div>
 </div>
 </div>
