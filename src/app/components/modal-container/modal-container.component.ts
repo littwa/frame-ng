@@ -7,13 +7,20 @@ import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-modal-container',
-  imports: [MatDialogTitle, MatDialogContent, NgComponentOutlet, MatIcon],
+  imports: [MatDialogContent, NgComponentOutlet, MatIcon],
+  standalone: true,
   templateUrl: './modal-container.component.html',
   styleUrl: './modal-container.component.scss',
 })
 export class ModalContainerComponent implements OnInit {
   public postContentInjector: Injector = Injector.create({
-    providers: [{ provide: INJECTION_TOKEN_POST_CONTENT, useFactory: () => this.data.content, deps: [] }],
+    providers: [
+      {
+        provide: INJECTION_TOKEN_POST_CONTENT,
+        useFactory: () => ({ content: this.data.content, dialogRef: this.dialogRef }),
+        deps: [],
+      },
+    ],
     parent: this.injector,
   });
 

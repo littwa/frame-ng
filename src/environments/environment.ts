@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  urlApi: 'https://frame-oo45.onrender.com/',
+  urlApi: 'https://frame-production-908d.up.railway.app/',
 };
 
 // 'https://frame-production-908d.up.railway.app/'

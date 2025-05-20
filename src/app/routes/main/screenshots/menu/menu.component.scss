@@ -1,0 +1,17 @@
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  p {
+    flex-grow: 1;
+    border: 2px solid yellow;
+    border-radius: 7px;
+    margin: 6px;
+    text-align: center;
+    font-size: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

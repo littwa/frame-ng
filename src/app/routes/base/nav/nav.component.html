@@ -1,5 +1,5 @@
 <div [class]="isBurger ? 'nav-list_burger' : 'nav-list'">
-<div [attr.mat-dialog-close]="isBurger ? '' : null" [class]="isBurger ? 'nav-list__wrapper_burger' : 'nav-list__wrapper'">
+<div (click)="handleClick()" [class]="isBurger ? 'nav-list__wrapper_burger' : 'nav-list__wrapper'">
   <div [routerLinkActiveOptions]="{ exact: true }" [routerLinkActive]="'active'" [routerLink]="'/'">Stock</div>
   <div [routerLinkActive]="'active'" [routerLink]="'/gen'">Gen</div>
   <div [routerLinkActive]="'active'" [routerLink]="'/screenshots'">Screenshots</div>

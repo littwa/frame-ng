@@ -1,19 +1,39 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogTitle, MatDialogContent } from '@angular/material/dialog';
 import { ModalContainerComponent } from '../modal-container/modal-container.component';
 import { NavComponent } from '../../routes/base/nav/nav.component';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location, NgForOf } from '@angular/common';
+import { ControlService } from '../../services/control.service';
+import { IStateControl } from '../../interfaces/common.interfaces';
 
 @Component({
   selector: 'app-control',
-  imports: [MatIcon],
+  imports: [MatIcon, NgForOf],
   templateUrl: './control.component.html',
   styleUrl: './control.component.scss',
+  standalone: true,
 })
-export class ControlComponent {
+export class ControlComponent implements OnInit {
   dialog = inject(MatDialog);
+  router = inject(Router);
+  activatedRouter = inject(ActivatedRoute);
+  location = inject(Location);
+  controlService = inject(ControlService);
+  controlState$ = this.controlService.state$$;
+  controlState: IStateControl[] = [];
 
-  openNavMenu() {
+  constructor() {}
+
+  ngOnInit() {
+    this.controlState$.subscribe(v => {
+      console.log(9, v);
+      this.controlState = v;
+    });
+  }
+
+  handlerOpenNavMenu() {
     this.dialog.open(ModalContainerComponent, {
       data: {
         content: { isBurger: true, name: 'Navigate menu' },
@@ -24,5 +44,14 @@ export class ControlComponent {
       minWidth: '100vw',
       panelClass: 'custom-container',
     });
+  }
+
+  handlerHome() {
+    console.log(1007, this.controlState);
+    this.router.navigate(['./']);
+  }
+
+  handlerBack() {
+    this.location.back();
   }
 }

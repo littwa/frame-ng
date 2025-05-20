@@ -11,3 +11,16 @@ export interface IStateLoader {
 export interface IDiverse {
   [k: string]: any;
 }
+
+export enum EHandler {
+  HandlerHome = 'handlerHome',
+  HandlerBack = 'handlerBack',
+  HandlerOpenNavMenu = 'handlerOpenNavMenu',
+}
+
+export interface IStateControl {
+  // [index: string]: any;
+  // tester: string;
+  icon: string;
+  handler: EHandler;
+}

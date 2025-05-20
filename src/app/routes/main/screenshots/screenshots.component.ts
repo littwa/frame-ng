@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-screenshots',
-  imports: [],
+  imports: [RouterOutlet],
   templateUrl: './screenshots.component.html',
-  styleUrl: './screenshots.component.scss'
+  styleUrl: './screenshots.component.scss',
 })
-export class ScreenshotsComponent {
-
-}
+export class ScreenshotsComponent {}

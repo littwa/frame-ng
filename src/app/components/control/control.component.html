@@ -1,17 +1,20 @@
 <div class="control-container">
-  <div>
-    <mat-icon class="nav__icon">home</mat-icon>
+  <div *ngFor="let state of controlState">
+    <mat-icon (click)="this[state.handler]()" class="nav__icon">{{state.icon}}</mat-icon>
   </div>
-  <div>
-    <mat-icon class="nav__icon">code</mat-icon>
-  </div>
-  <div>
-    <mat-icon class="nav__icon" (click)="openNavMenu()">apps</mat-icon>
-  </div>
-  <div>
-    <mat-icon class="nav__icon">code</mat-icon>
-  </div>
-  <div>
-    <mat-icon class="nav__icon">arrow_back</mat-icon>
-  </div>
+<!--  <div>-->
+<!--    <mat-icon (click)="this[controlState[0].handler]()" class="nav__icon">home</mat-icon>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <mat-icon class="nav__icon" (click)="this[controlState[1].handler]()">code</mat-icon>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <mat-icon class="nav__icon" (click)="this[controlState[2].handler]()">apps</mat-icon>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <mat-icon class="nav__icon" (click)="this[controlState[3].handler]()">code</mat-icon>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <mat-icon (click)="this[controlState[4].handler]()" class="nav__icon">arrow_back</mat-icon>-->
+<!--  </div>-->
 </div>
