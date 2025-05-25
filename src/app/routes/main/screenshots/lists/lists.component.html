@@ -1,14 +1,7 @@
-<div class="lists--container">
-  <div >&#9668; <span class="back_link">Back to menu</span></div>
-  <div class="items">
-    <div class="item--wrapper">
-      <div>List 1212</div>
-      <div class="item--interact">
-        <p>info</p>
-        <div><mat-icon class="item-icon">home</mat-icon></div>
-      </div>
-    </div>
-  </div>
+<div class="lists--container" *ngrxLet="lists$ as lists">
+<!--  <div >&#9668; <span class="back_link" routerLink="/screenshots">Back to menu</span></div>-->
+  <app-screenshots-list-item *ngFor="let data of lists" [data]="data" [routerLink]="'list/id'"></app-screenshots-list-item>
+
 </div>
 
 

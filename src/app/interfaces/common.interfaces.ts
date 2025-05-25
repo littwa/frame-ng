@@ -16,6 +16,8 @@ export enum EHandler {
   HandlerHome = 'handlerHome',
   HandlerBack = 'handlerBack',
   HandlerOpenNavMenu = 'handlerOpenNavMenu',
+  HandlerBackToScreenshotsMenu = 'handlerBackToScreenshotsMenu',
+  HandlerCreateScreenshotsList = 'handlerCreateScreenshotsList',
 }
 
 export interface IStateControl {

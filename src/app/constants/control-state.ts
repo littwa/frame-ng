@@ -11,4 +11,14 @@ export const ControlState: { [key: string]: IStateControl[] } = {
     { icon: 'code', handler: EHandler.HandlerHome },
     { icon: 'arrow_back', handler: EHandler.HandlerBack },
   ],
+  screenshotsLists: [
+    { icon: 'home', handler: EHandler.HandlerHome },
+    { icon: 'code', handler: EHandler.HandlerHome },
+    {
+      icon: 'apps',
+      handler: EHandler.HandlerOpenNavMenu,
+    },
+    { icon: 'add_box', handler: EHandler.HandlerCreateScreenshotsList },
+    { icon: 'arrow_back', handler: EHandler.HandlerBackToScreenshotsMenu },
+  ],
 };

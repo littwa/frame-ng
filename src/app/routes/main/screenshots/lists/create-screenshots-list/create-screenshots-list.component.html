@@ -1,0 +1,18 @@
+<div class="add-list--scr__container" *ngrxLet="loader$ as loader">
+  <ng-form [formGroup]="form" class="add-list--form">
+    <div>
+      <p class="header--scr__add-list">Create Screenshots List</p>
+      <p class="add-list--scr__label">Name:</p>
+      <mat-form-field appearance="outline">
+        <textarea formControlName="name" matInput></textarea>
+      </mat-form-field>
+    </div>
+
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button [class.disable_btn]="form.invalid" class="btn-submit" mat-button [disabled]="form.invalid" (click)="handleAdd()">
+        {{ !loader ? 'Create List' : '' }} <mat-spinner *ngIf="loader" [diameter]="26"></mat-spinner>
+      </button>
+    </mat-dialog-actions>
+  </ng-form>
+</div>

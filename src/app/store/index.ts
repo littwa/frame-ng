@@ -4,6 +4,7 @@ import pick from 'lodash-es/pick';
 import { authReducers } from 'src/app/store/auth/auth.reducers';
 import { loadersReducers } from 'src/app/store/loader/loader.reducers';
 import { errorReducer } from 'src/app/store/error/error.reducers';
+import { screenshotsReducers } from './screenshots/screenshots.reducers';
 
 function setSavedState(state: any, localStorageKey: string) {
   localStorage.setItem(localStorageKey, JSON.stringify(state));
@@ -45,4 +46,5 @@ export const reducers: any = {
   auth: authReducers,
   loader: loadersReducers,
   error: errorReducer,
+  screenshots: screenshotsReducers,
 };

@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Location, NgForOf } from '@angular/common';
 import { ControlService } from '../../services/control.service';
 import { IStateControl } from '../../interfaces/common.interfaces';
+import { CreateScreenshotsListComponent } from '../../routes/main/screenshots/lists/create-screenshots-list/create-screenshots-list.component';
 
 @Component({
   selector: 'app-control',
@@ -53,5 +54,23 @@ export class ControlComponent implements OnInit {
 
   handlerBack() {
     this.location.back();
+  }
+
+  handlerBackToScreenshotsMenu() {
+    console.log(1008111, this.controlState);
+    this.router.navigate(['./screenshots']);
+  }
+
+  handlerCreateScreenshotsList() {
+    this.dialog.open(ModalContainerComponent, {
+      data: {
+        content: { name: 'Create Screenshots List' },
+        template: CreateScreenshotsListComponent,
+      },
+      height: 'calc(100vh - 96px)',
+      maxWidth: '100vw',
+      minWidth: '100vw',
+      panelClass: 'custom-container',
+    });
   }
 }

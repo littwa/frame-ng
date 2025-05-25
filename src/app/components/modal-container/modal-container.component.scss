@@ -10,9 +10,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .nav__icon {
+  //margin-left: 15px;
+  padding: 10px;
   color: #ff0000;
   width: 36px;
   height: 36px;

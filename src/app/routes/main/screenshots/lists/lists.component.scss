@@ -8,44 +8,6 @@
     }
   }
 
-  .items {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-
-    .item--wrapper {
-      display: flex;
-      justify-content: space-between;
-      height: 20px;
-      line-height: 20px;
-      border: 2px solid yellow;
-      border-radius: 7px;
-      margin: 6px;
-      padding: 6px 8px;
-
-      .item--interact {
-        display: flex;
-
-        .item-icon {
-          height: 20px;
-          //height: auto;
-          //padding-bottom: 10px;
-          //margin-bottom: 10px;
-          //padding-bottom: 5px;
-        }
-
-        p {
-          margin: 2px 0 0 0;
-          //text-align: end;
-          //height: 12px;
-          //display: inline-flex;
-          ////align-items: end;
-          //text-align: end;
-        }
-      }
-    }
-  }
-
 }
 
 

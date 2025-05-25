@@ -1,0 +1,70 @@
+@use 'src/styles/_variables.scss' as variables;
+
+.items {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .item--wrapper {
+    display: flex;
+    height: 28px;
+    line-height: 28px;
+    border: 2px solid variables.$fulvous;
+    border-radius: 5px;
+    margin: 2px 0;
+    padding: 12px 8px;
+
+    .item--content {
+      display: flex;
+      justify-content: space-between;
+      flex-grow: 1;
+
+      .item--name {
+        //flex-grow: 1;
+        //&:hover {
+        //  //cursor: pointer;
+        //  color: red;
+        //}
+      }
+
+      .item--interact {
+        display: flex;
+        height: 28px;
+        line-height: 28px;
+
+        .item--info {
+          margin: 1px 0 0 0;
+          padding-right: 10px;
+
+          p {
+            padding: 0;
+            margin: 0;
+            font-size: 12px;
+            height: 12px;
+            line-height: 12px;
+          }
+        }
+      }
+    }
+
+
+  }
+
+  .item-icon {
+    margin-right: 10px;
+    //color: #059cff;
+
+    &:hover {
+      //cursor: pointer;
+      color: red;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    //color: red;
+    .item--name {
+      color: red;
+    }
+  }
+}
