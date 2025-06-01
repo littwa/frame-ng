@@ -1,0 +1,11 @@
+@use 'src/styles/_variables.scss' as variables;
+
+.compose--container {
+  border-bottom: 1px solid variables.$fulvous;
+  margin: 0;
+  &--image {
+    height: 100%;
+    width: 100%;
+  }
+
+}

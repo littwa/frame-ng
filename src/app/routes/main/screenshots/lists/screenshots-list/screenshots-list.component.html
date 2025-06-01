@@ -1,1 +1,11 @@
 <p>screenshots-list works!</p>
+<div class="button-row">
+  <button matButton="outlined">Basic</button>
+</div>
+@if (data?.screenshots) {
+  @for (screenshot of data?.screenshots; track screenshot._id; let index = $index) {
+    <div>---{{ index }}---
+      <app-screenshots-item [screenshot]="screenshot"></app-screenshots-item>
+    </div>
+  }
+}

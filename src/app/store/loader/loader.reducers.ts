@@ -2,27 +2,21 @@ import { ActionReducer, ActionReducerMap, combineReducers, createReducer, on } f
 // import * as ActionsPosts from 'src/app/store/posts/posts.actions';
 import * as ActionsAuth from 'src/app/store/auth/auth.actions';
 import * as ActionsLoader from 'src/app/store/loader/loader.actions';
-// import * as ActionsUsers from 'src/app/store/users/users.actions';
-// import * as ActionsWit from 'src/app/store/wit/wit.actions';
-// import * as ActionsCompose from 'src/app/store/compose/compose.actions';
+import * as ActionsScreenshots from 'src/app/store/screenshots/screenshots.actions';
 import { IStateLoader } from 'src/app/interfaces/common.interfaces';
 import { stopLoaderGeneralRequest } from 'src/app/store/loader/loader.actions';
-
-// import { JournalActions } from 'src/app/store/journal/journal.actions';
-// import { CodeActions } from 'src/app/store/code/code.actions';
 
 export const generalLoaderReducers = createReducer(
   false,
 
   on(stopLoaderGeneralRequest, () => false),
 
-  // on(ActionsPosts.postCreateRequest, () => true),
-  // on(ActionsPosts.postGetByIdRequest, () => true),
-  // on(ActionsPosts.postsGetRequest, () => true),
-  // on(ActionsPosts.postUpdateRequest, () => true),
-  // on(ActionsPosts.postDeleteRequest, () => true),
-  // on(ActionsUsers.getAllUsersRequest, () => true),
-  //
+  on(ActionsScreenshots.getScreenshotsListsRequest, () => true),
+  on(ActionsScreenshots.createScreenshotsRequest, () => true),
+  on(ActionsScreenshots.delScreenshotsListRequest, () => true),
+  on(ActionsScreenshots.createScreenshotsListRequest, () => true),
+  on(ActionsScreenshots.getScreenshotsListRequest, () => true),
+
   // on(ActionsWit.createWitListRequest, () => true),
   // on(ActionsWit.createWitPhraseAATListRequest, () => true),
   // on(ActionsWit.delWitPhrasePermanentlyRequest, () => true),
@@ -48,23 +42,20 @@ export const generalLoaderReducers = createReducer(
   // on(CodeActions.createCodeRequest, () => true),
   // on(CodeActions.updateCodeRequest, () => true),
   // on(CodeActions.deleteCodeRequest, () => true),
-  //
-  // on(ActionsPosts.postCreateSuccess, () => false),
-  // on(ActionsPosts.postGetByIdSuccess, () => false),
-  // on(ActionsPosts.postsGetMeSuccess, () => false),
-  // on(ActionsPosts.postsGetFollowingSuccess, () => false),
-  // on(ActionsPosts.postsGetFollowersSuccess, () => false),
-  // on(ActionsPosts.postsGetAllSuccess, () => false),
-  // on(ActionsPosts.postCreateError, () => false),
-  // on(ActionsPosts.postGetByIdError, () => false),
-  // on(ActionsPosts.postsGetError, () => false),
-  // on(ActionsPosts.postUpdateSuccess, () => false),
-  // on(ActionsPosts.postUpdateError, () => false),
-  // on(ActionsPosts.postDeleteSuccess, () => false),
-  // on(ActionsPosts.postDeleteError, () => false),
-  // on(ActionsUsers.getAllUsersSuccess, () => false),
-  // on(ActionsUsers.getAllUsersError, () => false),
-  //
+
+  on(ActionsScreenshots.getScreenshotsListSuccess, () => false),
+  on(ActionsScreenshots.createScreenshotsSuccess, () => false),
+  on(ActionsScreenshots.delScreenshotsListSuccess, () => false),
+  on(ActionsScreenshots.getScreenshotsListsSuccess, () => false),
+  on(ActionsScreenshots.createScreenshotsListSuccess, () => false),
+  on(ActionsScreenshots.getScreenshotsListError, () => false),
+  on(ActionsScreenshots.createScreenshotsError, () => false),
+  on(ActionsScreenshots.delScreenshotsListError, () => false),
+  on(ActionsScreenshots.createScreenshotsListError, () => false),
+  on(ActionsScreenshots.getScreenshotsListsError, () => false),
+  on(ActionsScreenshots.getScreenshotsListReset, () => false),
+  on(ActionsScreenshots.getScreenshotsListsReset, () => false),
+
   // on(ActionsWit.createWitListSuccess, () => false),
   // on(ActionsWit.createWitListError, () => false),
   // on(ActionsWit.createWitPhraseAATListSuccess, () => false),

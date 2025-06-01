@@ -5,11 +5,13 @@ import { UserProfileComponent } from './routes/user/user-profile/user-profile.co
 import { MainComponent } from './routes/main/main.component';
 import { SettingsComponent } from './routes/user/settings/settings.component';
 import { UserComponent } from './routes/user/user.component';
+import { navResolver } from './resolvers/nav.resolver';
 
 export const routes: Routes = [
   {
     path: '',
     component: BaseComponent,
+    resolve: { navResolver },
     children: [
       {
         path: '',

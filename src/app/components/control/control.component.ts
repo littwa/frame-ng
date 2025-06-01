@@ -6,7 +6,7 @@ import { NavComponent } from '../../routes/base/nav/nav.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location, NgForOf } from '@angular/common';
 import { ControlService } from '../../services/control.service';
-import { IStateControl } from '../../interfaces/common.interfaces';
+import { IStateControl, IStateNavControl } from '../../interfaces/common.interfaces';
 import { CreateScreenshotsListComponent } from '../../routes/main/screenshots/lists/create-screenshots-list/create-screenshots-list.component';
 
 @Component({
@@ -23,14 +23,14 @@ export class ControlComponent implements OnInit {
   location = inject(Location);
   controlService = inject(ControlService);
   controlState$ = this.controlService.state$$;
-  controlState: IStateControl[] = [];
+  controlState: any;
 
   constructor() {}
 
   ngOnInit() {
-    this.controlState$.subscribe(v => {
+    this.controlService.state$$.subscribe(v => {
       console.log(9, v);
-      this.controlState = v;
+      this.controlState = v ? Object.values(v) : [];
     });
   }
 
@@ -72,5 +72,13 @@ export class ControlComponent implements OnInit {
       minWidth: '100vw',
       panelClass: 'custom-container',
     });
+  }
+
+  handlerBackToScreenshotsLists() {
+    this.router.navigate(['./screenshots/lists']);
+  }
+
+  handlerBackToMainMenu() {
+    this.router.navigate(['./']);
   }
 }

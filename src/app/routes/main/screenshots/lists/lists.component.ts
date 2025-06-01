@@ -24,6 +24,6 @@ export class ListsComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(screenshotsActions.getScreenshotsListsRequest());
-    this.controlService.state$$.next(ControlState.screenshotsLists);
+    // this.controlService.state$$.next(ControlState.screenshotsLists);
   }
 }

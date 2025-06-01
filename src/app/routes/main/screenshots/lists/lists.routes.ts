@@ -6,7 +6,7 @@ export const lists: Routes = [
     loadComponent: () => import('src/app/routes/main/screenshots/lists/lists.component').then(x => x.ListsComponent),
   },
   {
-    path: 'list/:id',
+    path: ':id',
     loadComponent: () =>
       import('src/app/routes/main/screenshots/lists/screenshots-list/screenshots-list.component').then(
         x => x.ScreenshotsListComponent,

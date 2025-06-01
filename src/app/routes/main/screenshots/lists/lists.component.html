@@ -1,7 +1,6 @@
 <div class="lists--container" *ngrxLet="lists$ as lists">
 <!--  <div >&#9668; <span class="back_link" routerLink="/screenshots">Back to menu</span></div>-->
-  <app-screenshots-list-item *ngFor="let data of lists" [data]="data" [routerLink]="'list/id'"></app-screenshots-list-item>
-
+  <app-screenshots-list-item *ngFor="let data of lists" [data]="data" [routerLink]="`${data._id}`"></app-screenshots-list-item>
 </div>
 
 
