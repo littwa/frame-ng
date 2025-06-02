@@ -12,10 +12,7 @@ export const screenshotsListsReducer = createReducer(
 export const screenshotsListReducer = createReducer(
   null,
   on(screenshotsActions.getScreenshotsListSuccess, (s, a) => a.payload),
-  on(screenshotsActions.createScreenshotsSuccess, (s, a) => {
-    console.log(100055, a.payload);
-    return [...s, ...a.payload.screenshots];
-  }),
+  on(screenshotsActions.createScreenshotsSuccess, (s, a) => a.payload),
   on(screenshotsActions.getScreenshotsListReset, () => null),
 );
 

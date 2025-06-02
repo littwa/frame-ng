@@ -5,7 +5,7 @@ import { IStateUser } from 'src/app/interfaces/auth.interfaces';
 import { Store } from '@ngrx/store';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatIcon } from '@angular/material/icon';
-import { CommonModule, NgForOf, NgIf, NgTemplateOutlet } from '@angular/common';
+import { CommonModule, NgTemplateOutlet } from '@angular/common';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { LetDirective } from '@ngrx/component';
 import { UpdUrlPipe } from 'src/app/pipes/upd-url.pipe';
@@ -24,13 +24,11 @@ import { selectAuthLoader } from '../../../store/loader/loader.selectors';
     MatMenu,
     NgTemplateOutlet,
     MatProgressSpinner,
-    NgIf,
-    NgForOf,
     LetDirective,
     CommonModule,
     UpdUrlPipe,
-    MatMenuItem,
-  ],
+    MatMenuItem
+],
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.scss',
 })

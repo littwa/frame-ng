@@ -1,11 +1,27 @@
-<p>screenshots-list works!</p>
-<div class="button-row">
-  <button matButton="outlined">Basic</button>
-</div>
-@if (data?.screenshots) {
-  @for (screenshot of data?.screenshots; track screenshot._id; let index = $index) {
-    <div>---{{ index }}---
-      <app-screenshots-item [screenshot]="screenshot"></app-screenshots-item>
+@let screenshots = this.data?.screenshots;
+@let loader = this.loader$ | async;
+<!--<pre>{{screenshots | json}}{{ !screenshots}} {{ screenshots?.length === 0 }}</pre>-->
+@if (!screenshots?.length) {
+  <div class="button-row">
+    <input style="display: none" #fileInput name="images" type="file" multiple (change)="handleAddScreenshots($event)" />
+    <button class="btn-selected" matButton="outlined" type="button" (click)="fileInput.click()">Select Files</button>
+    @if (selectedFiles) {
+      <button matButton="outlined" type="button" (click)="handleUpload()">{{ loader ? 'Loading...' : 'Upload files' }}</button>
+    }
+  </div>
+  @if (selectedFiles) {
+    <div class="selected-files">
+      <p>Selected files:</p>
+      <ul>
+        @for (file of selectedFiles; track file.name) {
+          <li>{{ file.name }}</li>
+        }
+      </ul>
     </div>
   }
+}
+@for (screenshot of screenshots; track screenshot._id; let index = $index) {
+  <div>
+    <app-screenshots-item [screenshot]="screenshot"></app-screenshots-item>
+  </div>
 }

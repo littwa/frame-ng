@@ -8,11 +8,11 @@ import { Store } from '@ngrx/store';
 import { selectScreenshotsLists } from 'src/app/store/screenshots/screenshots.selectors';
 import * as screenshotsActions from 'src/app/store/screenshots/screenshots.actions';
 import { LetDirective } from '@ngrx/component';
-import { NgForOf } from '@angular/common';
+
 
 @Component({
   selector: 'app-lists',
-  imports: [MatIcon, ScreenshotsListItemComponent, RouterLink, LetDirective, NgForOf],
+  imports: [MatIcon, ScreenshotsListItemComponent, RouterLink, LetDirective],
   templateUrl: './lists.component.html',
   styleUrl: './lists.component.scss',
 })

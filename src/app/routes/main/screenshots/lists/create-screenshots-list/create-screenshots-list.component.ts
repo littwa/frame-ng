@@ -7,7 +7,7 @@ import { Actions, ofType } from '@ngrx/effects';
 import { MatDialogActions, MatDialogClose, MatDialogRef } from '@angular/material/dialog';
 import { createScreenshotsListRequest, createScreenshotsListSuccess } from 'src/app/store/screenshots/screenshots.actions';
 
-import { NgIf } from '@angular/common';
+
 import { MatButton } from '@angular/material/button';
 import { MatInput } from '@angular/material/input';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
@@ -22,12 +22,11 @@ import { LetDirective } from '@ngrx/component';
     ReactiveFormsModule,
     MatDialogActions,
     MatProgressSpinner,
-    NgIf,
     MatDialogClose,
     MatButton,
     MatInput,
-    LetDirective,
-  ],
+    LetDirective
+],
   templateUrl: './create-screenshots-list.component.html',
   styleUrl: './create-screenshots-list.component.scss',
 })

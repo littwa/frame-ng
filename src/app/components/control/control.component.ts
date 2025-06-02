@@ -4,14 +4,14 @@ import { MatDialog, MAT_DIALOG_DATA, MatDialogTitle, MatDialogContent } from '@a
 import { ModalContainerComponent } from '../modal-container/modal-container.component';
 import { NavComponent } from '../../routes/base/nav/nav.component';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Location, NgForOf } from '@angular/common';
+import { Location } from '@angular/common';
 import { ControlService } from '../../services/control.service';
 import { IStateControl, IStateNavControl } from '../../interfaces/common.interfaces';
 import { CreateScreenshotsListComponent } from '../../routes/main/screenshots/lists/create-screenshots-list/create-screenshots-list.component';
 
 @Component({
   selector: 'app-control',
-  imports: [MatIcon, NgForOf],
+  imports: [MatIcon],
   templateUrl: './control.component.html',
   styleUrl: './control.component.scss',
   standalone: true,

@@ -1,0 +1,19 @@
+.button-row {
+  margin: 15px;
+
+  .btn-selected {
+    margin-right: 33%;
+  }
+}
+
+.selected-files {
+  p {
+    text-align: center;
+  }
+  ul {
+    display: table;
+    margin: 0 auto;
+    padding: 0;
+  }
+  margin: 0 auto;
+}

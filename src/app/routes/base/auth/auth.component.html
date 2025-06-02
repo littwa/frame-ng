@@ -7,12 +7,13 @@
     <div class="auth-list__item" [routerLinkActive]="'active'" [routerLink]="'/favorite'">Fav</div>
     <div class="auth-list__item" [routerLinkActive]="'active'" [routerLink]="'/cart'">Cart</div>
     <div [matMenuTriggerFor]="menu" class="auth-wrap">
-      <img (error)="handleError($event)" #ava *ngIf="ctxUser.avatarURL && !isBrokenImgUrl; else noAvatar"
-           class="auth-ava" [src]="ctxUser.avatarURL | updUrl">
-      <ng-template #noAvatar>
+      @if (ctxUser.avatarURL && !isBrokenImgUrl) {
+        <img (error)="handleError($event)" #ava
+          class="auth-ava" [src]="ctxUser.avatarURL | updUrl">
+      } @else {
         <img class="auth-ava" src="/ico/freep.png" alt="pic">
-<!--        <mat-icon class="auth-ava">account_box</mat-icon>-->
-      </ng-template>
+        <!--        <mat-icon class="auth-ava">account_box</mat-icon>-->
+      }
       <!--    <mat-icon [url]="ctxUser.avatarURL" class="auth-ava">account_box</mat-icon>-->
       <!--    [url]="ctxUser.avatarURL"-->
       <span class="auth-txt">{{ ctxUser.username }}</span>
@@ -27,11 +28,14 @@
 
 <ng-template #noAuthTemplate>
   <ng-container *ngrxLet="authLoader$; let loader">
-    <div *ngIf="!loader; else spinner" class="auth-wrap" (click)="navigate()">
-      <mat-icon class="auth-icon">account_box</mat-icon>
-      <span class="auth-txt">Sign-in</span>
-    </div>
+    @if (!loader) {
+      <div class="auth-wrap" (click)="navigate()">
+        <mat-icon class="auth-icon">account_box</mat-icon>
+        <span class="auth-txt">Sign-in</span>
+      </div>
+    } @else {
+      <mat-spinner [diameter]="36" class="auth--spinner" ></mat-spinner>
+    }
   </ng-container>
 
-  <ng-template #spinner><mat-spinner [diameter]="36" class="auth--spinner" ></mat-spinner></ng-template>
 </ng-template>
