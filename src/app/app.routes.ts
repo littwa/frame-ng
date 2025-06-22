@@ -20,6 +20,7 @@ export const routes: Routes = [
         resolve: { res: authResolver },
         children: [
           { path: '', loadChildren: () => import('src/app/routes/main/stock/stock.routes').then(x => x.stock) },
+          { path: 'regard', loadChildren: () => import('src/app/routes/main/regard/regard.routes').then(x => x.regard) },
           { path: 'gen', loadChildren: () => import('src/app/routes/main/gen/gen.routes').then(x => x.gen) },
           {
             path: 'screenshots',

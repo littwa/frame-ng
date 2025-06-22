@@ -1,10 +1,10 @@
 <div [class]="isBurger ? 'nav-list_burger' : 'nav-list'">
 <div (click)="handleClick()" [class]="isBurger ? 'nav-list__wrapper_burger' : 'nav-list__wrapper'">
   <div [routerLinkActiveOptions]="{ exact: true }" [routerLinkActive]="'active'" [routerLink]="'/'">Stock</div>
+  <div [routerLinkActive]="'active'" [routerLink]="'/regard'">Regard</div>
   <div [routerLinkActive]="'active'" [routerLink]="'/gen'">Gen</div>
   <div [routerLinkActive]="'active'" [routerLink]="'/screenshots'">Screenshots</div>
   <div [routerLinkActive]="'active'" [routerLink]="'/survey'">Survey</div>
-  <div [routerLinkActive]="'active'" [routerLink]="'/xxx'">XXX</div>
   <div [routerLinkActive]="'active'" [routerLink]="'/xxx'">XXX</div>
   <div [routerLinkActive]="'active'" [routerLink]="'/xxx'">XXX</div>
 </div>

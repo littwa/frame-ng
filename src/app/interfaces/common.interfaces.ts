@@ -20,10 +20,16 @@ export enum EHandler {
   HandlerCreateScreenshotsList = 'handlerCreateScreenshotsList',
   HandlerBackToScreenshotsLists = 'handlerBackToScreenshotsLists',
   HandlerBackToMainMenu = 'handlerBackToMainMenu',
+
+  HandlerHomeRegard = 'handlerHomeRegard',
+  HandlerListRegard = 'handlerListRegard',
+  HandlerFavoriteRegard = 'handlerFavoriteRegard',
+  HandlerStatisticsRegard = 'handlerStatisticsRegard',
+  HandlerBackToRegardHome = 'HandlerBackToRegardHome',
 }
 
 // export type key1 = 'btn1' | 'btn2' | 'btn3' | 'btn4' | 'btn5';
-//
+
 // export type k22 = [1, 2, 3];
 
 export interface IStateControl {
@@ -31,6 +37,7 @@ export interface IStateControl {
   // tester: string;
   icon: string;
   handler: EHandler;
+  inactive?: boolean;
 }
 
 export interface IStateNavControl {

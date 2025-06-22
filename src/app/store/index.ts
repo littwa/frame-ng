@@ -5,6 +5,7 @@ import { authReducers } from 'src/app/store/auth/auth.reducers';
 import { loadersReducers } from 'src/app/store/loader/loader.reducers';
 import { errorReducer } from 'src/app/store/error/error.reducers';
 import { screenshotsReducers } from './screenshots/screenshots.reducers';
+import { regardReducers } from './regard/regard.reducers';
 
 function setSavedState(state: any, localStorageKey: string) {
   localStorage.setItem(localStorageKey, JSON.stringify(state));
@@ -47,4 +48,5 @@ export const reducers: any = {
   loader: loadersReducers,
   error: errorReducer,
   screenshots: screenshotsReducers,
+  regard: regardReducers,
 };

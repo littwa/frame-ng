@@ -30,11 +30,19 @@ export const navResolver: ResolveFn<any> = (route: ActivatedRouteSnapshot, state
       case url === '/':
         return ControlState.initial;
       case url === '/screenshots':
-        return ControlState.initial;
+        return ControlState.screenshotsMenu;
       case url === '/screenshots/lists':
         return ControlState.screenshotsLists;
       case url.startsWith('/screenshots/lists/'):
         return ControlState.screenshotsList;
+      case url === '/regard':
+        return ControlState.regardHome;
+      case url === '/regard/list':
+        return ControlState.regardList;
+      case url === '/regard/favorite':
+        return ControlState.regardFavorite;
+      case url === '/regard/statistics':
+        return ControlState.regardStatistics;
       default:
         return ControlState.initial;
     }

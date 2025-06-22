@@ -9,7 +9,15 @@
   padding: 10px;
 
   .nav__icon {
+    &:hover {
+      cursor: pointer;
+    }
+
     font-size: 26px;
       //height: 28px;
+  }
+
+  .inactive {
+    color: red;
   }
 }

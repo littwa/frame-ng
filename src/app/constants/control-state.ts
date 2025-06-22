@@ -57,8 +57,47 @@ export const ControlState: IStateNavControlList = {
     ...(({ btn2, btn4, ...rest }) => rest)(initNavState), // del btn2,4 and add rest initNavState
     btn5: { icon: 'arrow_back', handler: EHandler.HandlerBackToScreenshotsLists },
   },
+  regardHome: {
+    ...initNavState,
+    btn1: { icon: 'table_chart', handler: EHandler.HandlerHomeRegard, inactive: true },
+    btn2: { icon: 'flash_on', handler: EHandler.HandlerListRegard },
+    btn3: { icon: 'grade', handler: EHandler.HandlerFavoriteRegard },
+    btn4: { icon: 'insert_chart_outlined', handler: EHandler.HandlerStatisticsRegard },
+  },
+  regardList: {
+    ...initNavState,
+    btn1: { icon: 'table_chart', handler: EHandler.HandlerHomeRegard },
+    btn2: { icon: 'flash_on', handler: EHandler.HandlerListRegard, inactive: true },
+    btn3: { icon: 'grade', handler: EHandler.HandlerFavoriteRegard },
+    btn4: { icon: 'insert_chart_outlined', handler: EHandler.HandlerStatisticsRegard },
+  },
+  regardFavorite: {
+    ...initNavState,
+    btn1: { icon: 'table_chart', handler: EHandler.HandlerHomeRegard },
+    btn2: { icon: 'flash_on', handler: EHandler.HandlerListRegard },
+    btn3: { icon: 'grade', handler: EHandler.HandlerFavoriteRegard, inactive: true },
+    btn4: { icon: 'insert_chart_outlined', handler: EHandler.HandlerStatisticsRegard },
+  },
+  regardStatistics: {
+    ...initNavState,
+    btn1: { icon: 'table_chart', handler: EHandler.HandlerHomeRegard },
+    btn2: { icon: 'flash_on', handler: EHandler.HandlerListRegard },
+    btn3: { icon: 'grade', handler: EHandler.HandlerFavoriteRegard },
+    btn4: { icon: 'insert_chart_outlined', handler: EHandler.HandlerStatisticsRegard, inactive: true },
+  },
   // screenshotsList222: (({ btn5, ...rest }) => ({
   //   ...rest,
   //   btn4: { icon: 'add_box', handler: EHandler.HandlerCreateScreenshotsList },
   // }))(initNavState), // del btn5 and add rest values
 };
+// assessment
+
+//  table_chart
+
+// flash_on
+
+// casino
+
+// star_border
+// stars
+// grade

@@ -3,7 +3,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogTitle, MatDialogContent } from '@angular/material/dialog';
 import { ModalContainerComponent } from '../modal-container/modal-container.component';
 import { NavComponent } from '../../routes/base/nav/nav.component';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
 import { Location } from '@angular/common';
 import { ControlService } from '../../services/control.service';
 import { IStateControl, IStateNavControl } from '../../interfaces/common.interfaces';
@@ -11,7 +11,7 @@ import { CreateScreenshotsListComponent } from '../../routes/main/screenshots/li
 
 @Component({
   selector: 'app-control',
-  imports: [MatIcon],
+  imports: [MatIcon, RouterLinkActive],
   templateUrl: './control.component.html',
   styleUrl: './control.component.scss',
   standalone: true,
@@ -32,6 +32,8 @@ export class ControlComponent implements OnInit {
       console.log(9, v);
       this.controlState = v ? Object.values(v) : [];
     });
+
+    this.activatedRouter.url.subscribe(v => console.log(555555, v));
   }
 
   handlerOpenNavMenu() {
@@ -80,5 +82,29 @@ export class ControlComponent implements OnInit {
 
   handlerBackToMainMenu() {
     this.router.navigate(['./']);
+  }
+
+  handlerHomeRegard() {
+    console.log(10003);
+    this.router.navigate(['./regard']);
+  }
+
+  handlerListRegard() {
+    this.activatedRouter.snapshot;
+    console.log(10005, this.activatedRouter.snapshot.url);
+    this.router.navigate(['./regard/list']);
+  }
+
+  handlerFavoriteRegard() {
+    console.log('handlerFavoriteRegard');
+    this.router.navigate(['./regard/favorite']);
+  }
+  handlerStatisticsRegard() {
+    console.log('handlerStatisticsRegard');
+    this.router.navigate(['./regard/statistics']);
+  }
+
+  dummy() {
+    return null;
   }
 }
