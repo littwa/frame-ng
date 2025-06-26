@@ -1,0 +1,31 @@
+<!--<p>regard-item works!</p>-->
+@let regard = data();
+<div class="regard-item--container">
+  <div (click)="handler($event)" mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon class="item-icon">more_vert</mat-icon>
+  </div>
+  <mat-menu disabled (click)="handlerEdit()" #menu="matMenu">
+    <button mat-menu-item disabled>
+      <mat-icon>edit</mat-icon>
+      <span>Edit name</span>
+    </button>
+    <button (click)="handlerDel()" mat-menu-item>
+      <mat-icon>delete_forever</mat-icon>
+      <span>Delete</span>
+    </button>
+    <button mat-menu-item (click)="handlerTest()">
+      <mat-icon>accessibility</mat-icon>
+      <span>Test</span>
+    </button>
+  </mat-menu>
+  <div class="item--content">
+    <div class="item--content__name">{{ regard.name }}</div>
+    <div class="item--content__info">
+      <div>info: some info</div>
+      <div>info: some info</div>
+      <div>qualifies: 1212</div>
+      <div>data: 02.22.2012</div>
+    </div>
+  </div>
+
+</div>

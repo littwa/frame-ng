@@ -13,6 +13,7 @@ import { config, reducers } from 'src/app/store';
 import { DateAdapter, provideNativeDateAdapter } from '@angular/material/core';
 import { CUSTOM_DATE_FORMATS, CustomDateAdapter } from 'src/app/config/material-date.config';
 import { ScreenshotsEffects } from './store/screenshots/screenshots.effects';
+import { RegardEffects } from './store/regard/regard.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -22,7 +23,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes, withPreloading(PreloadAllModules)),
     provideAnimationsAsync(),
     provideStore(reducers, config),
-    provideEffects([AuthEffects, ScreenshotsEffects]),
+    provideEffects([AuthEffects, ScreenshotsEffects, RegardEffects]),
     provideRouterStore(),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
     provideNativeDateAdapter(CUSTOM_DATE_FORMATS),

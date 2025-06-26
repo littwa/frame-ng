@@ -1,1 +1,9 @@
-<p>regard-list works!</p>
+<div class="regard-list--container" *ngrxLet="regards$ as regards">
+  @for (regard of regards; track regard._id){<app-regard-item
+    [data]="regard"
+    (click)="handler()"
+    [routerLink]="regard._id"
+    [queryParamsHandling]="'merge'"
+  ></app-regard-item
+  >}
+</div>

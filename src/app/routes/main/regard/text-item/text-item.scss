@@ -1,0 +1,35 @@
+.text-wrapper {
+  display: flex;
+  background-color: #1b1b2c; // #23233a; //  #1b1b2c;
+  height: 56px;
+  margin: 2px 2px;
+  padding: 4px;
+  border-radius: 2px;
+  cursor: pointer;
+
+  .text-pronounce {
+    display: flex;
+    &--audio {
+      align-self: center;
+    }
+  }
+
+  .text-item--info {
+    align-self: center;
+  }
+}
+
+.text-item--container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  //box-sizing: content-box;
+
+
+  .text-item--content {
+    font-size: 20px;
+    font-weight: 500;
+    //align-self: center;
+  }
+}

@@ -1,0 +1,9 @@
+<!--<p>regard-itemized works!</p>-->
+<!--@let r = regard$ | async;-->
+<div *ngrxLet="regard$ as regard">
+  <h4>{{ regard.name }}</h4>
+  @for(text of regard.list; track text._id){<app-text-item [data]="text"></app-text-item>}
+<!--  <pre>{{ regard.list | json }}</pre>-->
+</div>
+
+<!--<div [routerLink]="['qualify', '123', { details: true }]">Start qualify</div>-->

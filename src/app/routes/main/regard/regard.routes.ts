@@ -15,6 +15,15 @@ export const regard: Routes = [
         loadComponent: () => import('src/app/routes/main/regard/regard-list/regard-list').then(x => x.RegardList),
       },
       {
+        path: 'list/:id',
+        loadComponent: () =>
+          import('src/app/routes/main/regard/regard-itemized/regard-itemized').then(x => x.RegardItemized),
+      },
+      {
+        path: 'list/:id/qualify/:idq',
+        loadComponent: () => import('src/app/routes/main/regard/qualify/qualify').then(x => x.Qualify),
+      },
+      {
         path: 'statistics',
         loadComponent: () =>
           import('src/app/routes/main/regard/regard-statistics/regard-statistics').then(x => x.RegardStatistics),

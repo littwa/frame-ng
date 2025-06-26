@@ -1,0 +1,55 @@
+@use 'src/styles/_variables.scss' as variables;
+
+.regard-item--container {
+  display: flex;
+  //line-height: 60px;
+  background-color: #1b1b2c; // #23233a; //  #1b1b2c;
+  // color: variables.$fulvous;;
+  height: 56px;
+  margin: 2px 2px;
+  padding: 4px;
+  border-radius: 2px;
+  //box-sizing: content-box;
+  cursor: pointer;
+
+  .item--content {
+    //line-height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &__name {
+      line-height: 56px;
+    }
+  }
+
+  .item--content__info {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 4px;
+
+    div {
+      overflow: hidden;
+      font-size: 11px;
+      // height: 15px;
+      //width: max-content!important;
+      //height: max-content!important;
+    }
+
+    //height: 20px;
+    //display: block;
+  }
+}
+
+.item-icon {
+  margin-top: 14px;
+  margin-right: 10px;
+  //color: #059cff;
+
+  &:hover {
+    //cursor: pointer;
+    color: red;
+  }
+}

@@ -1,0 +1,16 @@
+@let text = data();
+<div class="text-wrapper">
+  <div class="text-pronounce">
+    <div class="text-pronounce--audio">Play</div>
+  </div>
+  <div class="text-item--container">
+    <div class="text-item--content">{{ text.content }}</div>
+    <div class="text-item--translation">@for (t of text.translation; track t){<span> [ {{ t }} ] </span>}</div>
+  </div>
+  <div class="text-item--info">
+    <div>
+      info
+    </div>
+  </div>
+</div>
+

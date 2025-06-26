@@ -15,17 +15,23 @@ export const EndPoint = {
     add: 'screenshot/add', // /:id
     get: 'screenshot/get-list', // /:id
   },
+  regard: {
+    add: 'regard/add-regard',
+    get: 'regard/get-regards',
+    getOne: 'regard/get-regard', // /:id
+    delRegard: 'regard/del-regard', // /:id
+    createAddText: 'regard/create-add-text', // /:id
+    addFoundText: 'regard/add-text', //:textId/:regardId
+    findTexts: 'regard/find-texts', // :content
+    updateText: 'regard/update-text', // :id
+    delText: 'regard/del-text', //:textId/:regardId/:idxText
+    createQualify: 'regard/create-qualify', //:id
+    checkQualify: 'regard/check-qualify', //:textId/:regardId/:qualifyId
+    lapQualify: 'regard/lap-qualify', //:id
+    resetTextQualify: 'regard/reset-text-qualify', //:textId/:regardId/:qualifyId
+    markTextAsFinishQualify: 'regard/mark-text-qualify', //:id,
+  },
   //==========================================
-  // users: {
-  //   // $: 'users',
-  //   get: 'users/get-users',
-  //   getExt: 'users/get-users-ext',
-  //   follow: 'users/follow',
-  //   unfollow: 'users/unfollow',
-  //   getById: 'users/get',
-  //   getFollowersByUsersId: 'users/get-followers',
-  //   getFollowingByUsersId: 'users/get-following',
-  // },
 
   // wit: {
   //   addList: 'wit/add-list',

@@ -7,12 +7,18 @@ export interface IStateScreenshots {
   lists: IScreenshotsList[];
 }
 
+export interface IStateRegard {
+  list: any[];
+  qualify: any;
+  operative: any;
+}
+
 export interface IStore {
   auth: IStateAuth;
   // users: any;
   loader: IStateLoader;
   error: any;
   screenshots: IStateScreenshots;
-
+  regard: IStateRegard;
   [key: string]: any;
 }
