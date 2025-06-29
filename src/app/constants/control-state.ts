@@ -58,32 +58,39 @@ export const ControlState: IStateNavControlList = {
     btn5: { icon: 'arrow_back', handler: EHandler.HandlerBackToScreenshotsLists },
   },
   regardHome: {
-    ...initNavState,
     btn1: { icon: 'table_chart', handler: EHandler.HandlerHomeRegard, inactive: true },
     btn2: { icon: 'flash_on', handler: EHandler.HandlerListRegard },
     btn3: { icon: 'grade', handler: EHandler.HandlerFavoriteRegard },
     btn4: { icon: 'insert_chart_outlined', handler: EHandler.HandlerStatisticsRegard },
+    btn5: { icon: 'arrow_back', handler: EHandler.HandlerBackToMainMenu },
   },
   regardList: {
-    ...initNavState,
     btn1: { icon: 'table_chart', handler: EHandler.HandlerHomeRegard },
     btn2: { icon: 'flash_on', handler: EHandler.HandlerListRegard, inactive: true },
     btn3: { icon: 'grade', handler: EHandler.HandlerFavoriteRegard },
     btn4: { icon: 'insert_chart_outlined', handler: EHandler.HandlerStatisticsRegard },
+    btn5: { icon: 'arrow_back', handler: EHandler.HandlerBackToMainMenu },
   },
   regardFavorite: {
-    ...initNavState,
     btn1: { icon: 'table_chart', handler: EHandler.HandlerHomeRegard },
     btn2: { icon: 'flash_on', handler: EHandler.HandlerListRegard },
     btn3: { icon: 'grade', handler: EHandler.HandlerFavoriteRegard, inactive: true },
     btn4: { icon: 'insert_chart_outlined', handler: EHandler.HandlerStatisticsRegard },
+    btn5: { icon: 'arrow_back', handler: EHandler.HandlerBackToMainMenu },
   },
   regardStatistics: {
-    ...initNavState,
     btn1: { icon: 'table_chart', handler: EHandler.HandlerHomeRegard },
     btn2: { icon: 'flash_on', handler: EHandler.HandlerListRegard },
     btn3: { icon: 'grade', handler: EHandler.HandlerFavoriteRegard },
     btn4: { icon: 'insert_chart_outlined', handler: EHandler.HandlerStatisticsRegard, inactive: true },
+    btn5: { icon: 'arrow_back', handler: EHandler.HandlerBackToMainMenu },
+  },
+  regardItemized: {
+    ...initNavState,
+    btn2: { icon: 'sort', handler: EHandler.HandlerSortTextsList },
+    btn3: { icon: 'add_to_photos', handler: EHandler.HandlerAddTextToRegard },
+    btn4: { icon: 'play_arrow', handler: EHandler.HandlerPlayQualify },
+    btn5: { icon: 'arrow_back', handler: EHandler.HandlerBackToRegardList },
   },
   // screenshotsList222: (({ btn5, ...rest }) => ({
   //   ...rest,
@@ -100,4 +107,7 @@ export const ControlState: IStateNavControlList = {
 
 // star_border
 // stars
-// grade
+// grade play_circle_outline ondemand_video play_arrow
+// playlist_add queue queue_play_next add add_box add_circle add_circle_outline create add_to_photos
+// control_point_duplicate control_point
+// swap_vert sort import_export

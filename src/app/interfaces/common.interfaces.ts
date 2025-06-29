@@ -25,7 +25,12 @@ export enum EHandler {
   HandlerListRegard = 'handlerListRegard',
   HandlerFavoriteRegard = 'handlerFavoriteRegard',
   HandlerStatisticsRegard = 'handlerStatisticsRegard',
-  HandlerBackToRegardHome = 'HandlerBackToRegardHome',
+  HandlerBackToRegardHome = 'handlerBackToRegardHome',
+
+  HandlerBackToRegardList = 'handlerBackToRegardList',
+  HandlerAddTextToRegard = 'handlerAddTextToRegard',
+  HandlerSortTextsList = 'handlerSortTextsList',
+  HandlerPlayQualify = 'handlerPlayQualify',
 }
 
 // export type key1 = 'btn1' | 'btn2' | 'btn3' | 'btn4' | 'btn5';

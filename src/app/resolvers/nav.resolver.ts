@@ -39,6 +39,8 @@ export const navResolver: ResolveFn<any> = (route: ActivatedRouteSnapshot, state
         return ControlState.regardHome;
       case url === '/regard/list':
         return ControlState.regardList;
+      case url.startsWith('/regard/list/') && url.length === 37: // 37 - '/regard/list/' + mongo _id length (/:id)
+        return ControlState.regardItemized;
       case url === '/regard/favorite':
         return ControlState.regardFavorite;
       case url === '/regard/statistics':

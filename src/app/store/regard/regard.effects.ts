@@ -26,7 +26,7 @@ export class RegardEffects {
     this.actions$.pipe(
       ofType(regardActions.addRegardListRequest),
       switchMap(p =>
-        this.regardService.addRegard(p).pipe(
+        this.regardService.addRegard(p.payload).pipe(
           map(res => regardActions.addRegardListSuccess({ payload: res })),
           catchError(err => of(regardActions.addRegardListError({ payload: err }))),
         ),

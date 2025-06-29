@@ -1,3 +1,6 @@
+<div class="add-list--interact">
+  <button class="add-list--interact__btn"mat-stroked-button color="primary" (click)="addHandler($event)">+ Add Regard</button>
+</div>
 <div class="regard-list--container" *ngrxLet="regards$ as regards">
   @for (regard of regards; track regard._id){<app-regard-item
     [data]="regard"

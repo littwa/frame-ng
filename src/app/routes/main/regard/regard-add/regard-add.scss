@@ -1,0 +1,72 @@
+@use 'src/styles/_variables.scss' as variables;
+
+:host {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+
+  .btn-submit {
+    width: 100px;
+  }
+
+  .add-regard__container {
+    height: 100%;
+    //background-color: variables.$board;
+
+    .add-regard-header {
+      margin: 0 auto;
+      padding-top: 30px;
+      padding-bottom: 60px;
+      width: max-content;
+      color: #e9fbe6;
+      //font-weight: 500;//
+      font-size: 28px;
+    }
+
+    .add-regard-label {
+      padding: 0 0 0 8px;
+      margin: 0;
+      color: variables.$fulvous;
+      font-size: 16px;
+    }
+
+    .add-regard--form {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  textarea.text-name {
+    resize: none;
+    color: variables.$fulvous !important;
+    font-size: 24px!important;
+    //min-height: 30px !important;
+  }
+
+  mat-dialog-actions {
+    button {
+      color: variables.$fulvous;
+      border: solid 1px variables.$fulvous;
+    }
+
+    .disable_btn {
+      color: #5a5a5b;
+      border-color: #5a5a5b;
+    }
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+
+}
+
+:host::ng-deep {
+  .mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control {
+    color: #ffffe2 !important;
+    font-size: 16px!important;
+    height: 28px!important;
+  }
+}

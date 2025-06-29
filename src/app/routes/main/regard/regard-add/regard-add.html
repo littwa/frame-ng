@@ -1,10 +1,10 @@
-<div class="add-list--scr__container" *ngrxLet="loader$ as loader">
-  <ng-form [formGroup]="form" class="add-list--form">
+<div class="add-regard__container" *ngrxLet="loader$ as loader">
+  <ng-form [formGroup]="form" class="add-regard--form">
     <div>
-      <p class="header--scr__add-list">Create Screenshots List</p>
-      <p class="add-list--scr__label">Name:</p>
+      <p class="add-regard-header">Add Regard</p>
+      <p class="add-regard--label">Name:</p>
       <mat-form-field appearance="outline">
-        <textarea formControlName="name" matInput></textarea>
+        <textarea class="text-name" formControlName="name" matInput></textarea>
       </mat-form-field>
     </div>
 
@@ -17,7 +17,7 @@
         [disabled]="form.invalid"
         (click)="handleAdd()"
       >
-        {{ !loader ? 'Create List' : '' }}
+        {{ !loader ? 'Add regard' : '' }}
         @if (loader) {
           <mat-spinner [diameter]="26"></mat-spinner>
         }

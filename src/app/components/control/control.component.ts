@@ -8,6 +8,7 @@ import { Location } from '@angular/common';
 import { ControlService } from '../../services/control.service';
 import { IStateControl, IStateNavControl } from '../../interfaces/common.interfaces';
 import { CreateScreenshotsListComponent } from '../../routes/main/screenshots/lists/create-screenshots-list/create-screenshots-list.component';
+import { RegardTextAdd } from '../../routes/main/regard/regard-text-add/regard-text-add';
 
 @Component({
   selector: 'app-control',
@@ -84,13 +85,17 @@ export class ControlComponent implements OnInit {
     this.router.navigate(['./']);
   }
 
+  handlerBackToRegardList() {
+    this.router.navigate(['./regard/list']);
+  }
+
   handlerHomeRegard() {
     console.log(10003);
     this.router.navigate(['./regard']);
   }
 
   handlerListRegard() {
-    this.activatedRouter.snapshot;
+    // this.activatedRouter.snapshot;
     console.log(10005, this.activatedRouter.snapshot.url);
     this.router.navigate(['./regard/list']);
   }
@@ -104,7 +109,21 @@ export class ControlComponent implements OnInit {
     this.router.navigate(['./regard/statistics']);
   }
 
-  dummy() {
-    return null;
+  handlerAddTextToRegard() {
+    console.log();
+    this.dialog.open(ModalContainerComponent, {
+      data: {
+        content: { name: 'Add Text' },
+        template: RegardTextAdd,
+      },
+      height: 'calc(100vh - 96px)',
+      maxWidth: '100vw',
+      minWidth: '100vw',
+      panelClass: 'custom-container',
+    });
   }
+
+  handlerSortTextsList() {}
+
+  handlerPlayQualify() {}
 }
