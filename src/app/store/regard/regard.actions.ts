@@ -15,6 +15,10 @@ export const getRegardSuccess = createAction('[REGARD] getRegardSuccess', props<
 export const getRegardError = createAction('[REGARD] getRegardError', props<IPayload<any>>());
 export const getRegardReset = createAction('[REGARD] getRegardReset');
 
+export const addRegardTextRequest = createAction('[REGARD] addRegardTextRequest', props<IPayload<any>>());
+export const addRegardTextSuccess = createAction('[REGARD] addRegardTextSuccess', props<IPayload<any>>());
+export const addRegardTextError = createAction('[REGARD] addRegardTextError', props<IPayload<any>>());
+
 // export const delScreenshotsListRequest = createAction('[SCREENSHOTS] delScreenshotsListRequest', props<IPayload<void>>());
 // export const delScreenshotsListSuccess = createAction('[SCREENSHOTS] delScreenshotsListSuccess', props<IPayload<any>>());
 // export const delScreenshotsListError = createAction('[SCREENSHOTS] delScreenshotsListError', props<IPayload<any>>());

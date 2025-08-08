@@ -1,11 +1,84 @@
 <div class="reg--container" *ngrxLet="loader$ as loader">
   <ng-form [formGroup]="form" class="reg--form">
-    <div>
-      <p class="reg-header">Add Text</p>
-      <p class="reg--label">Name:</p>
-      <mat-form-field appearance="outline">
-        <textarea class="reg--text-name" formControlName="name" matInput></textarea>
-      </mat-form-field>
+    <div class="reg--form__wrapper">
+<!--      <p class="reg-header">Add Text</p>-->
+      <!--      <p class="reg&#45;&#45;label">Name:</p>-->
+      <!--      <mat-form-field appearance="outline">-->
+      <!--        <textarea class="reg&#45;&#45;text-name" formControlName="name" matInput></textarea>-->
+      <!--      </mat-form-field>-->
+      <div>
+        <mat-form-field class="reg-txt--content reg-txt--input" appearance="outline">
+          <input [placeholder]="'content'" formControlName="content" matInput />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <label id="radio-group-label">Type: </label>
+        <mat-radio-group
+          aria-labelledby="radio-group-label"
+          class="example-radio-group"
+          formControlName="type">
+<!--          [(ngModel)]="favoriteSeason">-->
+          @for (type of types; track type) {<mat-radio-button class="example-radio-button" [value]="type">{{type}}</mat-radio-button>}
+        </mat-radio-group>
+<!--        <div>Your favorite type is: {{form.controls.type.value}}</div>-->
+      </div>
+
+      <div class="reg-arr" formArrayName="translation">
+        <p class="reg-arr-label">Translations: </p>
+        @for(translation of translation.controls; let i = $index; track i){
+          <div class="reg-txt--arr-field">
+            <mat-form-field class="reg-txt--arr reg-txt--input" appearance="outline">
+              <input [placeholder]="'translation '+(i+1)+' variant'" formControlName="{{i}}" matInput />
+            </mat-form-field>
+            <button class="reg-txt--arr-btn" mat-icon-button (click)="removeTranslation(i)"><mat-icon class="reg-del-ico">highlight_off</mat-icon></button>
+          </div>
+        }
+        <div class="reg-txt--add-arr" (click)="addTranslation()"><p>Add translation</p><mat-icon class="reg-del-ico">add</mat-icon></div>
+      </div>
+
+      <div class="reg-arr" formArrayName="synonyms">
+        <p class="reg-arr-label">Synonyms: </p>
+        @for(synonym of synonyms.controls; let i = $index; track i){
+          <div class="reg-txt--arr-field">
+            <mat-form-field class="reg-txt--arr reg-txt--input" appearance="outline">
+              <input [placeholder]="'synonym '+(i+1)+' variant'" formControlName="{{i}}" matInput />
+            </mat-form-field>
+            <button class="reg-txt--arr-btn" mat-icon-button (click)="removeSynonyms(i)"><mat-icon class="reg-del-ico">highlight_off</mat-icon></button>
+          </div>
+        }
+        <div class="reg-txt--add-arr" (click)="addSynonyms()"><p>Add synonyms</p><mat-icon class="reg-del-ico">add</mat-icon></div>
+      </div>
+
+
+
+<!--      <div>-->
+<!--        <div>-->
+<!--          <mat-form-field class="reg-txt&#45;&#45;content" appearance="outline">-->
+<!--            <input [placeholder]="'synonyms'" formControlName="synonyms" matInput />-->
+<!--          </mat-form-field>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div>-->
+<!--        <mat-form-field class="reg-txt&#45;&#45;content" appearance="outline">-->
+<!--          <input [placeholder]="'type'" formControlName="type" matInput />-->
+<!--        </mat-form-field>-->
+<!--      </div>-->
+
+      <!--      <div class="reg-txt&#45;&#45;img">-->
+      <!--        <button type="button" mat-button (click)="fileInput.click()">Choose Picture</button>-->
+      <!--        <input hidden (change)="onFileSelected($event)" #fileInput type="file" id="file">-->
+      <!--        @if(form.value.files){<img #imgPreview src="" alt="" class="reg-txt&#45;&#45;img-preview">}-->
+      <!--        <span class="file-name">{{fileInput?.files[0]?.name}}</span>-->
+      <!--      </div>-->
+
+      <div class="reg-txt--img">
+        <button type="button" mat-raised-button (click)="fileInput.click()">Choose Image</button>
+        <input hidden (change)="onFileSelected($event)" #fileInput type="file" id="file" />
+        @if(ava){<img #imgPreview [src]="ava" alt="pic" class="reg-txt--img-preview" />}
+        <span class="file-name">{{ fileInput && fileInput.files && fileInput.files[0]?.name }}</span>
+      </div>
     </div>
 
     <mat-dialog-actions align="end">
@@ -15,11 +88,10 @@
         class="btn-submit"
         mat-button
         [disabled]="form.invalid"
-        (click)="handleAdd()"
+        (click)="handleSubmitText()"
       >
-        {{ !loader ? 'Add text' : '' }}
-        @if (loader) {
-          <mat-spinner [diameter]="26"></mat-spinner>
+        {{ !loader ? 'Add text' : '' }} @if (loader) {
+        <mat-spinner [diameter]="26"></mat-spinner>
         }
       </button>
     </mat-dialog-actions>

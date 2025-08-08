@@ -45,4 +45,16 @@ export class RegardEffects {
       ),
     ),
   );
+
+  addTextRegard$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(regardActions.addRegardTextRequest),
+      switchMap(p =>
+        this.regardService.createAddText(p.payload, p.id).pipe(
+          map(res => regardActions.addRegardTextSuccess({ payload: res })),
+          catchError(err => of(regardActions.addRegardTextError({ payload: err }))),
+        ),
+      ),
+    ),
+  );
 }

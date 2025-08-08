@@ -13,6 +13,7 @@ export const qualifyReducers = createReducer(null);
 export const operativeRegardReducers = createReducer(
   null,
   on(regard.getRegardSuccess, (s, a) => a.payload),
+  on(regard.addRegardTextSuccess, (s, a) => a.payload),
   on(regard.getRegardReset, () => null),
 );
 

@@ -1,16 +1,38 @@
 @let text = data();
 <div class="text-wrapper">
   <div class="text-pronounce">
-    <div class="text-pronounce--audio">Play</div>
+    <div class="text-pronounce--menu" (click)="handler($event)" mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon class="item-icon">more_vert</mat-icon>
+    </div>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="handlerEditTxt()">
+        <mat-icon>edit</mat-icon>
+        <span>Edit Text</span>
+      </button>
+      <button mat-menu-item (click)="handlerDelTxt()">
+        <mat-icon>delete_forever</mat-icon>
+        <span>Delete Text From Regard</span>
+      </button>
+      <button mat-menu-item (click)="handlerResetTxt()">
+        <mat-icon>details</mat-icon>
+        <span>Reset Text</span>
+      </button>
+      <button mat-menu-item (click)="handlerMarkAsFinishTxt()">
+        <mat-icon>crop_square</mat-icon>
+        <span>Mark As Finish Text</span>
+      </button>
+      <button mat-menu-item (click)="handlerAddToFavorite()">
+        <mat-icon>stars</mat-icon>
+        <span>Add To Favorite</span>
+      </button>
+    </mat-menu>
+    <div class="text-pronounce--audio"><mat-icon>play_circle_outline</mat-icon></div>
   </div>
   <div class="text-item--container">
     <div class="text-item--content">{{ text.content }}</div>
     <div class="text-item--translation">@for (t of text.translation; track t){<span> [ {{ t }} ] </span>}</div>
   </div>
   <div class="text-item--info">
-    <div>
-      info
-    </div>
+    <div>info</div>
   </div>
 </div>
-

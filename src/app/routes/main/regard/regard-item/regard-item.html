@@ -4,8 +4,8 @@
   <div (click)="handler($event)" mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon class="item-icon">more_vert</mat-icon>
   </div>
-  <mat-menu disabled (click)="handlerEdit()" #menu="matMenu">
-    <button mat-menu-item disabled>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item disabled (click)="handlerEdit()" >
       <mat-icon>edit</mat-icon>
       <span>Edit name</span>
     </button>

@@ -2,13 +2,13 @@ import { Component, inject, OnInit } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogTitle, MatDialogContent } from '@angular/material/dialog';
 import { ModalContainerComponent } from '../modal-container/modal-container.component';
-import { NavComponent } from '../../routes/base/nav/nav.component';
+import { NavComponent } from 'src/app/routes/base/nav/nav.component';
 import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
 import { Location } from '@angular/common';
-import { ControlService } from '../../services/control.service';
+import { ControlService } from 'src/app/services/control.service';
 import { IStateControl, IStateNavControl } from '../../interfaces/common.interfaces';
-import { CreateScreenshotsListComponent } from '../../routes/main/screenshots/lists/create-screenshots-list/create-screenshots-list.component';
-import { RegardTextAdd } from '../../routes/main/regard/regard-text-add/regard-text-add';
+import { CreateScreenshotsListComponent } from 'src/app/routes/main/screenshots/lists/create-screenshots-list/create-screenshots-list.component';
+import { RegardTextAdd } from 'src/app/routes/main/regard/regard-text-add/regard-text-add';
 
 @Component({
   selector: 'app-control',
@@ -110,7 +110,6 @@ export class ControlComponent implements OnInit {
   }
 
   handlerAddTextToRegard() {
-    console.log();
     this.dialog.open(ModalContainerComponent, {
       data: {
         content: { name: 'Add Text' },
@@ -119,7 +118,7 @@ export class ControlComponent implements OnInit {
       height: 'calc(100vh - 96px)',
       maxWidth: '100vw',
       minWidth: '100vw',
-      panelClass: 'custom-container',
+      panelClass: 'reg-custom-container',
     });
   }
 

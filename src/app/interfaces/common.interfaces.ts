@@ -43,6 +43,7 @@ export interface IStateControl {
   icon: string;
   handler: EHandler;
   inactive?: boolean;
+  data?: { [key: string]: any };
 }
 
 export interface IStateNavControl {

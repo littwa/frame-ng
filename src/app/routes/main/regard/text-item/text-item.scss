@@ -9,8 +9,22 @@
 
   .text-pronounce {
     display: flex;
+
+    .item-icon {
+      margin-top: 14px;
+      margin-right: 5px;
+      margin-left: 5px;
+      //color: #059cff;
+
+      &:hover {
+        //cursor: pointer;
+        color: red;
+      }
+    }
+
     &--audio {
       align-self: center;
+      padding: 10px;
     }
   }
 

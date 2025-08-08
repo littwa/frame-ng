@@ -42,3 +42,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   padding: 12px 0!important;
 }
 
+.reg-custom-container div.mat-mdc-form-field-infix {
+  padding: 4px 0!important;
+  min-height: 28px!important;
+  //width: 80%;
+}
+
+.reg-custom-container {
+  .mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
+    display: none;
+  }
+}
+
+

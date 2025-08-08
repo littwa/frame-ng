@@ -31,6 +31,6 @@ export class ModalContainerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log('this.dialogRef ', this.dialogRef);
+    console.log('this.dialogRef ', this.dialogRef, this.data);
   }
 }
