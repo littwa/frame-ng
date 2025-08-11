@@ -8,14 +8,16 @@ export const regardListReducers = createReducer(
   on(regard.getRegardListsReset, () => null),
 );
 
-export const qualifyReducers = createReducer(null);
-
 export const operativeRegardReducers = createReducer(
   null,
   on(regard.getRegardSuccess, (s, a) => a.payload),
   on(regard.addRegardTextSuccess, (s, a) => a.payload),
+  on(regard.updateRegardTextSuccess, (s, a) => ({ ...s, list: s.list.map(v => (v._id === a.payload._id ? a.payload : v)) })),
+  on(regard.delTextFromRegardSuccess, (s, a) => a.payload),
   on(regard.getRegardReset, () => null),
 );
+
+export const qualifyReducers = createReducer(null);
 
 export const regardReducers = combineReducers({
   list: regardListReducers,

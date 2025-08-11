@@ -1,16 +1,26 @@
+@let found = found$ | async;
 <div class="reg--container" *ngrxLet="loader$ as loader">
   <ng-form [formGroup]="form" class="reg--form">
     <div class="reg--form__wrapper">
-<!--      <p class="reg-header">Add Text</p>-->
-      <!--      <p class="reg&#45;&#45;label">Name:</p>-->
-      <!--      <mat-form-field appearance="outline">-->
-      <!--        <textarea class="reg&#45;&#45;text-name" formControlName="name" matInput></textarea>-->
-      <!--      </mat-form-field>-->
       <div>
         <mat-form-field class="reg-txt--content reg-txt--input" appearance="outline">
           <input [placeholder]="'content'" formControlName="content" matInput />
         </mat-form-field>
+        <div [class]="['found--result', isHideFound && 'found--result__hide']">
+          <div [class]="'found--result__clear'" (click)="handlerClear()">clear found <mat-icon class="clear-ico">highlight_off</mat-icon></div>
+          @for (item of found; let i = $index; track item._id){
+            <div [class]="'found--result__item'" (click)="handlerChoice(item)">
+              <div class="text-item--container">
+                <div class="text-item--content">{{ item.content }}</div>
+                <div class="text-item--translation">@for (t of item.translation; track t){<span> [ {{ t }} ] </span>}</div>
+              </div>
+              <app-text-item-info [data]="undefined"></app-text-item-info>
+            </div>
+          }
+        </div>
       </div>
+
+
 
       <div>
         <label id="radio-group-label">Type: </label>
@@ -90,7 +100,7 @@
         [disabled]="form.invalid"
         (click)="handleSubmitText()"
       >
-        {{ !loader ? 'Add text' : '' }} @if (loader) {
+        {{ !loader ? 'Submit' : '' }} @if (loader) {
         <mat-spinner [diameter]="26"></mat-spinner>
         }
       </button>

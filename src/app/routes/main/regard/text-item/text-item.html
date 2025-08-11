@@ -1,7 +1,7 @@
 @let text = data();
 <div class="text-wrapper">
   <div class="text-pronounce">
-    <div class="text-pronounce--menu" (click)="handler($event)" mat-icon-button [matMenuTriggerFor]="menu">
+    <div class="text-pronounce--menu" mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon class="item-icon">more_vert</mat-icon>
     </div>
     <mat-menu #menu="matMenu">
@@ -26,7 +26,7 @@
         <span>Add To Favorite</span>
       </button>
     </mat-menu>
-    <div class="text-pronounce--audio"><mat-icon>play_circle_outline</mat-icon></div>
+    <div class="text-pronounce--audio" (click)="playAudio()"><mat-icon #audioBtn>{{icon}}</mat-icon></div>
   </div>
   <div class="text-item--container">
     <div class="text-item--content">{{ text.content }}</div>

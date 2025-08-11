@@ -70,7 +70,7 @@
         [disabled]="form.invalid"
         (click)="handleSubmitText()"
       >
-        {{ !loader ? 'Add text' : '' }} @if (loader) {
+        {{ !loader ? 'Submit' : '' }} @if (loader) {
         <mat-spinner [diameter]="26"></mat-spinner>
         }
       </button>

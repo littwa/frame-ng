@@ -19,9 +19,13 @@ export const addRegardTextRequest = createAction('[REGARD] addRegardTextRequest'
 export const addRegardTextSuccess = createAction('[REGARD] addRegardTextSuccess', props<IPayload<any>>());
 export const addRegardTextError = createAction('[REGARD] addRegardTextError', props<IPayload<any>>());
 
-// export const delScreenshotsListRequest = createAction('[SCREENSHOTS] delScreenshotsListRequest', props<IPayload<void>>());
-// export const delScreenshotsListSuccess = createAction('[SCREENSHOTS] delScreenshotsListSuccess', props<IPayload<any>>());
-// export const delScreenshotsListError = createAction('[SCREENSHOTS] delScreenshotsListError', props<IPayload<any>>());
+export const updateRegardTextRequest = createAction('[REGARD] updateRegardTextRequest', props<IPayload<any>>());
+export const updateRegardTextSuccess = createAction('[REGARD] updateRegardTextSuccess', props<IPayload<any>>());
+export const updateRegardTextError = createAction('[REGARD] updateRegardTextError', props<IPayload<any>>());
+
+export const delTextFromRegardRequest = createAction('[SCREENSHOTS] delTextFromRegardRequest', props<IPayload<any>>());
+export const delTextFromRegardSuccess = createAction('[SCREENSHOTS] delTextFromRegardSuccess', props<IPayload<any>>());
+export const delTextFromRegardError = createAction('[SCREENSHOTS] delTextFromRegardError', props<IPayload<any>>());
 
 // export const createScreenshotsRequest = createAction('[SCREENSHOTS] createScreenshotsRequest', props<IPayload<any>>());
 // export const createScreenshotsSuccess = createAction('[SCREENSHOTS] createScreenshotsSuccess', props<IPayload<any>>());

@@ -31,7 +31,7 @@ export class RegardApiService {
   }
 
   findTexts(content: string): Observable<any> {
-    return this.http.get<any>(`${env.urlApi}${EndPoint.regard.findTexts}`);
+    return this.http.get<any>(`${env.urlApi}${EndPoint.regard.findTexts}/${content}`);
   }
 
   addFoundText(textId: string, regardId: string): Observable<any> {
@@ -42,8 +42,8 @@ export class RegardApiService {
     return this.http.patch<any>(`${env.urlApi}${EndPoint.regard.updateText}/${id}`, body);
   }
 
-  delText(textId: string, regardId: string, qualifyId: string): Observable<any> {
-    return this.http.delete<any>(`${env.urlApi}${EndPoint.regard.delText}/${textId}/${regardId}/${qualifyId}`);
+  delText(textId: string, regardId: string): Observable<any> {
+    return this.http.delete<any>(`${env.urlApi}${EndPoint.regard.delText}/${textId}/${regardId}`);
   }
 
   createQualify(body: any, id: string): Observable<any> {

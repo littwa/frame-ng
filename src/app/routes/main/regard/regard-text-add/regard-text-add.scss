@@ -154,6 +154,60 @@
   //}
 }
 
+.found--result {
+  position: absolute;
+  width: 85vw;
+  z-index: 9;
+  background-color: variables.$board;
+
+  &__hide {
+    display: none;
+  }
+
+  &__clear {
+    color: variables.$fulvous;
+    cursor: pointer;
+    .clear-ico {
+      color: variables.$fulvous;
+    }
+
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    background-color: variables.$item;
+    margin: 2px 2px;
+    padding: 2px;
+    border-radius: 2px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    background-color: variables.$item;
+    height: 56px;
+    margin: 2px 2px;
+    padding: 4px;
+    border-radius: 2px;
+    cursor: pointer;
+
+    .text-item--container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+      height: 100%;
+      //box-sizing: content-box;
+
+
+      .text-item--content {
+        font-size: 20px;
+        font-weight: 500;
+        //align-self: center;
+      }
+    }
+  }
+}
+
 :host::ng-deep {
   .mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control {
     color: #ffffe2 !important;
@@ -161,3 +215,7 @@
     height: 28px !important;
   }
 }
+
+//@media screen and (max-width: 700px) {
+//  max-height: 89vh;
+//}

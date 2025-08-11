@@ -9,9 +9,8 @@ import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
 import { MatFormField } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
-import { ERegardTextType } from '../../../../enums/regard.enum';
-import { prepareFormData } from '../../../../utilities/common.utility';
-import { addRegardTextRequest } from '../../../../store/regard/regard.actions';
+import { prepareFormData } from 'src/app/utilities/common.utility';
+import { updateRegardTextRequest } from 'src/app/store/regard/regard.actions';
 
 @Component({
   selector: 'app-regard-text-update',
@@ -36,16 +35,12 @@ import { addRegardTextRequest } from '../../../../store/regard/regard.actions';
 export class RegardTextUpdate extends RegardTextAdd implements OnInit, OnDestroy {
   override dialogRef = inject(MatDialogRef<RegardTextUpdate>);
   override handleSubmitText() {
-    // super.handleSubmitText();
     const formData = prepareFormData(this.form.value);
     const id = this.router.lastSuccessfulNavigation.finalUrl.root.children.primary.segments[2].path;
-    console.log(333, id);
-
-    // this.store.dispatch(addRegardTextRequest({ payload: formData, id }));
+    this.store.dispatch(updateRegardTextRequest({ payload: formData, id }));
   }
 
   override initForm() {
-    console.log(1000001, this.dialogRef, this.data);
     this.form = this.fb.group({
       content: [this.data.content.text.content, [Validators.required, Validators.minLength(2)]],
       translation: this.fb.array([
