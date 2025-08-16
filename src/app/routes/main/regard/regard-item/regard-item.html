@@ -1,7 +1,7 @@
 <!--<p>regard-item works!</p>-->
 @let regard = data();
 <div class="regard-item--container">
-  <div (click)="handler($event)" mat-icon-button [matMenuTriggerFor]="menu">
+  <div (click)="$event.stopPropagation()" mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon class="item-icon">more_vert</mat-icon>
   </div>
   <mat-menu #menu="matMenu">

@@ -1,0 +1,23 @@
+<div class="qualify--create__container" *ngrxLet="loader$ as loader">
+  <ng-form [formGroup]="form" class="qualify--create__form">
+    <div class="qualify--create__wrapper">
+
+
+
+    </div>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button
+        [class.disable_btn]="form.invalid"
+        class="btn-submit"
+        mat-button
+        [disabled]="form.invalid"
+        (click)="submit()"
+      >
+        {{ !loader ? 'Submit' : '' }} @if (loader) {
+        <mat-spinner [diameter]="26"></mat-spinner>
+      }
+      </button>
+    </mat-dialog-actions>
+  </ng-form>
+</div>

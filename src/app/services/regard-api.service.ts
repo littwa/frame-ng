@@ -35,7 +35,7 @@ export class RegardApiService {
   }
 
   addFoundText(textId: string, regardId: string): Observable<any> {
-    return this.http.get<any>(`${env.urlApi}${EndPoint.regard.addFoundText}/${textId}/${regardId}`);
+    return this.http.post<any>(`${env.urlApi}${EndPoint.regard.addFoundText}/${textId}/${regardId}`, {});
   }
 
   updateText(body: any, id: string) {

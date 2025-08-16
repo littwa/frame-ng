@@ -4,7 +4,7 @@ import { RegardService } from 'src/app/services/regard.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { switchMap, map, of, tap } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { delTextFromRegardRequest } from 'src/app/store/regard/regard.actions';
+import { addRegardFoundTextRequest, delTextFromRegardRequest } from 'src/app/store/regard/regard.actions';
 
 @Injectable()
 export class RegardEffects {
@@ -59,6 +59,18 @@ export class RegardEffects {
     ),
   );
 
+  addRegardFoundText$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(addRegardFoundTextRequest),
+      switchMap(p =>
+        this.regardService.addFoundText(p.payload.textId, p.payload.regardId).pipe(
+          map(res => regardActions.addRegardFoundTextSuccess({ payload: res })),
+          catchError(err => of(regardActions.addRegardFoundTextError({ payload: err }))),
+        ),
+      ),
+    ),
+  );
+
   updateTextRegard$ = createEffect(() =>
     this.actions$.pipe(
       ofType(regardActions.updateRegardTextRequest),
@@ -71,7 +83,7 @@ export class RegardEffects {
     ),
   );
 
-  delTextFromRegardRequest$ = createEffect(() =>
+  delTextFromRegard$ = createEffect(() =>
     this.actions$.pipe(
       ofType(regardActions.delTextFromRegardRequest),
       switchMap(p =>
@@ -79,6 +91,18 @@ export class RegardEffects {
           tap(t => console.log(p)),
           map(res => regardActions.delTextFromRegardSuccess({ payload: res })),
           catchError(err => of(regardActions.delTextFromRegardError({ payload: err }))),
+        ),
+      ),
+    ),
+  );
+
+  delRegard$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(regardActions.delRegardRequest),
+      switchMap(p =>
+        this.regardService.delRegard(p.id).pipe(
+          map(res => regardActions.delRegardSuccess({ payload: res, id: p.id })),
+          catchError(err => of(regardActions.delRegardError({ payload: err }))),
         ),
       ),
     ),

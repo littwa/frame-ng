@@ -31,17 +31,6 @@ export const initNavState: IStateNavControl = {
   btn5: { icon: 'arrow_back', handler: EHandler.HandlerBack },
 };
 
-// export const navScreenshotsLists = initNavState.toSpliced(1, 0, {
-//   icon: 'add_box',
-//   handler: EHandler.HandlerCreateScreenshotsList,
-// });
-
-//   [
-//
-//   { icon: 'add_box', handler: EHandler.HandlerCreateScreenshotsList },
-//   { icon: 'arrow_back', handler: EHandler.HandlerBackToScreenshotsMenu },
-// ]
-
 export const ControlState: IStateNavControlList = {
   initial: initNavState,
   screenshotsMenu: {

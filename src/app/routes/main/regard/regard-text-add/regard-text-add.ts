@@ -13,11 +13,17 @@ import { MatButton, MatIconButton } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogActions, MatDialogClose, MatDialogRef } from '@angular/material/dialog';
 import { MatFormField, MatInput } from '@angular/material/input';
 import { Store } from '@ngrx/store';
-import { debounceTime, delay, Observable, Subject, switchMap, takeUntil, tap } from 'rxjs';
+import { debounceTime, delay, distinctUntilChanged, Observable, Subject, switchMap, takeUntil, takeWhile, tap } from 'rxjs';
 import { selectGeneralLoader } from 'src/app/store/loader/loader.selectors';
 import { Actions, ofType } from '@ngrx/effects';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
-import { addRegardTextRequest, addRegardTextSuccess, updateRegardTextSuccess } from 'src/app/store/regard/regard.actions';
+import {
+  addRegardFoundTextRequest,
+  addRegardFoundTextSuccess,
+  addRegardTextRequest,
+  addRegardTextSuccess,
+  updateRegardTextSuccess,
+} from 'src/app/store/regard/regard.actions';
 import { ERegardTextType } from 'src/app/enums/regard.enum';
 import { MatIcon } from '@angular/material/icon';
 import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
@@ -66,6 +72,7 @@ export class RegardTextAdd implements OnInit, OnDestroy {
   ava: string;
   isHideFound = true;
   found$: Observable<IRegardTextItem[]>;
+  choice: IRegardTextItem;
   data = inject(MAT_DIALOG_DATA);
   @ViewChild('imgPreview') imgPreview: ElementRef;
   @ViewChild('fileInput') fileInputRef: ElementRef;
@@ -74,15 +81,15 @@ export class RegardTextAdd implements OnInit, OnDestroy {
     this.initForm();
     this.initTextFound();
     this.actions$
-      .pipe(ofType(addRegardTextSuccess, updateRegardTextSuccess), takeUntil(this.unsubscribe$))
+      .pipe(ofType(addRegardTextSuccess, updateRegardTextSuccess, addRegardFoundTextSuccess), takeUntil(this.unsubscribe$))
       .subscribe(v => this.dialogRef.close());
   }
 
   initForm() {
     this.form = this.fb.group({
       content: [null, [Validators.required, Validators.minLength(2)]],
-      translation: this.fb.array([['', [Validators.required, Validators.minLength(2)]]]), // Array
-      synonyms: this.fb.array([['', Validators.minLength(2)]]), // Array, IsOptional
+      translation: this.fb.array([[null, [Validators.required, Validators.minLength(2)]]]), // Array
+      synonyms: this.fb.array([[null, Validators.minLength(2)]]), // Array, IsOptional
       type: [ERegardTextType.Word, []], // Array, IsOptional, ERegardTextType
       files: [null],
     });
@@ -90,19 +97,22 @@ export class RegardTextAdd implements OnInit, OnDestroy {
 
   initTextFound(): void {
     this.found$ = this.form.controls.content.valueChanges.pipe(
-      tap(v => console.log(33, v)),
+      tap(v => console.log(11, this.form)),
+      distinctUntilChanged(),
+      // tap(v => console.log(!this.form.disabled)),
+      // takeWhile(v => !this.form.disabled),
       tap(() => (this.isHideFound = true)),
       debounceTime(600),
-      filter(v => v.length > 1),
+      filter(v => v?.length > 1),
       switchMap(content => this.regardService.findTexts(content)),
-      tap(res => res.length && (this.isHideFound = false)),
+      tap(res => res?.length && (this.isHideFound = false)),
     );
   }
 
   handlerChoice(item: IRegardTextItem) {
-    this.isHideFound = true;
-    console.log(item);
-    console.log(11, this.data);
+    this.choice = item;
+    this.form.disable({ emitEvent: false });
+    // Object.keys(this.form.controls).forEach(key => this.form.controls[key].disable({ emitEvent: false }));
 
     this.form.patchValue({
       content: item.content,
@@ -110,17 +120,11 @@ export class RegardTextAdd implements OnInit, OnDestroy {
       synonyms: item.synonyms,
       type: item.type,
     });
-    //   = this.fb.group({
-    //   content: [item.content, [Validators.required, Validators.minLength(2)]],
-    //   translation: this.fb.array([
-    //     ...item.translation.map((v: string) => [v, [Validators.required, Validators.minLength(2)]]),
-    //   ]), // Array
-    //   synonyms: this.fb.array([...item.synonyms.map((v: string) => [v, [Validators.required, Validators.minLength(2)]])]), // Array, IsOptional
-    //   type: [item.type, []], // Array, IsOptional, ERegardTextType
-    // });
-
     this.ava = item.img;
-    // this.handlerClear();
+
+    this.initTextFound();
+
+    this.isHideFound = true;
   }
 
   handlerClear() {
@@ -132,7 +136,9 @@ export class RegardTextAdd implements OnInit, OnDestroy {
   }
 
   addTranslation() {
-    (<FormArray>this.form.controls['translation']).push(new FormControl('', [Validators.required, Validators.minLength(2)]));
+    (<FormArray>this.form.controls['translation']).push(
+      new FormControl(null, [Validators.required, Validators.minLength(2)]),
+    );
   }
 
   removeTranslation(i: number) {
@@ -144,7 +150,7 @@ export class RegardTextAdd implements OnInit, OnDestroy {
   }
 
   addSynonyms() {
-    (<FormArray>this.form.controls['synonyms']).push(new FormControl('', [Validators.required, Validators.minLength(2)]));
+    (<FormArray>this.form.controls['synonyms']).push(new FormControl(null, [Validators.required, Validators.minLength(2)]));
   }
 
   removeSynonyms(i: number) {
@@ -152,21 +158,22 @@ export class RegardTextAdd implements OnInit, OnDestroy {
   }
 
   handleSubmitText() {
-    const formData = prepareFormData(this.form.value);
-    // console.log(1100005, formData);
-    // currentUrlTree root children primary segments
-    // /regard/list/
-    // console.log(6000, this.router.url.split('/')[3]);
-    // console.log(6666, this.router.);
-    // console.log(999, this.router.parseUrl(this.router.url));
-    // console.log(999, this.router.serializeUrl(this.router.parseUrl(this.router.url)));
-    // console.log(111, this.router.lastSuccessfulNavigation);
-    // console.log(222, this.router.lastSuccessfulNavigation.finalUrl.root.children.primary.segments);
+    // const filtered = { ...this.form.value };
+    // if (!filtered.synonyms[0]) {
+    //   delete filtered.synonyms;
+    // }
+    const filtered = !this.form.value.synonyms[0] ? (({ synonyms, ...rest }) => rest)(this.form.value) : this.form.value;
 
+    const formData = prepareFormData(filtered);
     const id = this.router.lastSuccessfulNavigation.finalUrl.root.children.primary.segments[2].path;
-    console.log(333, id);
 
-    this.store.dispatch(addRegardTextRequest({ payload: formData, id }));
+    if (this.form.enabled) return this.store.dispatch(addRegardTextRequest({ payload: formData, id }));
+    this.store.dispatch(addRegardFoundTextRequest({ payload: { textId: this.choice._id, regardId: id } }));
+  }
+
+  handleReset() {
+    this.form.enable({ emitEvent: false });
+    this.form.reset({ emitEvent: false });
   }
 
   onFileSelected(e) {

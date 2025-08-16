@@ -20,8 +20,6 @@
         </div>
       </div>
 
-
-
       <div>
         <label id="radio-group-label">Type: </label>
         <mat-radio-group
@@ -60,29 +58,6 @@
         <div class="reg-txt--add-arr" (click)="addSynonyms()"><p>Add synonyms</p><mat-icon class="reg-del-ico">add</mat-icon></div>
       </div>
 
-
-
-<!--      <div>-->
-<!--        <div>-->
-<!--          <mat-form-field class="reg-txt&#45;&#45;content" appearance="outline">-->
-<!--            <input [placeholder]="'synonyms'" formControlName="synonyms" matInput />-->
-<!--          </mat-form-field>-->
-<!--        </div>-->
-<!--      </div>-->
-
-<!--      <div>-->
-<!--        <mat-form-field class="reg-txt&#45;&#45;content" appearance="outline">-->
-<!--          <input [placeholder]="'type'" formControlName="type" matInput />-->
-<!--        </mat-form-field>-->
-<!--      </div>-->
-
-      <!--      <div class="reg-txt&#45;&#45;img">-->
-      <!--        <button type="button" mat-button (click)="fileInput.click()">Choose Picture</button>-->
-      <!--        <input hidden (change)="onFileSelected($event)" #fileInput type="file" id="file">-->
-      <!--        @if(form.value.files){<img #imgPreview src="" alt="" class="reg-txt&#45;&#45;img-preview">}-->
-      <!--        <span class="file-name">{{fileInput?.files[0]?.name}}</span>-->
-      <!--      </div>-->
-
       <div class="reg-txt--img">
         <button type="button" mat-raised-button (click)="fileInput.click()">Choose Image</button>
         <input hidden (change)="onFileSelected($event)" #fileInput type="file" id="file" />
@@ -93,6 +68,7 @@
 
     <mat-dialog-actions align="end">
       <button mat-button mat-dialog-close>Cancel</button>
+      @if(form.disable){<button mat-button (click)="handleReset()">Reset</button>}
       <button
         [class.disable_btn]="form.invalid"
         class="btn-submit"

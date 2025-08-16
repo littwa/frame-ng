@@ -5,6 +5,7 @@ export const regardListReducers = createReducer(
   null,
   on(regard.getRegardListsSuccess, (s, a) => a.payload),
   on(regard.addRegardListSuccess, (s, a) => [...s, a.payload]),
+  on(regard.delRegardSuccess, (s, a) => s.filter(v => v._id !== a.id)),
   on(regard.getRegardListsReset, () => null),
 );
 
@@ -14,6 +15,7 @@ export const operativeRegardReducers = createReducer(
   on(regard.addRegardTextSuccess, (s, a) => a.payload),
   on(regard.updateRegardTextSuccess, (s, a) => ({ ...s, list: s.list.map(v => (v._id === a.payload._id ? a.payload : v)) })),
   on(regard.delTextFromRegardSuccess, (s, a) => a.payload),
+  on(regard.addRegardFoundTextSuccess, (s, a) => a.payload),
   on(regard.getRegardReset, () => null),
 );
 

@@ -9,6 +9,7 @@ import { ControlService } from 'src/app/services/control.service';
 import { IStateControl, IStateNavControl } from '../../interfaces/common.interfaces';
 import { CreateScreenshotsListComponent } from 'src/app/routes/main/screenshots/lists/create-screenshots-list/create-screenshots-list.component';
 import { RegardTextAdd } from 'src/app/routes/main/regard/regard-text-add/regard-text-add';
+import { RegardQualifyCreate } from '../../routes/main/regard/regard-qualify-create/regard-qualify-create';
 
 @Component({
   selector: 'app-control',
@@ -122,7 +123,18 @@ export class ControlComponent implements OnInit {
     });
   }
 
-  handlerSortTextsList() {}
+  handlerPlayQualify() {
+    this.dialog.open(ModalContainerComponent, {
+      data: {
+        content: { name: 'Create Qualify', regardId: 1 },
+        template: RegardQualifyCreate,
+      },
+      height: 'calc(100vh - 96px)',
+      maxWidth: '100vw',
+      minWidth: '100vw',
+      panelClass: 'reg-custom-container',
+    });
+  }
 
-  handlerPlayQualify() {}
+  handlerSortTextsList() {}
 }
