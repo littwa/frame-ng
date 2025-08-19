@@ -54,4 +54,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
 }
 
+.reg-qualify-container {
+  //.mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
+  //  display: none;
+  //}
+
+  .mat-mdc-select-value {
+    display: flex;
+    justify-content: center;
+  }
+
+  .mat-mdc-select-min-line {
+    color: v.$yello;
+  }
+}
+
 

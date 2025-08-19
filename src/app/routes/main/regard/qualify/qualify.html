@@ -1,1 +1,15 @@
 <p>qualify start!</p>
+<div class="qualify" *ngrxLet="{ loader: loader$, qualify: qualify$, regard: regard$ } as vm">
+  <div class="qualify--container">
+    @if(vm.qualify.finishedLap && vm.qualify.finished){
+    <div>Finish Qualify</div>
+    } @else if (vm.qualify.finishedLap){
+    <div>
+      <p>Finished Lap</p>
+      <button mat-button>Sta</button>
+    </div>
+    } @else {
+      <div>Text...</div>
+    }
+  </div>
+</div>

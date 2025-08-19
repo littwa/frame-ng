@@ -1,9 +1,35 @@
-<div class="qualify--create__container" *ngrxLet="loader$ as loader">
+<div class="qualify--create__container" *ngrxLet="{loader: loader$, regard: regard$} as vm">
+  @if(vm.regard.qualifyInProgress){<div class="qualify--create__resume" (click)="resume(vm.regard)">Resume qualify &#10140;</div>} @else {
   <ng-form [formGroup]="form" class="qualify--create__form">
     <div class="qualify--create__wrapper">
-
-
-
+      <div class="qualify--create__field">
+        <label id="type-label">Type: </label>
+        <mat-radio-group
+          aria-labelledby="type-label"
+          class="qualify--radio__group"
+          formControlName="type">
+          @for (type of qualifyType; track type[1]) {<mat-radio-button class="qualify--radio__button" [value]="type[1]">{{type[0]}}</mat-radio-button>}
+        </mat-radio-group>
+      </div>
+      <div class="qualify--create__field">
+        <label id="answers-label">Answers variant: </label>
+        <mat-radio-group
+          aria-labelledby="answers-label"
+          class="qualify--radio__group"
+          formControlName="answersVariant">
+          @for (answers of qualifyAnswers; track answers[1]) {<mat-radio-button class="qualify--radio__button" [value]="answers[1]">{{answers[0]}}</mat-radio-button>}
+        </mat-radio-group>
+      </div>
+      <div class="qualify--create__field">
+        <label>Repeat: </label>
+        <mat-form-field>
+          <mat-select formControlName="repeat">
+            @for (amount of [4,6,8,10,12]; track amount) {
+              <mat-option [value]="amount">{{amount}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
     <mat-dialog-actions align="end">
       <button mat-button mat-dialog-close>Cancel</button>
@@ -14,10 +40,11 @@
         [disabled]="form.invalid"
         (click)="submit()"
       >
-        {{ !loader ? 'Submit' : '' }} @if (loader) {
+        {{ !vm.loader ? 'Start' : '' }} @if (vm.loader) {
         <mat-spinner [diameter]="26"></mat-spinner>
       }
       </button>
     </mat-dialog-actions>
   </ng-form>
+  }
 </div>

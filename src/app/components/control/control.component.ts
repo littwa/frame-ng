@@ -126,13 +126,13 @@ export class ControlComponent implements OnInit {
   handlerPlayQualify() {
     this.dialog.open(ModalContainerComponent, {
       data: {
-        content: { name: 'Create Qualify', regardId: 1 },
+        content: { name: 'Prepare Qualify' },
         template: RegardQualifyCreate,
       },
       height: 'calc(100vh - 96px)',
       maxWidth: '100vw',
       minWidth: '100vw',
-      panelClass: 'reg-custom-container',
+      panelClass: 'reg-qualify-container',
     });
   }
 

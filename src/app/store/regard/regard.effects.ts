@@ -107,4 +107,28 @@ export class RegardEffects {
       ),
     ),
   );
+
+  createQualify$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(regardActions.createQualifyRequest),
+      switchMap(p =>
+        this.regardService.createQualify(p.payload, p.id).pipe(
+          map(res => regardActions.createQualifySuccess({ payload: res })),
+          catchError(err => of(regardActions.createQualifyError({ payload: err }))),
+        ),
+      ),
+    ),
+  );
+
+  checkQualify$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(regardActions.checkQualifyRequest),
+      switchMap(p =>
+        this.regardService.checkQualify(p.payload.body, p.payload.textId, p.payload.regardId, p.payload.qualifyId).pipe(
+          map(res => regardActions.checkQualifySuccess({ payload: res })),
+          catchError(err => of(regardActions.checkQualifyError({ payload: err }))),
+        ),
+      ),
+    ),
+  );
 }

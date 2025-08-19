@@ -10,3 +10,8 @@ export const selectRegard: MemoizedSelector<any, any> = createSelector(
   (s: IStore) => s.regard,
   s => s.operative,
 );
+
+export const selectQualify: MemoizedSelector<any, any> = createSelector(
+  (s: IStore) => s.regard,
+  s => s.qualify,
+);

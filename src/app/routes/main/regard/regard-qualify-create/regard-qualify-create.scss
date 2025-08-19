@@ -1,0 +1,65 @@
+@use 'src/styles/_variables.scss' as variables;
+
+:host {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+
+  .qualify--create__container {
+    height: 100%;
+
+    .qualify--create__resume {
+      margin: 20px 40px;
+      padding: 10px;
+      font-size: 20px;
+      text-align: center;
+      cursor: pointer;
+      border: 1px solid variables.$fulvous;
+      border-radius: 5px;
+    }
+
+    .qualify--create__form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      overflow-y: auto;
+
+      .qualify--create__wrapper {
+        //display: flex;
+        //flex-direction: column;
+        //align-items: start;
+
+        .qualify--create__field {
+          label {
+            margin-bottom: 10px;
+          }
+
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 25px 0;
+        }
+      }
+    }
+
+    mat-dialog-actions {
+      button {
+        color: variables.$fulvous;
+        border: solid 1px variables.$fulvous;
+      }
+
+      .disable_btn {
+        color: #5a5a5b;
+        border-color: #5a5a5b;
+      }
+    }
+  }
+
+  //::ng-deep {
+  //  .mat-mdc-select-value {
+  //    display: flex;
+  //    justify-content: center;
+  //  }
+  //}
+}

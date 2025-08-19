@@ -24,12 +24,9 @@
         <label id="radio-group-label">Type: </label>
         <mat-radio-group
           aria-labelledby="radio-group-label"
-          class="example-radio-group"
           formControlName="type">
-<!--          [(ngModel)]="favoriteSeason">-->
-          @for (type of types; track type) {<mat-radio-button class="example-radio-button" [value]="type">{{type}}</mat-radio-button>}
+          @for (type of types; track type) {<mat-radio-button [value]="type">{{type}}</mat-radio-button>}
         </mat-radio-group>
-<!--        <div>Your favorite type is: {{form.controls.type.value}}</div>-->
       </div>
 
       <div class="reg-arr" formArrayName="translation">

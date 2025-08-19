@@ -34,3 +34,15 @@ export const addRegardFoundTextError = createAction('[REGARD] addRegardFoundText
 export const delRegardRequest = createAction('[REGARD] delRegardRequest', props<IPayload<any>>());
 export const delRegardSuccess = createAction('[REGARD] delRegardSuccess', props<IPayload<any>>());
 export const delRegardError = createAction('[REGARD] delRegardError', props<IPayload<any>>());
+
+export const createQualifyRequest = createAction('[REGARD] createQualifyRequest', props<IPayload<any>>());
+export const createQualifySuccess = createAction('[REGARD] createQualifySuccess', props<IPayload<any>>());
+export const createQualifyError = createAction('[REGARD] createQualifyError', props<IPayload<any>>());
+
+export const checkQualifyRequest = createAction('[REGARD] checkQualifyRequest', props<IPayload<any>>());
+export const checkQualifySuccess = createAction('[REGARD] checkQualifySuccess', props<IPayload<any>>());
+export const checkQualifyError = createAction('[REGARD] checkQualifyError', props<IPayload<any>>());
+
+export const getQualifyRequest = createAction('[REGARD] getQualifyRequest', props<IPayload<any>>());
+export const getQualifySuccess = createAction('[REGARD] getQualifySuccess', props<IPayload<any>>());
+export const getQualifyError = createAction('[REGARD] getQualifyError', props<IPayload<any>>());

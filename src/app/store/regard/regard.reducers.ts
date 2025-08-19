@@ -19,7 +19,12 @@ export const operativeRegardReducers = createReducer(
   on(regard.getRegardReset, () => null),
 );
 
-export const qualifyReducers = createReducer(null);
+export const qualifyReducers = createReducer(
+  null,
+  on(regard.createQualifySuccess, (s, a) => a.payload),
+  on(regard.checkQualifySuccess, (s, a) => a.payload),
+  on(regard.getQualifySuccess, (s, a) => a.payload),
+);
 
 export const regardReducers = combineReducers({
   list: regardListReducers,
