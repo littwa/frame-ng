@@ -9,6 +9,7 @@ import { TextItem } from 'src/app/routes/main/regard/text-item/text-item';
 import { Observable, Subject } from 'rxjs';
 import { IRegardItemPopulate } from 'src/app/interfaces/regard.interfaces';
 import { map } from 'rxjs/operators';
+// import { TSTA } from '../../../../constants';
 
 @Component({
   selector: 'app-regard-itemized',
@@ -27,6 +28,9 @@ export class RegardItemized implements OnInit, OnDestroy {
     this.store.dispatch(getRegardRequest({ id: this.activatedRoute.snapshot.params.id, payload: null }));
     console.log(this.activatedRoute.snapshot.params.id);
     console.log(this.router);
+
+    // TSTA.qf(2);
+    // console.log(49, TSTA, TSTA.qm());
   }
 
   ngOnDestroy(): void {

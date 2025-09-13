@@ -1,0 +1,186 @@
+@use 'src/styles/_variables.scss' as variables;
+
+:host {
+  .qualify--text {
+    height: calc(100vh - 100px);
+    // width: 412px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+      //font-size: 18px;
+
+    }
+
+    &__interact {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      &-item {
+        padding: 20px;
+        margin: 5px;
+
+        &-icon {
+          font-size: 32px;
+          width: 32px;
+          height: 32px;
+          color: variables.$yello;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    &__content {
+      overflow: hidden;
+      max-width: 100vw;
+      width: 100vw;
+      font-size: 22px;
+      letter-spacing: 1.5px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: start;
+      // padding-top: 140px;
+      margin-bottom: 20px;
+
+      div {
+        //padding: 16px;
+        // margin-bottom: 10px;
+        // width: 100%;
+      }
+
+      &-wrp {
+        height: 150px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        // align-items: end;
+        //div {
+        //  margin: 0 auto;
+        //}
+        // padding: 20px 0;
+      }
+
+      &-txt {
+
+        margin-left: 16px;
+        min-height: 40px;
+        color: variables.$yello;
+        margin-bottom: 45px!important;
+        font-weight: 500;
+        font-family: Roboto, "Helvetica Neue", sans-serif;
+        text-decoration-style: solid;
+        font-size: 30px;
+        line-height: 30px;
+        vertical-align: middle;
+        // vertical-align: middle;
+
+        &-ico {
+        }
+
+        &-pron, &-pic {
+          vertical-align: middle;
+          margin-left: 20px;
+          width: 34px;
+          height: 34px;
+          font-size: 34px;
+          padding-bottom: 5px;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      &-synonyms {
+        padding: 8px 0;
+        box-sizing: border-box;
+        max-height: 144px;
+        min-height: 68px;
+        overflow: hidden;
+        width: 100%;
+        font-size: 28px;
+        background-color: variables.$fulvous-dark;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        span {
+          white-space: nowrap
+        }
+      }
+
+      &-translation {
+        padding: 8px 0;
+        box-sizing: border-box;
+        max-height: 144px;
+        min-height: 68px;
+        overflow: hidden;
+        width: 100%;
+        font-size: 28px;
+        background-color: variables.$fulvous-dark;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        span {
+          white-space: nowrap
+        }
+      }
+
+      &-show {
+        padding: 8px 0;
+        max-height: 115px;
+        min-height: 68px;
+        width: 100%;
+        background-color: variables.$item;
+        font-size: 28px;
+        text-align: center;
+        line-height: 68px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .text-pronounce--audio {
+      align-self: center;
+      padding: 10px;
+      margin-top: 14px;
+      margin-right: 5px;
+      margin-left: 5px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &__btn {
+      display: flex;
+      flex-direction: column;
+
+     button {
+       margin: 6px;
+       border: 1px solid variables.$salad;
+       font-size: 20px;
+       padding: 25px 50px;
+
+       &:first-child {
+         background-color: variables.$fulvous-dark;
+       }
+     }
+    }
+  }
+}

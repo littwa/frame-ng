@@ -1,15 +1,30 @@
-$fulvous: #5e4f0e;
+$fulvous: #65560f;
+$fulvous-dark: #332c07;
 $board: #151515;
 $txt: wheat;
 $yello: #cdcd00;
+$yello-dark: #989800;
 $item: #1b1b2c;
 $salad: #52cd00;
+$purple: #3b173c;
+$blues: #323263;
+
+$chart: 0%;
+
+:root {
+  --chart: 0%; // #{$chart}
+}
 
 :export {
   fulvous: $fulvous;
+  fulvous-dark: $fulvous-dark;
   board: $board;
   txt: $txt;
   yello: $yello;
+  yello-dark: $yello-dark;
   item: $item;
   salad: $salad;
+  purple: $purple;
+  blues: $blues;
+
 }

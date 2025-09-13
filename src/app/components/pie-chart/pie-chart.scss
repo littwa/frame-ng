@@ -1,0 +1,35 @@
+@use 'src/styles/_variables.scss' as variables;
+//@use 'src/styles.scss' as variables;
+
+//$c: (#f94144: 6, #f3722c: 3, #f8961e: 2, #f9c74f: 5, #90be6d: 7, #43aa8b: 1, #577590: 4);
+$c: (variables.$yello-dark: 1, variables.$fulvous-dark: 2);
+
+@function stops($c) {
+  $n: length($c); // number of slices
+  $s: 0; // sum of weights, initially 0
+  $p: 0%; // slice start, 0% initially
+  $l: (); // list of stops, initially empty
+
+  // compute sum of weights
+  @each $k, $v in $c { $s: $s + $v }
+
+  // get list of stops with their positions
+  @each $k, $v in $c {
+    $l: $l, $k if($p > 0%, 0%, unquote(''));
+    $p: $p + $v/$s*100%;
+    $l: $l if(round($p) < 100%, round($p), unquote(''));
+  }
+
+  @return $l
+}
+
+.pie {
+  width: 2em; /* set width to desired pie diameter */
+  aspect-ratio: 1; /* make the element square */
+  border-radius: 50%; /* turn square into disc */
+  /* randomly sized slices */
+  background:
+    //conic-gradient(from 0deg, #f94144 21%, #f3722c 0% 32%, #f8961e 0% 39%,
+    //  #f9c74f 0% 57%, #90be6d 0% 82%, #43aa8b 0% 86%, #577590 0%)
+    conic-gradient(from 0deg, variables.$yello-dark var(--chart), variables.$fulvous-dark 0%);
+}

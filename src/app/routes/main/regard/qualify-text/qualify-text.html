@@ -1,0 +1,67 @@
+@let text = data()?.text; @let qualify = qualify$ | async; @if (text && qualify){
+<div class="qualify--text">
+  <div class="qualify--text__interact">
+    <div class="qualify--text__interact-item"><mat-icon class="qualify--text__interact-item-icon" [matMenuTriggerFor]="menu">change_history</mat-icon></div>
+    <mat-menu class="qualify--text__menu" #menu="matMenu">
+      <button mat-menu-item (click)="markAsFinishQualityTextLap()" >
+        <mat-icon>check_box</mat-icon>
+        <span>Mark as finished Text</span>
+      </button>
+      <button (click)="resetQualityTextLap()" mat-menu-item>
+        <mat-icon>repeat</mat-icon>
+<!--        assignment_turned_in-->
+<!--        autorenew-->
+<!--        cached-->
+<!--        bookmark-->
+<!--        bookmark_border-->
+<!--        check_circle_outline-->
+<!--        check_circle-->
+<!--        done_outline-->
+<!--        grade-->
+<!--        settings_backup_restore-->
+        <span>Reset Text progress</span>
+      </button>
+      <button mat-menu-item (click)="handlerAddEssential()">
+        <mat-icon>grade</mat-icon>
+        <span>Add to Essential</span>
+      </button>
+    </mat-menu>
+    <div class="qualify--text__interact-item">
+      <app-pie-chart [style.--chart]="{ text, qualify } | pie"></app-pie-chart>
+    </div>
+  </div>
+  <div class="qualify--text__content">
+    <div class="qualify--text__content-wrp">
+      <div class="qualify--text__content-txt">
+        <span>{{ text.content }}qwdfgbghw</span>
+        <span class="qualify--text__content-txt-ico"><mat-icon class="qualify--text__content-txt-pron" (click)="playAudio()">{{icon}}</mat-icon></span>
+        <span class="qualify--text__content-txt-img"><mat-icon class="qualify--text__content-txt-pic">photo_size_select_actual</mat-icon></span>
+      </div>
+    </div>
+    @if(showSynonyms) {
+    <div class="qualify--text__content-wrp">
+      <div class="qualify--text__content-synonyms" (click)="showSynonyms=false">@for(s of text.synonyms; track s){<span>[ {{s}} ]</span><span>[ {{s}} ]</span><span>[ {{s}} ]</span><span>[ {{s}} ]</span><span>[ {{s}} ]</span>}</div>
+    </div>
+    } @else {
+    <div class="qualify--text__content-wrp">
+      <div class="qualify--text__content-show" (click)="showSynonyms=true">show synonyms</div>
+    </div>
+    } @if(showTranslation) {
+    <div class="qualify--text__content-wrp">
+      <div class="qualify--text__content-translation" (click)="showTranslation=false">
+        @for(t of text.translation; track t){<span>[ {{t}} ]</span><span>[ {{t}} ]</span><span>[ {{t}} ]</span>}
+      </div>
+    </div>
+    } @else {
+    <div class="qualify--text__content-wrp">
+      <div class="qualify--text__content-show" (click)="showTranslation=true">show translation</div>
+    </div>
+    }
+  </div>
+
+  <div class="qualify--text__btn">
+    <button (click)="handleCheck()" mat-button>Check Text</button>
+    <button (click)="handleNext()" mat-button>Next Text</button>
+  </div>
+</div>
+}

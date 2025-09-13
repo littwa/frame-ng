@@ -24,6 +24,7 @@ export const qualifyReducers = createReducer(
   on(regard.createQualifySuccess, (s, a) => a.payload),
   on(regard.checkQualifySuccess, (s, a) => a.payload),
   on(regard.getQualifySuccess, (s, a) => a.payload),
+  on(regard.startNextLapSuccess, (s, a) => a.payload),
 );
 
 export const regardReducers = combineReducers({

@@ -54,7 +54,7 @@ export class RegardApiService {
     return this.http.patch<any>(`${env.urlApi}${EndPoint.regard.checkQualify}/${textId}/${regardId}/${qualifyId}`, body);
   }
 
-  lapQualify(id: string): Observable<any> {
+  startNextLap(id: string): Observable<any> {
     return this.http.patch<any>(`${env.urlApi}${EndPoint.regard.lapQualify}/${id}`, null);
   }
 

@@ -13,7 +13,7 @@ import { EQualifyAnswers, EQualifyType, ERegardTextType } from 'src/app/enums/re
 import { MatFormField } from '@angular/material/form-field';
 import { MatSelect, MatSelectModule } from '@angular/material/select';
 import { MatOption } from '@angular/material/core';
-import { createQualifyRequest, createQualifySuccess } from 'src/app/store/regard/regard.actions';
+import { createQualifyRequest, createQualifySuccess, getRegardRequest } from 'src/app/store/regard/regard.actions';
 import { Actions, ofType } from '@ngrx/effects';
 import { IRegardItemPopulate } from '../../../../interfaces/regard.interfaces';
 import { selectRegard } from '../../../../store/regard/regard.selectors';
@@ -59,6 +59,7 @@ export class RegardQualifyCreate implements OnInit, OnDestroy {
     // const id = this.router.lastSuccessfulNavigation.finalUrl.root.children.primary.segments[2].path;
     this.actions$.pipe(ofType(createQualifySuccess), takeUntil(this.unsubscribe$)).subscribe(v => {
       console.log(900, v);
+      this.store.dispatch(getRegardRequest({ payload: null, id: this.regardId }));
       this.router.navigate([`regard/list/${this.regardId}/qualify/${v.payload._id}`]);
       this.dialogRef.close();
     });

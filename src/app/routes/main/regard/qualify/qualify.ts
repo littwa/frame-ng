@@ -1,27 +1,39 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { selectQualify, selectRegard } from '../../../../store/regard/regard.selectors';
-import { Observable, tap } from 'rxjs';
-import { getQualifySuccess, getRegardRequest } from '../../../../store/regard/regard.actions';
+import { selectQualify, selectRegard } from 'src/app/store/regard/regard.selectors';
+import { delayWhen, first, Observable, Subject, tap } from 'rxjs';
+import {
+  getQualifySuccess,
+  getRegardRequest,
+  startNextLapRequest,
+  startNextLapSuccess,
+} from 'src/app/store/regard/regard.actions';
 import { LetDirective } from '@ngrx/component';
-import { selectGeneralLoader } from '../../../../store/loader/loader.selectors';
-import { RegardItemized } from '../regard-itemized/regard-itemized';
-import { IRegardItem } from '../../../../interfaces/regard.interfaces';
+import { selectGeneralLoader } from 'src/app/store/loader/loader.selectors';
+import { IRegardItem } from 'src/app/interfaces/regard.interfaces';
 import { MatButton } from '@angular/material/button';
+import { QualifyText } from 'src/app/routes/main/regard/qualify-text/qualify-text';
+import { TextPipe } from 'src/app/pipes/text-pipe';
+import { Actions, ofType } from '@ngrx/effects';
+import { TestAService } from 'src/app/services/test-a.service';
 
 @Component({
   selector: 'app-qualify',
-  imports: [LetDirective, MatButton],
+  imports: [LetDirective, MatButton, QualifyText, TextPipe],
   templateUrl: './qualify.html',
   styleUrl: './qualify.scss',
 })
 export class Qualify implements OnInit {
+  testAService = inject(TestAService);
+  flag = false; // for example, does not affect to logic
+  actions$ = inject(Actions);
+  bs$$: Subject<void> = new Subject();
   store = inject(Store);
   router = inject(Router);
   activatedRoute = inject(ActivatedRoute);
   loader$: Observable<boolean> = this.store.select(selectGeneralLoader);
-  qualify$ = this.store.select(selectQualify);
+  qualify$: Observable<any> = this.store.select(selectQualify).pipe(delayWhen(() => this.bs$$));
   regard$ = this.store.select(selectRegard).pipe(tap(regard => this.initQualify(regard)));
 
   initQualify(regard: IRegardItem): void {
@@ -30,12 +42,20 @@ export class Qualify implements OnInit {
     }
     if (regard) {
       const payload = regard.qualifies.find(q => q._id === this.activatedRoute.snapshot.params.idq);
-      this.store.dispatch(getQualifySuccess({ payload }));
+      if (payload) this.store.dispatch(getQualifySuccess({ payload }));
     }
   }
 
   ngOnInit() {
-    console.log('Qualify this.activatedRoute.snapshot', this.activatedRoute.snapshot);
-    console.log('Qualify this.router', this.router);
+    this.actions$.pipe(ofType(getQualifySuccess), first()).subscribe(v => this.bs$$.next());
+    this.actions$.pipe(ofType(startNextLapSuccess)).subscribe(() => this.bs$$.next());
+  }
+
+  handleStartNextLap() {
+    this.store.dispatch(startNextLapRequest({ payload: null, id: this.activatedRoute.snapshot.params.idq }));
+  }
+
+  handleExit() {
+    this.router.navigate([`regard/list/${this.activatedRoute.snapshot.params.id}`]);
   }
 }

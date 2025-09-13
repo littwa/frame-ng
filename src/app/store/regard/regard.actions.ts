@@ -46,3 +46,16 @@ export const checkQualifyError = createAction('[REGARD] checkQualifyError', prop
 export const getQualifyRequest = createAction('[REGARD] getQualifyRequest', props<IPayload<any>>());
 export const getQualifySuccess = createAction('[REGARD] getQualifySuccess', props<IPayload<any>>());
 export const getQualifyError = createAction('[REGARD] getQualifyError', props<IPayload<any>>());
+
+export const startNextLapRequest = createAction('[REGARD] startNextLapRequest', props<IPayload<any>>());
+export const startNextLapSuccess = createAction('[REGARD] startNextLapSuccess', props<IPayload<any>>());
+export const startNextLapError = createAction('[REGARD] startNextLapError', props<IPayload<any>>());
+
+export const resetTextQualifyRequest = createAction('[REGARD] resetTextQualifyRequest', props<IPayload<any>>());
+export const resetTextQualifySuccess = createAction('[REGARD] resetTextQualifySuccess', props<IPayload<any>>());
+export const resetTextQualifyError = createAction('[REGARD] resetTextQualifyError', props<IPayload<any>>());
+
+export const markTextFinishQualifyRequest = createAction('[REGARD] markTextFinishQualifyRequest', props<IPayload<any>>());
+export const markTextFinishQualifySuccess = createAction('[REGARD] markTextFinishQualifySuccess', props<IPayload<any>>());
+export const markTextFinishQualifyError = createAction('[REGARD] markTextFinishQualifyError', props<IPayload<any>>());
+// markTextAsFinishQualify

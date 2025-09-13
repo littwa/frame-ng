@@ -4,12 +4,20 @@ import { RegardService } from 'src/app/services/regard.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { switchMap, map, of, tap } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { addRegardFoundTextRequest, delTextFromRegardRequest } from 'src/app/store/regard/regard.actions';
+import {
+  addRegardFoundTextRequest,
+  delTextFromRegardRequest,
+  markTextFinishQualifyRequest,
+  resetTextQualifyRequest,
+  startNextLapRequest,
+} from 'src/app/store/regard/regard.actions';
+import { Store } from '@ngrx/store';
 
 @Injectable()
 export class RegardEffects {
   regardService = inject(RegardService);
   actions$ = inject(Actions);
+  store = inject(Store);
 
   getRegards$ = createEffect(() =>
     this.actions$.pipe(
@@ -126,9 +134,49 @@ export class RegardEffects {
       switchMap(p =>
         this.regardService.checkQualify(p.payload.body, p.payload.textId, p.payload.regardId, p.payload.qualifyId).pipe(
           map(res => regardActions.checkQualifySuccess({ payload: res })),
+          tap(() => this.store.dispatch(regardActions.getRegardRequest({ id: p.payload.regardId, payload: null }))),
           catchError(err => of(regardActions.checkQualifyError({ payload: err }))),
         ),
       ),
     ),
   );
+
+  startNextLap$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(regardActions.startNextLapRequest),
+      switchMap(p =>
+        this.regardService.startNextLap(p.id).pipe(
+          map(res => regardActions.startNextLapSuccess({ payload: res })),
+          catchError(err => of(regardActions.startNextLapError({ payload: err }))),
+        ),
+      ),
+    ),
+  );
+
+  resetTextQualify$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(regardActions.resetTextQualifyRequest),
+      switchMap(p =>
+        this.regardService.resetTextQualify(p.payload.textId, p.payload.regardId, p.payload.qualifyId).pipe(
+          map(res => regardActions.resetTextQualifySuccess({ payload: res })),
+          catchError(err => of(regardActions.resetTextQualifyError({ payload: err }))),
+        ),
+      ),
+    ),
+  );
+
+  markTextFinishQualify$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(regardActions.markTextFinishQualifyRequest),
+      switchMap(p =>
+        this.regardService.markTextAsFinishQualify(p.payload.textId, p.payload.regardId, p.payload.qualifyId).pipe(
+          map(res => regardActions.markTextFinishQualifySuccess({ payload: res })),
+          catchError(err => of(regardActions.markTextFinishQualifyError({ payload: err }))),
+        ),
+      ),
+    ),
+  );
+
+  // resetTextQualify
+  // markTextFinishQualify
 }
