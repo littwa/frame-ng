@@ -1,5 +1,7 @@
 @use 'src/styles/_variables.scss' as variables;
 
+$cd: red;
+
 :host {
   display: inline-block;
   height: 100%;

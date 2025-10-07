@@ -25,6 +25,9 @@ export const qualifyReducers = createReducer(
   on(regard.checkQualifySuccess, (s, a) => a.payload),
   on(regard.getQualifySuccess, (s, a) => a.payload),
   on(regard.startNextLapSuccess, (s, a) => a.payload),
+  on(regard.markTextFinishQualifySuccess, (s, a) => a.payload),
+  on(regard.resetTextQualifySuccess, (s, a) => a.payload),
+  on(regard.getQualifyReset, (s, a) => null),
 );
 
 export const regardReducers = combineReducers({

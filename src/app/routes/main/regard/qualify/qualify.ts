@@ -11,16 +11,17 @@ import {
 } from 'src/app/store/regard/regard.actions';
 import { LetDirective } from '@ngrx/component';
 import { selectGeneralLoader } from 'src/app/store/loader/loader.selectors';
-import { IRegardItem } from 'src/app/interfaces/regard.interfaces';
+import { IQualify, IRegardItem } from 'src/app/interfaces/regard.interfaces';
 import { MatButton } from '@angular/material/button';
 import { QualifyText } from 'src/app/routes/main/regard/qualify-text/qualify-text';
 import { TextPipe } from 'src/app/pipes/text-pipe';
 import { Actions, ofType } from '@ngrx/effects';
 import { TestAService } from 'src/app/services/test-a.service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-qualify',
-  imports: [LetDirective, MatButton, QualifyText, TextPipe],
+  imports: [LetDirective, MatButton, QualifyText, TextPipe, AsyncPipe],
   templateUrl: './qualify.html',
   styleUrl: './qualify.scss',
 })
@@ -33,7 +34,7 @@ export class Qualify implements OnInit {
   router = inject(Router);
   activatedRoute = inject(ActivatedRoute);
   loader$: Observable<boolean> = this.store.select(selectGeneralLoader);
-  qualify$: Observable<any> = this.store.select(selectQualify).pipe(delayWhen(() => this.bs$$));
+  qualify$: Observable<IQualify> = this.store.select(selectQualify).pipe(delayWhen(() => this.bs$$));
   regard$ = this.store.select(selectRegard).pipe(tap(regard => this.initQualify(regard)));
 
   initQualify(regard: IRegardItem): void {

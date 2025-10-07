@@ -31,6 +31,9 @@ export enum EHandler {
   HandlerAddTextToRegard = 'handlerAddTextToRegard',
   HandlerSortTextsList = 'handlerSortTextsList',
   HandlerPlayQualify = 'handlerPlayQualify',
+
+  HandlerBackToRegardItemized = 'handlerBackToRegardItemized',
+  HandlerShowTextImage = 'handlerShowTextImage',
 }
 
 // export type key1 = 'btn1' | 'btn2' | 'btn3' | 'btn4' | 'btn5';

@@ -1,15 +1,17 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import { MatDialog, MAT_DIALOG_DATA, MatDialogTitle, MatDialogContent } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ModalContainerComponent } from '../modal-container/modal-container.component';
 import { NavComponent } from 'src/app/routes/base/nav/nav.component';
 import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
 import { Location } from '@angular/common';
 import { ControlService } from 'src/app/services/control.service';
-import { IStateControl, IStateNavControl } from '../../interfaces/common.interfaces';
 import { CreateScreenshotsListComponent } from 'src/app/routes/main/screenshots/lists/create-screenshots-list/create-screenshots-list.component';
 import { RegardTextAdd } from 'src/app/routes/main/regard/regard-text-add/regard-text-add';
 import { RegardQualifyCreate } from '../../routes/main/regard/regard-qualify-create/regard-qualify-create';
+import { Store } from '@ngrx/store';
+import { getQualifyReset } from '../../store/regard/regard.actions';
+import { ModalImage } from '../modal-image/modal-image';
 
 @Component({
   selector: 'app-control',
@@ -19,6 +21,7 @@ import { RegardQualifyCreate } from '../../routes/main/regard/regard-qualify-cre
   standalone: true,
 })
 export class ControlComponent implements OnInit {
+  store = inject(Store);
   dialog = inject(MatDialog);
   router = inject(Router);
   activatedRouter = inject(ActivatedRoute);
@@ -128,6 +131,25 @@ export class ControlComponent implements OnInit {
       data: {
         content: { name: 'Prepare Qualify' },
         template: RegardQualifyCreate,
+      },
+      height: 'calc(100vh - 96px)',
+      maxWidth: '100vw',
+      minWidth: '100vw',
+      panelClass: 'reg-qualify-container',
+    });
+  }
+
+  handlerBackToRegardItemized() {
+    this.location.back();
+    console.log(102);
+    this.store.dispatch(getQualifyReset());
+  }
+
+  handlerShowTextImage() {
+    this.dialog.open(ModalImage, {
+      data: {
+        content: { name: 'Show Image' },
+        template: null,
       },
       height: 'calc(100vh - 96px)',
       maxWidth: '100vw',

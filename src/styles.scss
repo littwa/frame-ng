@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @use 'styles/variables' as v;
-@import "styles/theme";
-@import "styles/vendor";
-@import 'styles/material';
+@use "styles/theme";
+@use "styles/vendor";
+@use 'styles/material';
 
 html, body {
   height: 100%;

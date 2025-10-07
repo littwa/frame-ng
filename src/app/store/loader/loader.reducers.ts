@@ -6,6 +6,7 @@ import * as ActionsScreenshots from 'src/app/store/screenshots/screenshots.actio
 import * as ActionsRegards from 'src/app/store/regard/regard.actions';
 import { IStateLoader } from 'src/app/interfaces/common.interfaces';
 import { stopLoaderGeneralRequest } from 'src/app/store/loader/loader.actions';
+import { checkQualifyRequest } from 'src/app/store/regard/regard.actions';
 
 export const generalLoaderReducers = createReducer(
   false,
@@ -21,6 +22,8 @@ export const generalLoaderReducers = createReducer(
   on(ActionsRegards.getRegardRequest, () => true),
   on(ActionsRegards.addRegardTextRequest, () => true),
   on(ActionsRegards.updateRegardTextRequest, () => true),
+
+  on(ActionsRegards.checkQualifyRequest, () => true),
 
   // on(JournalActions.addEntryRequest, () => true),
   // on(JournalActions.updateEntryRequest, () => true),
@@ -57,6 +60,9 @@ export const generalLoaderReducers = createReducer(
   on(ActionsRegards.addRegardTextError, () => false),
   on(ActionsRegards.updateRegardTextSuccess, () => false),
   on(ActionsRegards.updateRegardTextError, () => false),
+
+  on(ActionsRegards.checkQualifySuccess, () => false),
+  on(ActionsRegards.checkQualifyError, () => false),
 
   on(stopLoaderGeneralRequest, () => false),
 );

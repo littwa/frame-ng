@@ -176,7 +176,4 @@ export class RegardEffects {
       ),
     ),
   );
-
-  // resetTextQualify
-  // markTextFinishQualify
 }

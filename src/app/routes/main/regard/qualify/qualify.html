@@ -9,7 +9,11 @@
       <button mat-button (click)="handleStartNextLap()">Start next lap</button>
     </div>
     } @else {
-    <app-qualify-text [data]="vm | text" (next)="bs$$.next()" [(flag)]="flag"></app-qualify-text>
+    <app-qualify-text
+      [data]="{ qualify: vm.qualify, regard: vm.regard } | text"
+      (next)="bs$$.next()"
+      [(flag)]="flag"
+    ></app-qualify-text>
     }
   </div>
 </div>

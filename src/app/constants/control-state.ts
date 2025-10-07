@@ -81,6 +81,11 @@ export const ControlState: IStateNavControlList = {
     btn4: { icon: 'play_arrow', handler: EHandler.HandlerPlayQualify },
     btn5: { icon: 'arrow_back', handler: EHandler.HandlerBackToRegardList },
   },
+  regardQualify: {
+    ...initNavState,
+    btn4: { icon: 'wallpaper', handler: EHandler.HandlerShowTextImage },
+    btn5: { icon: 'arrow_back', handler: EHandler.HandlerBackToRegardItemized },
+  },
   // screenshotsList222: (({ btn5, ...rest }) => ({
   //   ...rest,
   //   btn4: { icon: 'add_box', handler: EHandler.HandlerCreateScreenshotsList },

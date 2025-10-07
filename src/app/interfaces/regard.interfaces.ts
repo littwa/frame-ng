@@ -1,3 +1,5 @@
+import { EQualifyAnswers, EQualifyType } from '../enums/regard.enum';
+
 export interface IRegardItem {
   list: string[];
   qualifies: any[];
@@ -27,4 +29,40 @@ export interface IRegardTextItem {
   translation: string[];
   regards: string[];
   synonyms: string[];
+}
+
+export interface IRegardQualifyTextIds {
+  textId: string;
+  regardId: string;
+  qualifyId: string;
+}
+
+export interface IQualify {
+  _id: string;
+  type: EQualifyType;
+  regard: string;
+  finished: boolean;
+  finishedLap: boolean;
+  progress: { [key: string]: number };
+  stat: IStatTextQualify[];
+  repeat: number;
+  answersVariant: EQualifyAnswers;
+  author: string;
+  created: string;
+}
+
+export interface IQualifyItemizedText {
+  qualify: IQualify;
+  progress: number;
+  stat: IStatTextQualify;
+  text: IRegardTextItem;
+}
+
+export interface IStatTextQualify {
+  amount: number;
+  checkedAmount: number;
+  finishedInQualify: boolean;
+  lapChecked: boolean;
+  obj: { [key: string]: number };
+  textId: string;
 }
