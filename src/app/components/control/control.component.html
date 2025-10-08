@@ -1,7 +1,7 @@
 <div class="control-container">
   @for (state of controlState; track state) {
     <div>
-      <mat-icon (click)="this[state.handler]()" class="nav__icon" [class.inactive]="state.inactive">{{
+      <mat-icon #btn (click)="this[state.handler]()" class="nav__icon" [class.inactive]="state.inactive" [class.disabled]="state.data?.disabled">{{
         state.icon
       }}</mat-icon>
     </div>

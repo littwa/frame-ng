@@ -1,21 +1,22 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalContainerComponent } from '../modal-container/modal-container.component';
+import { ModalContainerComponent } from 'src/app/components/modal-container/modal-container.component';
 import { NavComponent } from 'src/app/routes/base/nav/nav.component';
 import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
 import { Location } from '@angular/common';
 import { ControlService } from 'src/app/services/control.service';
 import { CreateScreenshotsListComponent } from 'src/app/routes/main/screenshots/lists/create-screenshots-list/create-screenshots-list.component';
 import { RegardTextAdd } from 'src/app/routes/main/regard/regard-text-add/regard-text-add';
-import { RegardQualifyCreate } from '../../routes/main/regard/regard-qualify-create/regard-qualify-create';
+import { RegardQualifyCreate } from 'src/app/routes/main/regard/regard-qualify-create/regard-qualify-create';
 import { Store } from '@ngrx/store';
-import { getQualifyReset } from '../../store/regard/regard.actions';
-import { ModalImage } from '../modal-image/modal-image';
+import { getQualifyReset } from 'src/app/store/regard/regard.actions';
+import { ModalImage } from 'src/app/components/modal-image/modal-image';
+import { RegardService } from 'src/app/services/regard.service';
 
 @Component({
   selector: 'app-control',
-  imports: [MatIcon, RouterLinkActive],
+  imports: [MatIcon],
   templateUrl: './control.component.html',
   styleUrl: './control.component.scss',
   standalone: true,
@@ -27,8 +28,10 @@ export class ControlComponent implements OnInit {
   activatedRouter = inject(ActivatedRoute);
   location = inject(Location);
   controlService = inject(ControlService);
-  controlState$ = this.controlService.state$$;
+  // regardService = inject(RegardService);
+  // controlState$ = this.controlService.state$$.pipe();
   controlState: any;
+  @ViewChildren('btn') btns: QueryList<any>;
 
   constructor() {}
 
@@ -114,6 +117,10 @@ export class ControlComponent implements OnInit {
   }
 
   handlerAddTextToRegard() {
+    // console.log(10000000002, this.btns.get(2)._elementRef.nativeElement.className.includes('disabled'));
+    // this.btns.map(v => console.log(v._elementRef.nativeElement.className.includes('disabled')));
+    if (this.btns.get(2)._elementRef.nativeElement.className.includes('disabled')) return;
+
     this.dialog.open(ModalContainerComponent, {
       data: {
         content: { name: 'Add Text' },

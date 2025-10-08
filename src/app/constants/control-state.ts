@@ -77,7 +77,7 @@ export const ControlState: IStateNavControlList = {
   regardItemized: {
     ...initNavState,
     btn2: { icon: 'sort', handler: EHandler.HandlerSortTextsList },
-    btn3: { icon: 'add_to_photos', handler: EHandler.HandlerAddTextToRegard },
+    btn3: { icon: 'add_to_photos', handler: EHandler.HandlerAddTextToRegard, data: { disabled: false } },
     btn4: { icon: 'play_arrow', handler: EHandler.HandlerPlayQualify },
     btn5: { icon: 'arrow_back', handler: EHandler.HandlerBackToRegardList },
   },
