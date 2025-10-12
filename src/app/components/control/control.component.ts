@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, QueryList, viewChildren, ViewChildren } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalContainerComponent } from 'src/app/components/modal-container/modal-container.component';
@@ -13,6 +13,8 @@ import { Store } from '@ngrx/store';
 import { getQualifyReset } from 'src/app/store/regard/regard.actions';
 import { ModalImage } from 'src/app/components/modal-image/modal-image';
 import { RegardService } from 'src/app/services/regard.service';
+import { _MatCellHarnessBase } from '@angular/material/table/testing';
+import { IStateControl } from '../../interfaces/common.interfaces';
 
 @Component({
   selector: 'app-control',
@@ -28,10 +30,10 @@ export class ControlComponent implements OnInit {
   activatedRouter = inject(ActivatedRoute);
   location = inject(Location);
   controlService = inject(ControlService);
-  // regardService = inject(RegardService);
-  // controlState$ = this.controlService.state$$.pipe();
-  controlState: any;
-  @ViewChildren('btn') btns: QueryList<any>;
+  controlState: IStateControl[];
+
+  @ViewChildren('btn', { read: ElementRef }) btns: QueryList<any>; // The same
+  btnControls = viewChildren<ElementRef, any>('btn', { read: ElementRef }); // The same
 
   constructor() {}
 
@@ -117,9 +119,9 @@ export class ControlComponent implements OnInit {
   }
 
   handlerAddTextToRegard() {
-    // console.log(10000000002, this.btns.get(2)._elementRef.nativeElement.className.includes('disabled'));
     // this.btns.map(v => console.log(v._elementRef.nativeElement.className.includes('disabled')));
-    if (this.btns.get(2)._elementRef.nativeElement.className.includes('disabled')) return;
+    // this.btns.forEach(e => console.log(e.nativeElement));
+    if (this.btns.get(2).nativeElement.className.includes('disabled')) return;
 
     this.dialog.open(ModalContainerComponent, {
       data: {

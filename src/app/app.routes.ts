@@ -27,6 +27,7 @@ export const routes: Routes = [
             loadChildren: () => import('src/app/routes/main/screenshots/screenshots.routes').then(x => x.screenshots),
           },
           { path: 'survey', loadChildren: () => import('src/app/routes/main/survey/survey.routes').then(x => x.survey) },
+          { path: 'assay', loadChildren: () => import('src/app/routes/main/assay/assay.routes').then(x => x.assay) },
         ],
       },
       {
