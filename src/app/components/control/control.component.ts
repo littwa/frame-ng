@@ -168,4 +168,7 @@ export class ControlComponent implements OnInit {
   }
 
   handlerSortTextsList() {}
+
+  handlerEmpty() {}
+  HandlerEmpty1() {}
 }

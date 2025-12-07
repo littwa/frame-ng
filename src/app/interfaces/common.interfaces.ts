@@ -20,6 +20,8 @@ export enum EHandler {
   HandlerCreateScreenshotsList = 'handlerCreateScreenshotsList',
   HandlerBackToScreenshotsLists = 'handlerBackToScreenshotsLists',
   HandlerBackToMainMenu = 'handlerBackToMainMenu',
+  HandlerEmpty = 'handlerEmpty',
+  HandlerEmpty1 = 'handlerEmpty1',
 
   HandlerHomeRegard = 'handlerHomeRegard',
   HandlerListRegard = 'handlerListRegard',

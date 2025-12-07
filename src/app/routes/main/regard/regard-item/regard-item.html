@@ -21,11 +21,14 @@
   <div class="item--content">
     <div class="item--content__name">{{ regard.name }}</div>
     <div class="item--content__info">
-      <div>info: some info</div>
-      <div>info: some info</div>
-      <div>qualifies: 1212</div>
-      <div>data: 02.22.2012</div>
+      <div>in progress: <span [class]="['circle', regard.qualifyInProgress ? 'circle--red' : 'circle--green']"></span></div>
+      <div>amount: {{ regard.list.length }}</div>
+      <div>qualifies: {{ regard.qualifyAmount }}</div>
+      <div>data: {{ regard.created | date }}</div>
     </div>
   </div>
 
 </div>
+
+<ng-template #qwe><span>dfd</span></ng-template>
+

@@ -9,10 +9,11 @@ import { RegardTextUpdate } from 'src/app/routes/main/regard/regard-text-update/
 import { ModalConfirmation } from 'src/app/components/modal-confirmation/modal-confirmation';
 import { Store } from '@ngrx/store';
 import { delTextFromRegardRequest } from 'src/app/store/regard/regard.actions';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-text-item',
-  imports: [MatIcon, MatMenu, MatMenuItem, MatMenuTrigger],
+  imports: [MatIcon, MatMenu, MatMenuItem, MatMenuTrigger, DatePipe],
   templateUrl: './text-item.html',
   styleUrl: './text-item.scss',
 })
@@ -27,6 +28,7 @@ export class TextItem implements OnInit {
 
   ngOnInit() {
     this.icon = this.data().pronunciation ? 'play_circle_outline' : 'not_interested';
+    console.log(this.data());
   }
 
   handlerEditTxt() {

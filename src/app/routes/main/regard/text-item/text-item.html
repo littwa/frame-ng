@@ -13,15 +13,15 @@
         <mat-icon>delete_forever</mat-icon>
         <span>Delete Text From Regard</span>
       </button>
-      <button mat-menu-item (click)="handlerResetTxt()">
+      <button disabled mat-menu-item (click)="handlerResetTxt()">
         <mat-icon>details</mat-icon>
         <span>Reset Text</span>
       </button>
-      <button mat-menu-item (click)="handlerMarkAsFinishTxt()">
+      <button disabled mat-menu-item (click)="handlerMarkAsFinishTxt()">
         <mat-icon>crop_square</mat-icon>
         <span>Mark As Finish Text</span>
       </button>
-      <button mat-menu-item (click)="handlerAddToFavorite()">
+      <button disabled mat-menu-item (click)="handlerAddToFavorite()">
         <mat-icon>stars</mat-icon>
         <span>Add To Favorite</span>
       </button>
@@ -30,9 +30,12 @@
   </div>
   <div class="text-item--container">
     <div class="text-item--content">{{ text.content }}</div>
-    <div class="text-item--translation">@for (t of text.translation; track t){<span> [ {{ t }} ] </span>}</div>
+      <div class="text-item--translation">@for (t of text.translation; track t){<span>[ {{ t }} ] </span>}</div>
   </div>
   <div class="text-item--info">
-    <div>info</div>
+      <div>qualifies: {{ text.qualifies.length }} </div>
+      <div>amount: {{ text.statistics.length }}</div>
+      <div>regards: {{ text.regards.length }}</div>
+      <div>at: {{ text.created | date:'d MMM yy' }}</div>
   </div>
 </div>

@@ -33,13 +33,24 @@
     div {
       overflow: hidden;
       font-size: 11px;
-      // height: 15px;
-      //width: max-content!important;
-      //height: max-content!important;
     }
 
     //height: 20px;
     //display: block;
+
+    .circle {
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      display: inline-block; /* Allows the element to have a defined height and width */
+
+      &--green {
+        background-color: #003700;
+      }
+      &--red {
+        background-color: red;
+      }
+    }
   }
 }
 

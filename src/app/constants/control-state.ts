@@ -25,9 +25,9 @@ import { EHandler, IStateControl, IStateNavControl, IStateNavControlList } from 
 
 export const initNavState: IStateNavControl = {
   btn1: { icon: 'home', handler: EHandler.HandlerHome },
-  btn2: { icon: 'code', handler: EHandler.HandlerHome },
+  btn2: { icon: 'code', handler: EHandler.HandlerEmpty },
   btn3: { icon: 'apps', handler: EHandler.HandlerOpenNavMenu },
-  btn4: { icon: 'code', handler: EHandler.HandlerHome },
+  btn4: { icon: 'code', handler: EHandler.HandlerEmpty1 },
   btn5: { icon: 'arrow_back', handler: EHandler.HandlerBack },
 };
 
