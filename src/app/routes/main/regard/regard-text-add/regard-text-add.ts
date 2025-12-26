@@ -165,7 +165,7 @@ export class RegardTextAdd implements OnInit, OnDestroy {
     const filtered = !this.form.value.synonyms[0] ? (({ synonyms, ...rest }) => rest)(this.form.value) : this.form.value;
 
     const formData = prepareFormData(filtered);
-    const id = this.router.lastSuccessfulNavigation.finalUrl.root.children.primary.segments[2].path;
+    const id = this.router.lastSuccessfulNavigation().finalUrl.root.children.primary.segments[2].path;
 
     if (this.form.enabled) return this.store.dispatch(addRegardTextRequest({ payload: formData, id }));
     this.store.dispatch(addRegardFoundTextRequest({ payload: { textId: this.choice._id, regardId: id } }));

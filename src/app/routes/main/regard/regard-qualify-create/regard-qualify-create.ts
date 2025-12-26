@@ -50,7 +50,7 @@ export class RegardQualifyCreate implements OnInit, OnDestroy {
   actions$ = inject(Actions);
   dialogRef = inject(MatDialogRef<RegardQualifyCreate>);
   form: FormGroup;
-  regardId = this.router.lastSuccessfulNavigation.finalUrl.root.children.primary.segments[2].path;
+  regardId = this.router.lastSuccessfulNavigation().finalUrl.root.children.primary.segments[2].path;
   loader$: Observable<boolean> = this.store.select(selectGeneralLoader);
   regard$: Observable<IRegardItemPopulate> = this.store.select(selectRegard);
 

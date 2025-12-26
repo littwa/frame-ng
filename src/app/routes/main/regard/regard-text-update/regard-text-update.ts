@@ -36,7 +36,7 @@ export class RegardTextUpdate extends RegardTextAdd implements OnInit, OnDestroy
   override dialogRef = inject(MatDialogRef<RegardTextUpdate>);
   override handleSubmitText() {
     const formData = prepareFormData(this.form.value);
-    const id = this.router.lastSuccessfulNavigation.finalUrl.root.children.primary.segments[2].path;
+    const id = this.router.lastSuccessfulNavigation().finalUrl.root.children.primary.segments[2].path;
     this.store.dispatch(updateRegardTextRequest({ payload: formData, id }));
   }
 

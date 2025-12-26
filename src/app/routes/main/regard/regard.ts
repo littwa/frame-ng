@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-regard',
@@ -7,4 +7,10 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './regard.html',
   styleUrl: './regard.scss',
 })
-export class Regard {}
+export class Regard implements OnInit {
+  router = inject(Router);
+  ngOnInit(){
+   // const regardId = this.router.lastSuccessfulNavigation().finalUrl.root.children.primary.segments[2].path;
+   // console.log(7009, regardId);
+  }
+}
