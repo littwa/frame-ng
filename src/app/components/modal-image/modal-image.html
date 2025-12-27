@@ -1,9 +1,7 @@
+@let url = regardService.currentTextData().img;
 <div class="show-image" (click)="dialogRef.close()">
   <div class="show-image--container">
-
-
-
-    <img class="show-image--container__img" alt="pic" [src]="'https://help.apple.com/assets/67EAFA445A9CF2743B0E7315/67EAFA489E4549D0950763E3/en_US/fa55a29ab7a7c668b3b22214e34bee61.png'">
+    <img class="show-image--container__img" alt="pic" [src]="url">
     <p>modal-image works! {{data.content.name}}</p>
   </div>
 

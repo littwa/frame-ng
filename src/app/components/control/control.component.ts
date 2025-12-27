@@ -13,8 +13,7 @@ import { Store } from '@ngrx/store';
 import { getQualifyReset } from 'src/app/store/regard/regard.actions';
 import { ModalImage } from 'src/app/components/modal-image/modal-image';
 import { RegardService } from 'src/app/services/regard.service';
-import { _MatCellHarnessBase } from '@angular/material/table/testing';
-import { IStateControl } from '../../interfaces/common.interfaces';
+import { IStateControl } from 'src/app/interfaces/common.interfaces';
 
 @Component({
   selector: 'app-control',

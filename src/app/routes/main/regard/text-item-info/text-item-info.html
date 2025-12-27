@@ -1,3 +1,7 @@
-<div class="text-item--info">
-  <div>info</div>
+@let text = data();
+<div class="text--item--info">
+  <div>qualifies: {{ text.qualifies.length }}</div>
+  <div>amount: {{ text.statistics.length }}</div>
+  <div>regards: {{ text.regards.length }}</div>
+  <div>at: {{ text.created | date:'d MMM yy' }}</div>
 </div>

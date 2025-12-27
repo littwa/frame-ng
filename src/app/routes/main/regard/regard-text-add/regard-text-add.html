@@ -14,7 +14,7 @@
                 <div class="text-item--content">{{ item.content }}</div>
                 <div class="text-item--translation">@for (t of item.translation; track t){<span> [ {{ t }} ] </span>}</div>
               </div>
-              <app-text-item-info [data]="undefined"></app-text-item-info>
+              <app-text-item-info [data]="item"></app-text-item-info>
             </div>
           }
         </div>

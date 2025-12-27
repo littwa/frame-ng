@@ -6,10 +6,14 @@ import { IRegardTextItem } from '../interfaces/regard.interfaces';
   providedIn: 'root',
 })
 export class RegardService extends RegardApiService {
-  qualifyTextData = signal<IRegardTextItem>(null);
+  currentTextData = signal<IRegardTextItem>(null);
   // regardItemizedData = signal(null);
 
   constructor() {
     super();
+  }
+
+  resetCurrentTextData() {
+    this.currentTextData.set(null);
   }
 }

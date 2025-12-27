@@ -1,0 +1,13 @@
+<div [style]="{ padding: '10px' }" class="container">
+<!--  <div>content: {{ data.content.text.content}}</div>-->
+  <div class="synonyms">{{ data.content.text.synonyms | textArray }}</div>
+  <div class="translation">{{ data.content.text.translation | textArray }}</div>
+  @if(data.content.text.img){<div class="pict" (click)="handleImg($event, data.content.text.img)"><mat-icon>photo_size_select_actual</mat-icon></div>}
+
+<!--  <img [src]="data.content.text.img">-->
+</div>
+
+<!--<div>{{ data.content.text.img}}</div>-->
+<!--<div>{{ data.content.text.img}}</div>-->
+<!--<pre>{{ data.content.text | json }}</pre>-->
+

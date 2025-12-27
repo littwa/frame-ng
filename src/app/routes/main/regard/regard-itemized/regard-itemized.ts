@@ -12,10 +12,11 @@ import { RegardService } from 'src/app/services/regard.service';
 import { ControlState } from 'src/app/constants/control-state';
 import { ControlService } from 'src/app/services/control.service';
 import { IStateNavControl } from 'src/app/interfaces/common.interfaces';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-regard-itemized',
-  imports: [LetDirective, TextItem],
+  imports: [LetDirective, TextItem, DatePipe],
   templateUrl: './regard-itemized.html',
   styleUrl: './regard-itemized.scss',
 })

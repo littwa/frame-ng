@@ -42,7 +42,7 @@ export class QualifyText implements OnInit {
   data: InputSignal<IQualifyItemizedText> = input(null, {
     transform: v => {
       this.icon = v?.text.pronunciation ? 'play_circle_outline' : 'not_interested';
-      this.regardService.qualifyTextData.set(v.text);
+      this.regardService.currentTextData.set(v.text);
       console.log(100009, v);
       return v;
     },

@@ -1,7 +1,7 @@
 @let text = data();
 <div class="text-wrapper">
   <div class="text-pronounce">
-    <div class="text-pronounce--menu" mat-icon-button [matMenuTriggerFor]="menu">
+    <div class="text-pronounce--menu" (click)="$event.stopPropagation()" mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon class="item-icon">more_vert</mat-icon>
     </div>
     <mat-menu #menu="matMenu">
@@ -26,16 +26,11 @@
         <span>Add To Favorite</span>
       </button>
     </mat-menu>
-    <div class="text-pronounce--audio" (click)="playAudio()"><mat-icon #audioBtn>{{icon}}</mat-icon></div>
+    <div class="text-pronounce--audio" (click)="playAudio($event)"><mat-icon #audioBtn>{{icon}}</mat-icon></div>
   </div>
   <div class="text-item--container">
     <div class="text-item--content">{{ text.content }}</div>
       <div class="text-item--translation">@for (t of text.translation; track t){<span>[ {{ t }} ] </span>}</div>
   </div>
-  <div class="text-item--info">
-      <div>qualifies: {{ text.qualifies.length }} </div>
-      <div>amount: {{ text.statistics.length }}</div>
-      <div>regards: {{ text.regards.length }}</div>
-      <div>at: {{ text.created | date:'d MMM yy' }}</div>
-  </div>
+  <app-text-item-info [data]="text"></app-text-item-info>
 </div>
