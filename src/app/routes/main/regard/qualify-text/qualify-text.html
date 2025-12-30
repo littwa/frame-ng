@@ -35,7 +35,7 @@
   <div class="qualify--text__content">
     <div class="qualify--text__content-wrp">
       <div class="qualify--text__content-txt">
-        <span>{{ text.content }}qwdfgbghw</span>
+        <span>{{ text.content }}</span>
         <span class="qualify--text__content-txt-ico"
           ><mat-icon class="qualify--text__content-txt-pron" (click)="playAudio()">{{icon}}</mat-icon></span
         >
@@ -45,8 +45,7 @@
     @if(showSynonyms) {
     <div class="qualify--text__content-wrp">
       <div class="qualify--text__content-synonyms" (click)="showSynonyms=false">
-        @for(s of text.synonyms; track s){<span>[ {{s}} ]</span><span>[ {{s}} ]</span><span>[ {{s}} ]</span
-        ><span>[ {{s}} ]</span><span>[ {{s}} ]</span>}
+        @for(s of text.synonyms; track s){<span>[ {{s}} ]</span>}
       </div>
     </div>
     } @else {
@@ -56,7 +55,7 @@
     } @if(showTranslation) {
     <div class="qualify--text__content-wrp">
       <div class="qualify--text__content-translation" (click)="showTranslation=false">
-        @for(t of text.translation; track t){<span>[ {{t}} ]</span><span>[ {{t}} ]</span><span>[ {{t}} ]</span>}
+        @for(t of text.translation; track t){<span>[ {{t}} ]</span>}
       </div>
     </div>
     } @else {
