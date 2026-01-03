@@ -1,9 +1,15 @@
 <!--<p>regard-itemized works!</p>-->
 <!--@let r = regard$ | async;-->
 
-<div *ngrxLet="regard$ as regard">
-  <h4 class="itemized-title">{{ regard.name }} [ {{ regard.list?.length }} ] {{ regard.created | date:'d MMM yy' }}</h4>
-  @for(text of regard.list; track text._id){<app-text-item [data]="text"></app-text-item>}
+<div *ngrxLet="{regard: regard$, loader: loader$} as vm">
+  @if(!vm.loader){
+  <h4 class="itemized--title">
+    {{ vm.regard.name }} [ {{ vm.regard.list?.length }}pcs ] {{ vm.regard.created | date:'d MMM yy' }}
+  </h4>
+  @for(text of vm.regard.list; track text._id){<app-text-item [data]="text"></app-text-item>} } @else {
+  <div class="itemized--title__spiner"><mat-spinner class="itemized--title__spiner" [diameter]="26"></mat-spinner></div>
+  }
+
   <!--  <pre>{{ regard.list | json }}</pre>-->
 </div>
 

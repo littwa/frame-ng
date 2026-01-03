@@ -1,4 +1,4 @@
-@let text = data()?.text; @let qualify = qualify$ | async; @let loader = loader$ | async; @if (text && qualify){
+@let text = data()?.text; @let stat = data()?.stat; @let qualify = qualify$ | async; @let loader = loader$ | async; @if (text && qualify){
 <div class="qualify--text">
   <div class="qualify--text__interact">
     <div class="qualify--text__interact-item">
@@ -35,7 +35,7 @@
   <div class="qualify--text__content">
     <div class="qualify--text__content-wrp">
       <div class="qualify--text__content-txt">
-        <span>{{ text.content }}</span>
+        <span>{{stat.obj.idx + 1}}. {{ text.content }}</span>
         <span class="qualify--text__content-txt-ico"
           ><mat-icon class="qualify--text__content-txt-pron" (click)="playAudio()">{{icon}}</mat-icon></span
         >
@@ -45,7 +45,7 @@
     @if(showSynonyms) {
     <div class="qualify--text__content-wrp">
       <div class="qualify--text__content-synonyms" (click)="showSynonyms=false">
-        @for(s of text.synonyms; track s){<span>[ {{s}} ]</span>}
+        @for(s of text.synonyms; track s){<span>{{s}}</span>}
       </div>
     </div>
     } @else {
@@ -55,7 +55,7 @@
     } @if(showTranslation) {
     <div class="qualify--text__content-wrp">
       <div class="qualify--text__content-translation" (click)="showTranslation=false">
-        @for(t of text.translation; track t){<span>[ {{t}} ]</span>}
+        @for(t of text.translation; track t){<span>{{t}}</span>}
       </div>
     </div>
     } @else {
@@ -66,10 +66,11 @@
   </div>
 
   <div class="qualify--text__btn">
-    <button [disabled]="btnSwitcher" (click)="handleCheck()" mat-button>
+    @if(!btnSwitcher){
+    <button class="qualify--text__btn-check" (click)="handleCheck()" mat-button>
       @if (loader){<mat-spinner [diameter]="26"></mat-spinner>} @else {Check Text}
     </button>
-    <button [disabled]="!btnSwitcher" (click)="handleNext()" mat-button>Next Text</button>
+    } @else { <button (click)="handleNext()" mat-button>Next Text</button>}
   </div>
 </div>
 }

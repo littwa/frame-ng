@@ -13,10 +13,12 @@ import { ControlState } from 'src/app/constants/control-state';
 import { ControlService } from 'src/app/services/control.service';
 import { IStateNavControl } from 'src/app/interfaces/common.interfaces';
 import { DatePipe } from '@angular/common';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { selectGeneralLoader } from 'src/app/store/loader/loader.selectors';
 
 @Component({
   selector: 'app-regard-itemized',
-  imports: [LetDirective, TextItem, DatePipe],
+  imports: [LetDirective, TextItem, DatePipe, MatProgressSpinner],
   templateUrl: './regard-itemized.html',
   styleUrl: './regard-itemized.scss',
 })
@@ -27,6 +29,7 @@ export class RegardItemized implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject<void>();
   activatedRoute = inject(ActivatedRoute);
   controlService$ = inject(ControlService);
+  loader$ = this.store.select(selectGeneralLoader);
 
   regard$: Observable<IRegardItemPopulate> = this.store.select(selectRegard).pipe(
     // tap(v => this.regardService.regardItemizedData.set(v)),

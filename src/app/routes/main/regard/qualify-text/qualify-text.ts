@@ -1,4 +1,17 @@
-import { Component, computed, effect, inject, input, InputSignal, model, OnInit, output, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  effect,
+  ElementRef,
+  inject,
+  input,
+  InputSignal,
+  model,
+  OnInit,
+  output,
+  signal,
+  ViewChild,
+} from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { AsyncPipe, JsonPipe, NgTemplateOutlet } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
