@@ -1,4 +1,5 @@
-@let text = data()?.text; @let stat = data()?.stat; @let qualify = qualify$ | async; @let loader = loader$ | async; @if (text && qualify){
+@let text = data()?.text; @let stat = data()?.stat; @let qualify = qualify$ | async; @let loader = loader$ | async; @if (text
+&& qualify){
 <div class="qualify--text">
   <div class="qualify--text__interact">
     <div class="qualify--text__interact-item">
@@ -11,16 +12,6 @@
       </button>
       <button (click)="resetQualityTextLap()" mat-menu-item>
         <mat-icon>repeat</mat-icon>
-        <!--        assignment_turned_in-->
-        <!--        autorenew-->
-        <!--        cached-->
-        <!--        bookmark-->
-        <!--        bookmark_border-->
-        <!--        check_circle_outline-->
-        <!--        check_circle-->
-        <!--        done_outline-->
-        <!--        grade-->
-        <!--        settings_backup_restore-->
         <span>Reset Text progress</span>
       </button>
       <button mat-menu-item (click)="handlerAddEssential()">
@@ -29,13 +20,16 @@
       </button>
     </mat-menu>
     <div class="qualify--text__interact-item">
+      <span class="qualify--text__interact-item-amount">{{stat.obj.idx + 1}}/{{qualify.stat.length}} </span>
+    </div>
+    <div class="qualify--text__interact-item">
       <app-pie-chart [style.--chart]="{ text, qualify } | pie"></app-pie-chart>
     </div>
   </div>
   <div class="qualify--text__content">
     <div class="qualify--text__content-wrp">
       <div class="qualify--text__content-txt">
-        <span>{{stat.obj.idx + 1}}. {{ text.content }}</span>
+        <span>{{ text.content }}</span>
         <span class="qualify--text__content-txt-ico"
           ><mat-icon class="qualify--text__content-txt-pron" (click)="playAudio()">{{icon}}</mat-icon></span
         >

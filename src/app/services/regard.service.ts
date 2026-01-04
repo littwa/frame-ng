@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { RegardApiService } from 'src/app/services/regard-api.service';
-import { IRegardTextItem } from '../interfaces/regard.interfaces';
+import { IRegardTextItem } from 'src/app/interfaces/regard.interfaces';
 
 @Injectable({
   providedIn: 'root',

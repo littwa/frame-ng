@@ -19,6 +19,6 @@ export class ModalImage implements OnInit {
   }
 
   ngOnInit() {
-    this.dialogRef.afterClosed().subscribe(() => this.regardService.resetCurrentTextData());
+    // this.dialogRef.afterClosed().subscribe(() => this.regardService.resetCurrentTextData());
   }
 }

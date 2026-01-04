@@ -119,7 +119,6 @@ export class ControlComponent implements OnInit {
 
   handlerAddTextToRegard() {
     // this.btns.map(v => console.log(v._elementRef.nativeElement.className.includes('disabled')));
-    // this.btns.forEach(e => console.log(e.nativeElement));
     if (this.btns.get(2).nativeElement.className.includes('disabled')) return;
 
     this.dialog.open(ModalContainerComponent, {
