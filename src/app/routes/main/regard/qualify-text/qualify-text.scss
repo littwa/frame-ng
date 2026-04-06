@@ -1,11 +1,18 @@
 @use 'src/styles/_variables.scss' as variables;
 
 :host {
+   display: flex;
+   //height: calc(100vh - 100px);
+  height: 80vh;
   .qualify--text {
-    height: calc(100vh - 100px);
+    //
+    // overflow-y: auto;
     // width: 412px;
-    overflow-y: auto;
+    // height: fit-content;
     display: flex;
+
+    // height: calc(100vh - 100px);
+    //overflow-y: overlay;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -78,8 +85,9 @@
 
       &-wrp {
         height: 120px;
-        width: 100%;
+        width: 96%;
         display: flex;
+        align-self: center;
         flex-direction: column;
         justify-content: end;
         align-items: center;
@@ -168,6 +176,7 @@
         line-height: 68px;
         width: 100%;
         background-color: variables.$item;
+        //border-radius: 5px;
 
         &:hover {
           cursor: pointer;
@@ -197,7 +206,7 @@
 
       button {
         margin: 6px;
-        border: 1px solid variables.$salad;
+        border: 1px solid variables.$yello-dark;
         font-size: 20px;
         padding: 25px 50px;
         width: 250px;
