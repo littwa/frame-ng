@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialogActions, MatDialogClose, MatDialogContent } from '@angular/material/dialog';
 import { MatButton } from '@angular/material/button';
 import { DIALOG_DATA } from '@angular/cdk/dialog';
@@ -7,6 +7,7 @@ import { DIALOG_DATA } from '@angular/cdk/dialog';
   selector: 'app-modal-confirmation',
   imports: [MatDialogActions, MatDialogClose, MatDialogContent, MatButton],
   templateUrl: './modal-confirmation.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './modal-confirmation.scss',
 })
 export class ModalConfirmation implements OnInit {

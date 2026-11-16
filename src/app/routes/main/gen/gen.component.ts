@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-gen',
   standalone: true,
   imports: [],
   templateUrl: './gen.component.html',
-  styleUrl: './gen.component.scss'
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: './gen.component.scss',
 })
-export class GenComponent {
-
-}
+export class GenComponent {}

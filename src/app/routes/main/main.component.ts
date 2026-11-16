@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { HeaderComponent } from '../base/header/header.component';
 import { FooterComponent } from '../base/footer/footer.component';
 
@@ -9,6 +9,7 @@ import { RouterOutlet } from '@angular/router';
   // standalone: true,
   imports: [HeaderComponent, FooterComponent, RouterOutlet],
   templateUrl: './main.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './main.component.scss',
 })
 export class MainComponent {}

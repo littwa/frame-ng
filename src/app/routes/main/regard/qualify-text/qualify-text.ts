@@ -11,6 +11,7 @@ import {
   output,
   signal,
   ViewChild,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { AsyncPipe, JsonPipe, NgTemplateOutlet } from '@angular/common';
@@ -38,6 +39,7 @@ import { RegardService } from 'src/app/services/regard.service';
   selector: 'app-qualify-text',
   imports: [MatButton, MatIcon, PieChart, PiePipe, AsyncPipe, MatMenu, MatMenuItem, MatMenuTrigger, MatProgressSpinner],
   templateUrl: './qualify-text.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './qualify-text.scss',
 })
 export class QualifyText implements OnInit {

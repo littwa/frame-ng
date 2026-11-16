@@ -1,5 +1,5 @@
-@let text = data()?.text; @let stat = data()?.stat; @let qualify = qualify$ | async; @let loader = loader$ | async; @if (text
-&& qualify){
+@let text = $safeNavigationMigration(data()?.text); @let stat = $safeNavigationMigration(data()?.stat); @let qualify =
+qualify$ | async; @let loader = loader$ | async; @if (text && qualify){
 <div class="qualify--text">
   <div class="qualify--text__interact">
     <div class="qualify--text__interact-item">

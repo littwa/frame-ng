@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { BehaviorSubject, share, Subject, tap, timer } from 'rxjs';
 import { ComponentA } from './component-a/component-a';
 import { ComponentB } from './component-b/component-b';
@@ -7,6 +7,7 @@ import { ComponentB } from './component-b/component-b';
   selector: 'app-assay',
   imports: [ComponentA, ComponentB],
   templateUrl: './assay.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './assay.scss',
 })
 export class Assay implements OnInit {

@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getRegardListsRequest, getRegardReset } from 'src/app/store/regard/regard.actions';
 import { selectRegards } from 'src/app/store/regard/regard.selectors';
@@ -14,6 +14,7 @@ import { RegardAdd } from 'src/app/routes/main/regard/regard-add/regard-add';
   selector: 'app-regard-list',
   imports: [LetDirective, RegardItem, RouterLink, MatButton],
   templateUrl: './regard-list.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './regard-list.scss',
 })
 export class RegardList implements OnInit, OnDestroy {

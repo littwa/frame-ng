@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-essentials',
   imports: [],
   templateUrl: './essentials.component.html',
-  styleUrl: './essentials.component.scss'
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: './essentials.component.scss',
 })
-export class EssentialsComponent {
-
-}
+export class EssentialsComponent {}

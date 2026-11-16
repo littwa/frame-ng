@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ControlComponent } from 'src/app/components/control/control.component';
 
 @Component({
@@ -6,6 +6,7 @@ import { ControlComponent } from 'src/app/components/control/control.component';
   standalone: true,
   imports: [ControlComponent],
   templateUrl: './footer.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './footer.component.scss',
 })
 export class FooterComponent {}

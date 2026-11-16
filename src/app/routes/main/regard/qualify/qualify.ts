@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { selectQualify, selectRegard } from 'src/app/store/regard/regard.selectors';
@@ -23,6 +23,7 @@ import { AsyncPipe } from '@angular/common';
   selector: 'app-qualify',
   imports: [LetDirective, MatButton, QualifyText, TextPipe, AsyncPipe],
   templateUrl: './qualify.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './qualify.scss',
 })
 export class Qualify implements OnInit {

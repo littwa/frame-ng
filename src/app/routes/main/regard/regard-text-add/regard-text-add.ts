@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, OnDestroy, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -56,6 +56,7 @@ import { AsyncPipe } from '@angular/common';
     AsyncPipe,
   ],
   templateUrl: './regard-text-add.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './regard-text-add.scss',
 })
 export class RegardTextAdd implements OnInit, OnDestroy {

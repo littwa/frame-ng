@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { FormControl, FormGroup, FormGroupDirective, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
@@ -13,6 +13,7 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [ReactiveFormsModule, MatFormField, MatFormFieldModule, MatInputModule, MatButtonModule, RouterLink],
   templateUrl: './sign-in.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './sign-in.component.scss',
 })
 export class SignInComponent implements OnInit {

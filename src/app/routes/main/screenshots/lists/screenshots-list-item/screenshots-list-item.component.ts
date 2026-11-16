@@ -1,4 +1,4 @@
-import { Component, inject, input, InputSignal, OnInit } from '@angular/core';
+import { Component, inject, input, InputSignal, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { ControlService } from '../../../../../services/control.service';
 import { ControlState } from '../../../../../constants/control-state';
@@ -13,6 +13,7 @@ export const actionTest = createAction('TEST');
   selector: 'app-screenshots-list-item',
   imports: [MatIcon, MatMenu, MatMenuTrigger, MatMenuItem],
   templateUrl: './screenshots-list-item.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './screenshots-list-item.component.scss',
 })
 export class ScreenshotsListItemComponent {

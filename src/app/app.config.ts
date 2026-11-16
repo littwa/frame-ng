@@ -1,6 +1,6 @@
 import { ApplicationConfig, provideZoneChangeDetection, isDevMode, importProvidersFrom, Injectable } from '@angular/core';
 import { PreloadAllModules, provideRouter, withPreloading } from '@angular/router';
-import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { provideHttpClient, withInterceptors, withXhr } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideState, provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
@@ -19,7 +19,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     // importProvidersFrom(HttpClientModule),
-    provideHttpClient(withInterceptors([jwtInterceptor])),
+    provideHttpClient(withXhr(), withInterceptors([jwtInterceptor])),
     provideRouter(routes, withPreloading(PreloadAllModules)),
     provideAnimationsAsync(),
     provideStore(reducers, config),

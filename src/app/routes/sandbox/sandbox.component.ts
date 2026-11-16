@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { DefComponent } from './def/def.component';
 
 @Component({
@@ -6,6 +6,7 @@ import { DefComponent } from './def/def.component';
   standalone: true,
   imports: [DefComponent],
   templateUrl: './sandbox.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './sandbox.component.scss',
 })
 export class SandboxComponent {}

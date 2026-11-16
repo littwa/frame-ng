@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { Store } from '@ngrx/store';
@@ -12,6 +12,7 @@ import { MatInput, MatInputModule } from '@angular/material/input';
   standalone: true,
   imports: [ReactiveFormsModule, MatFormField, MatFormFieldModule, MatButtonModule, RouterLink, MatInput, MatInputModule],
   templateUrl: './sign-up.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './sign-up.component.scss',
 })
 export class SignUpComponent implements OnInit {

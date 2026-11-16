@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { selectGeneralLoader } from 'src/app/store/loader/loader.selectors';
@@ -6,7 +6,6 @@ import { Store } from '@ngrx/store';
 import { Actions, ofType } from '@ngrx/effects';
 import { MatDialogActions, MatDialogClose, MatDialogRef } from '@angular/material/dialog';
 import { createScreenshotsListRequest, createScreenshotsListSuccess } from 'src/app/store/screenshots/screenshots.actions';
-
 
 import { MatButton } from '@angular/material/button';
 import { MatInput } from '@angular/material/input';
@@ -25,9 +24,10 @@ import { LetDirective } from '@ngrx/component';
     MatDialogClose,
     MatButton,
     MatInput,
-    LetDirective
-],
+    LetDirective,
+  ],
   templateUrl: './create-screenshots-list.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './create-screenshots-list.component.scss',
 })
 export class CreateScreenshotsListComponent implements OnInit, OnDestroy {

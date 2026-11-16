@@ -1,4 +1,4 @@
-@let screenshots = this.data?.screenshots;
+@let screenshots = $safeNavigationMigration(this.data?.screenshots);
 @let loader = this.loader$ | async;
 <!--<pre>{{screenshots | json}}{{ !screenshots}} {{ screenshots?.length === 0 }}</pre>-->
 @if (!screenshots?.length) {
@@ -6,7 +6,9 @@
     <input style="display: none" #fileInput name="images" type="file" multiple (change)="handleAddScreenshots($event)" />
     <button class="btn-selected" matButton="outlined" type="button" (click)="fileInput.click()">Select Files</button>
     @if (selectedFiles) {
-      <button matButton="outlined" type="button" (click)="handleUpload()">{{ loader ? 'Loading...' : 'Upload files' }}</button>
+      <button matButton="outlined" type="button" (click)="handleUpload()">
+        {{ loader ? 'Loading...' : 'Upload files' }}
+      </button>
     }
   </div>
   @if (selectedFiles) {

@@ -1,4 +1,14 @@
-import { Component, ElementRef, HostListener, inject, input, InputSignal, OnInit, viewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  inject,
+  input,
+  InputSignal,
+  OnInit,
+  viewChild,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IRegardTextItem } from 'src/app/interfaces/regard.interfaces';
 import { MatIcon } from '@angular/material/icon';
@@ -17,6 +27,7 @@ import { TextItemItemized } from 'src/app/routes/main/regard/text-item-itemized/
   imports: [MatIcon, MatMenu, MatMenuItem, MatMenuTrigger, TextItemInfo],
   templateUrl: './text-item.html',
   styleUrl: './text-item.scss',
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: {
     '(click)': 'onClick($event)',
   },

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { JsonPipe } from '@angular/common';
 
 @Component({
@@ -6,6 +6,7 @@ import { JsonPipe } from '@angular/common';
   standalone: true,
   imports: [JsonPipe],
   templateUrl: './def.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './def.component.scss',
 })
 export class DefComponent {}

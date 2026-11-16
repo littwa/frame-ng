@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy } from '@angular/core';
+import { Component, inject, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LetDirective } from '@ngrx/component';
 import { MatButton } from '@angular/material/button';
@@ -31,6 +31,7 @@ import { addRegardListRequest, addRegardListSuccess } from '../../../../store/re
     MatProgressSpinner,
   ],
   templateUrl: './regard-add.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './regard-add.scss',
 })
 export class RegardAdd implements OnDestroy {

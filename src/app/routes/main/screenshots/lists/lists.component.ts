@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { ScreenshotsListItemComponent } from './screenshots-list-item/screenshots-list-item.component';
 import { RouterLink } from '@angular/router';
@@ -9,11 +9,11 @@ import { selectScreenshotsLists } from 'src/app/store/screenshots/screenshots.se
 import * as screenshotsActions from 'src/app/store/screenshots/screenshots.actions';
 import { LetDirective } from '@ngrx/component';
 
-
 @Component({
   selector: 'app-lists',
   imports: [MatIcon, ScreenshotsListItemComponent, RouterLink, LetDirective],
   templateUrl: './lists.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './lists.component.scss',
 })
 export class ListsComponent implements OnInit {

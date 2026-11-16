@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {
   MatSnackBar,
   MatSnackBarConfig,
@@ -17,6 +17,7 @@ import { actionTest } from '../../routes/main/screenshots/lists/screenshots-list
   selector: 'app-notification',
   imports: [],
   templateUrl: './notification.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './notification.component.scss',
 })
 export class NotificationComponent implements OnInit, OnDestroy {

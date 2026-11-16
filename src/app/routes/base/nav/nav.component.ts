@@ -1,4 +1,4 @@
-import { Component, Injector, input, OnInit } from '@angular/core';
+import { Component, Injector, input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { INJECTION_TOKEN_POST_CONTENT } from 'src/app/injectors/injection.tokens';
 
@@ -7,6 +7,7 @@ import { INJECTION_TOKEN_POST_CONTENT } from 'src/app/injectors/injection.tokens
   standalone: true,
   imports: [RouterLinkActive, RouterLink],
   templateUrl: './nav.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './nav.component.scss',
 })
 export class NavComponent implements OnInit {

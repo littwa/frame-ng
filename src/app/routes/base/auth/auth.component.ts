@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { Observable, of, tap } from 'rxjs';
 import { IStateUser } from 'src/app/interfaces/auth.interfaces';
@@ -27,9 +27,10 @@ import { selectAuthLoader } from '../../../store/loader/loader.selectors';
     LetDirective,
     CommonModule,
     UpdUrlPipe,
-    MatMenuItem
-],
+    MatMenuItem,
+  ],
   templateUrl: './auth.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './auth.component.scss',
 })
 export class AuthComponent {

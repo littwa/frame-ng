@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { RegardTextAdd } from 'src/app/routes/main/regard/regard-text-add/regard-text-add';
 import { FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LetDirective } from '@ngrx/component';
@@ -30,6 +30,7 @@ import { updateRegardTextRequest } from 'src/app/store/regard/regard.actions';
     ReactiveFormsModule,
   ],
   templateUrl: './regard-text-update.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './regard-text-update.scss',
 })
 export class RegardTextUpdate extends RegardTextAdd implements OnInit, OnDestroy {

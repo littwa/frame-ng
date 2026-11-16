@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-pie-chart',
   imports: [],
   templateUrl: './pie-chart.html',
-  styleUrl: './pie-chart.scss'
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: './pie-chart.scss',
 })
-export class PieChart {
-
-}
+export class PieChart {}

@@ -1,4 +1,4 @@
-import { Component, inject, input, InputSignal } from '@angular/core';
+import { Component, inject, input, InputSignal, ChangeDetectionStrategy } from '@angular/core';
 import { IRegardItem } from 'src/app/interfaces/regard.interfaces';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 import { MatIcon } from '@angular/material/icon';
@@ -10,6 +10,7 @@ import { DatePipe } from '@angular/common';
   selector: 'app-regard-item',
   imports: [MatIcon, MatMenu, MatMenuItem, MatMenuTrigger, DatePipe],
   templateUrl: './regard-item.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './regard-item.scss',
 })
 export class RegardItem {

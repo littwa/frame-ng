@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { IScreenshotsList } from 'src/app/interfaces/screenshots.interfaces';
 import { Store } from '@ngrx/store';
 import { createScreenshotsRequest, getScreenshotsListRequest } from 'src/app/store/screenshots/screenshots.actions';
@@ -13,6 +13,7 @@ import { selectGeneralLoader } from 'src/app/store/loader/loader.selectors';
   selector: 'app-screenshots-list',
   imports: [ScreenshotsItemComponent, MatButtonModule, JsonPipe, AsyncPipe],
   templateUrl: './screenshots-list.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './screenshots-list.component.scss',
 })
 export class ScreenshotsListComponent implements OnInit {

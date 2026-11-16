@@ -1,4 +1,4 @@
-import { Component, inject, Inject, input, InputSignal, OnInit } from '@angular/core';
+import { Component, inject, Inject, input, InputSignal, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { IRegardTextItem } from '../../../../interfaces/regard.interfaces';
 import { INJECTION_TOKEN_POST_CONTENT } from 'src/app/injectors/injection.tokens';
 import { JsonPipe } from '@angular/common';
@@ -12,6 +12,7 @@ import { RegardService } from '../../../../services/regard.service';
   selector: 'app-text-item-itemized',
   imports: [JsonPipe, MatIcon, TextArrayPipe],
   templateUrl: './text-item-itemized.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './text-item-itemized.scss',
 })
 export class TextItemItemized implements OnInit {

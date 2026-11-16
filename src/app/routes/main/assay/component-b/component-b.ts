@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-component-b',
   imports: [],
   templateUrl: './component-b.html',
-  styleUrl: './component-b.scss'
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: './component-b.scss',
 })
-export class ComponentB {
-
-}
+export class ComponentB {}

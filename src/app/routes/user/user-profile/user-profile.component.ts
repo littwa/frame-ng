@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
@@ -26,6 +26,7 @@ import { IStateUser } from '../../../interfaces/auth.interfaces';
   ],
   providers: [UnixPipe],
   templateUrl: './user-profile.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './user-profile.component.scss',
 })
 export class UserProfileComponent implements OnInit {

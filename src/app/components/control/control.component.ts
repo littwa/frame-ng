@@ -1,4 +1,13 @@
-import { Component, ElementRef, inject, OnInit, QueryList, viewChildren, ViewChildren } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  inject,
+  OnInit,
+  QueryList,
+  viewChildren,
+  ViewChildren,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalContainerComponent } from 'src/app/components/modal-container/modal-container.component';
@@ -20,6 +29,7 @@ import { IStateControl } from 'src/app/interfaces/common.interfaces';
   imports: [MatIcon],
   templateUrl: './control.component.html',
   styleUrl: './control.component.scss',
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: true,
 })
 export class ControlComponent implements OnInit {

@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-regard-home',
   imports: [],
   templateUrl: './regard-home.html',
-  styleUrl: './regard-home.scss'
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: './regard-home.scss',
 })
-export class RegardHome {
-
-}
+export class RegardHome {}

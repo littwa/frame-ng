@@ -1,4 +1,4 @@
-import { Component, Inject, Injector, OnInit } from '@angular/core';
+import { Component, Inject, Injector, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { INJECTION_TOKEN_POST_CONTENT } from '../../injectors/injection.tokens';
 import { DIALOG_DATA } from '@angular/cdk/dialog';
 import { MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
@@ -10,6 +10,7 @@ import { MatIcon } from '@angular/material/icon';
   imports: [MatDialogContent, NgComponentOutlet, MatIcon],
   standalone: true,
   templateUrl: './modal-container.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './modal-container.component.scss',
 })
 export class ModalContainerComponent implements OnInit {

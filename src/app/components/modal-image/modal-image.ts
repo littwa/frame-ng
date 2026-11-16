@@ -1,4 +1,4 @@
-import { Component, inject, Inject, OnInit } from '@angular/core';
+import { Component, inject, Inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { DIALOG_DATA } from '@angular/cdk/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
 import { RegardService } from '../../services/regard.service';
@@ -7,6 +7,7 @@ import { RegardService } from '../../services/regard.service';
   selector: 'app-modal-image',
   imports: [],
   templateUrl: './modal-image.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './modal-image.scss',
 })
 export class ModalImage implements OnInit {

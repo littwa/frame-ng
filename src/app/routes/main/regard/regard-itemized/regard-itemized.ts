@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { getRegardRequest } from 'src/app/store/regard/regard.actions';
@@ -20,6 +20,7 @@ import { selectGeneralLoader } from 'src/app/store/loader/loader.selectors';
   selector: 'app-regard-itemized',
   imports: [LetDirective, TextItem, DatePipe, MatProgressSpinner],
   templateUrl: './regard-itemized.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './regard-itemized.scss',
 })
 export class RegardItemized implements OnInit, OnDestroy {

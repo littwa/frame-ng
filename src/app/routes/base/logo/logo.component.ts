@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 
@@ -7,6 +7,7 @@ import { NgOptimizedImage } from '@angular/common';
   standalone: true,
   imports: [NgOptimizedImage],
   templateUrl: './logo.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './logo.component.scss',
 })
 export class LogoComponent {

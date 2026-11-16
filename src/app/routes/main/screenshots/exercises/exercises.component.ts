@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-exercises',
   imports: [],
   templateUrl: './exercises.component.html',
-  styleUrl: './exercises.component.scss'
+  changeDetection: ChangeDetectionStrategy.Eager,
+  styleUrl: './exercises.component.scss',
 })
-export class ExercisesComponent {
-
-}
+export class ExercisesComponent {}

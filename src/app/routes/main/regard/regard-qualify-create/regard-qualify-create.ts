@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LetDirective } from '@ngrx/component';
@@ -37,6 +37,7 @@ import { selectRegard } from '../../../../store/regard/regard.selectors';
     MatSelectModule,
   ],
   templateUrl: './regard-qualify-create.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './regard-qualify-create.scss',
 })
 export class RegardQualifyCreate implements OnInit, OnDestroy {
