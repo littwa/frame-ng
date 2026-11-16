@@ -32,7 +32,7 @@ import { IQualifyItemizedText, IRegardQualifyTextIds } from 'src/app/interfaces/
 import { Actions, ofType } from '@ngrx/effects';
 import { selectGeneralLoader } from 'src/app/store/loader/loader.selectors';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
-import { RegardService } from '../../../../services/regard.service';
+import { RegardService } from 'src/app/services/regard.service';
 
 @Component({
   selector: 'app-qualify-text',
