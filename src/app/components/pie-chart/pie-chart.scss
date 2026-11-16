@@ -15,13 +15,14 @@ $c: (variables.$yello-dark: 1, variables.$fulvous-dark: 2);
 
   // get list of stops with their positions
   @each $k, $v in $c {
-    $l: $l, $k if($p > 0%, 0%, unquote(''));
+    $l: $l, $k if(sass($p > 0%): 0%; else: unquote(''));
     $p: $p + $v/$s*100%;
-    $l: $l if(round($p) < 100%, round($p), unquote(''));
+    $l: $l if(sass(round($p) < 100%): round($p); else: unquote(''));
   }
 
   @return $l
 }
+
 
 .pie {
   width: 1.5em; /* set width to desired pie diameter */

@@ -58,7 +58,7 @@ export class NotificationComponent implements OnInit, OnDestroy {
       .pipe(
         skip(1),
         takeUntil(this.unsubscribe$),
-        filter(v => {
+        filter((v: any) => {
           console.log('filter error', v.payload.error.message !== 'User was not found');
           return v.payload.error.message !== 'User was not found';
         }),

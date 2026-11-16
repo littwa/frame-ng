@@ -7,7 +7,7 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-main',
   // standalone: true,
-  imports: [HeaderComponent, FooterComponent, RouterOutlet],
+  imports: [RouterOutlet],
   templateUrl: './main.component.html',
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './main.component.scss',

@@ -3,7 +3,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    //    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "strict": false,
     "noImplicitOverride": true,
@@ -21,11 +21,8 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-//    "noImplicitAny": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    //    "noImplicitAny": false,
+    "lib": ["ES2022", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
@@ -36,7 +33,6 @@
       "checks": {
         "unusedStandaloneImports": "suppress"
       }
-    },
-
+    }
   }
 }
