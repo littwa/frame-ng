@@ -4,6 +4,10 @@
   "compileOnSave": false,
   "compilerOptions": {
     //    "baseUrl": "./",
+    "paths": {
+      "*": ["./*"] // "src/app/*": ["src/app/*"] // "*": ["./*"]
+      //      "@lib/*": ["lib/*"]
+    },
     "outDir": "./dist/out-tsc",
     "strict": false,
     "noImplicitOverride": true,

@@ -11,7 +11,7 @@ import { BehaviorSubject, skip, Subject, takeUntil } from 'rxjs';
 import { Actions, ofType } from '@ngrx/effects';
 import * as screenshotsActions from 'src/app/store/screenshots/screenshots.actions';
 import { filter } from 'rxjs/operators';
-import { actionTest } from '../../routes/main/screenshots/lists/screenshots-list-item/screenshots-list-item.component';
+import { actionTest } from 'src/app/routes/main/screenshots/lists/screenshots-list-item/screenshots-list-item.component';
 
 @Component({
   selector: 'app-notification',

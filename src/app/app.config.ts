@@ -1,7 +1,7 @@
 import { ApplicationConfig, provideZoneChangeDetection, isDevMode, importProvidersFrom, Injectable } from '@angular/core';
 import { PreloadAllModules, provideRouter, withPreloading } from '@angular/router';
 import { provideHttpClient, withInterceptors, withXhr } from '@angular/common/http';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+// import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideState, provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideRouterStore } from '@ngrx/router-store';
@@ -21,7 +21,7 @@ export const appConfig: ApplicationConfig = {
     // importProvidersFrom(HttpClientModule),
     provideHttpClient(withXhr(), withInterceptors([jwtInterceptor])),
     provideRouter(routes, withPreloading(PreloadAllModules)),
-    provideAnimationsAsync(),
+    // provideAnimationsAsync(),
     provideStore(reducers, config),
     provideEffects([AuthEffects, ScreenshotsEffects, RegardEffects]),
     provideRouterStore(),

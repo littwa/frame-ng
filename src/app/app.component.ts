@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NotificationComponent } from './components/notification/notification.component';
+import { NotificationComponent } from 'src/app/components/notification/notification.component';
 
 @Component({
   selector: 'app-root',
