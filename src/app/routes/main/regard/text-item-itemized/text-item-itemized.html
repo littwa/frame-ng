@@ -1,13 +1,46 @@
 <div [style]="{ padding: '10px' }" class="container">
-<!--  <div>content: {{ data.content.text.content}}</div>-->
-  <div class="synonyms">{{ data.content.text.synonyms | textArray }}</div>
-  <div class="translation">{{ data.content.text.translation | textArray }}</div>
-  @if(data.content.text.img){<div class="pict" (click)="handleImg($event, data.content.text.img)"><mat-icon>photo_size_select_actual</mat-icon></div>}
+  <!--<div>-->
+  <!--  <details>-->
+  <!--    <summary>Click to Show / Hide</summary>-->
+  <!--    <div>-->
+  <!--      This content-->
+  <!--    </div>-->
+  <!--  </details>-->
+  <!--</div>-->
 
-<!--  <img [src]="data.content.text.img">-->
+  <!--  @defer {<div>defer</div>}@placeholder (minimum 1500ms) {-->
+  <!--    <div>placeholder</div>-->
+  <!--  } @loading {-->
+  <!--    <div>loading</div>-->
+  <!--  }-->
+
+  @if(content){
+  <div (click)="(content = !content)" class="line content">{{ data.content.text.content}}</div>
+  } @else{
+  <div (click)="(content = !content)" class="line">show content</div>
+  }
+
+  @if(synonyms){
+    <div (click)="(synonyms = !synonyms)" class="line synonyms">{{ (data.content.text.synonyms | textArray) || 'no synonyms' }}</div>
+  } @else{
+    <div (click)="(synonyms = !synonyms)" class="line">show synonyms</div>
+  }
+
+  @if(translation){
+    <div (click)="(translation = !translation)" class="line translation">{{ (data.content.text.translation | textArray) || 'no translation' }}</div>
+  } @else {
+    <div (click)="(translation = !translation)" class="line">show translation</div>
+  }
+
+<!--  <div class="line synonyms">{{ data.content.text.synonyms | textArray }}</div>-->
+<!--  <div class="line translation">{{ data.content.text.translation | textArray }}</div>-->
+  @if(data.content.text.img){
+  <div class="pict" (click)="handleImg($event, data.content.text.img)"><mat-icon>photo_size_select_actual</mat-icon></div>
+  }
+
+  <!--  <img [src]="data.content.text.img">-->
 </div>
 
 <!--<div>{{ data.content.text.img}}</div>-->
 <!--<div>{{ data.content.text.img}}</div>-->
 <!--<pre>{{ data.content.text | json }}</pre>-->
-

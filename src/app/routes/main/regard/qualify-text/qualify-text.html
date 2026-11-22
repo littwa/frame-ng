@@ -29,9 +29,9 @@ qualify$ | async; @let loader = loader$ | async; @if (text && qualify){
   <div class="qualify--text__content">
     <div class="qualify--text__content-wrp">
       <div class="qualify--text__content-txt">
-        <span>{{ text.content }}</span>
+        <span class="qualify--text__content-txt-content">{{ text.content }}</span>
         <span class="qualify--text__content-txt-ico"
-          ><mat-icon class="qualify--text__content-txt-pron" (click)="playAudio()">{{icon}}</mat-icon></span
+          ><mat-icon class="qualify--text__content-txt-pron" (click)="playAudio()">{{icon}}</mat-icon> No image</span
         >
         <!--        <span class="qualify&#45;&#45;text__content-txt-img"><mat-icon class="qualify&#45;&#45;text__content-txt-pic">photo_size_select_actual</mat-icon></span>-->
       </div>
@@ -49,7 +49,7 @@ qualify$ | async; @let loader = loader$ | async; @if (text && qualify){
     } @if(showTranslation) {
     <div class="qualify--text__content-wrp">
       <div class="qualify--text__content-translation" (click)="showTranslation=false">
-        @for(t of text.translation; track t){<span>{{t}}</span>}
+        @for(t of text.translation; track t){<span class="translation-snippet">{{t}}</span>}
       </div>
     </div>
     } @else {

@@ -43,16 +43,16 @@ export class TextItem implements OnInit {
 
   // @HostListener('click', ['$event'])
   onClick(e: MouseEvent) {
-    console.log(1111, e.target);
+    console.log('e.targer=', e.target);
     this.dialog.open(ModalContainerComponent, {
       data: {
-        content: { name: this.data().content, text: this.data() },
+        content: { name: '', text: this.data() },
         template: TextItemItemized,
       },
-      height: 'calc(100vh - 300px)',
+      height: 'calc(100vh - 200px)',
       maxWidth: '100vw',
       minWidth: '100vw',
-      panelClass: 'reg-custom-container',
+      panelClass: ['reg-custom-container', 'custom-modal-container-dialog-box'],
     });
   }
 

@@ -2,6 +2,10 @@
   margin: auto 0;
 }
 
+nav, div {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .nav-list, .nav-list__wrapper {
   display: flex;
 

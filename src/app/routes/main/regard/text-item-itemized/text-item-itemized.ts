@@ -16,6 +16,10 @@ import { RegardService } from '../../../../services/regard.service';
   styleUrl: './text-item-itemized.scss',
 })
 export class TextItemItemized implements OnInit {
+  content = false;
+  synonyms = false;
+  translation = false;
+
   dialog = inject(MatDialog);
   regardService = inject(RegardService);
 
